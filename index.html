@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Practical AI Prompt Playbook | Muhammad Ali</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        navy: {
+                            800: '#111827',
+                            900: '#030712',
+                        },
+                        teal: {
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #030712; }
+        .gradient-text {
+            background: linear-gradient(to right, #2dd4bf, #38bdf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .blob {
+            position: absolute;
+            filter: blur(100px);
+            z-index: 0;
+            opacity: 0.3;
+            border-radius: 50%;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #030712; }
+        ::-webkit-scrollbar-thumb { background: #1f2937; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #374151; }
+    </style>
+</head>
+<body class="text-slate-200 antialiased relative overflow-x-hidden selection:bg-teal-500/30 selection:text-teal-200">
+
+    <!-- Ambient Background Lighting -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div class="blob bg-teal-600/30 w-[500px] h-[500px] top-[-10%] left-[-10%]"></div>
+        <div class="blob bg-blue-600/20 w-[600px] h-[600px] bottom-[-20%] right-[-10%]"></div>
+    </div>
+
+    <!-- 1. Header (Sticky) -->
+    <header class="fixed top-0 w-full glass z-50 border-b border-white/5 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 bg-gradient-to-br from-teal-400 to-teal-600 rounded-lg flex items-center justify-center font-bold text-white shadow-[0_0_15px_rgba(20,184,166,0.3)] group-hover:shadow-[0_0_20px_rgba(20,184,166,0.6)] transition-all">
+                        AI
+                    </div>
+                    <span class="text-xl font-bold text-white tracking-tight">Prompt Playbook</span>
+                </a>
+                
+                <!-- Navigation -->
+                <nav class="hidden lg:flex items-center gap-8">
+                    <a href="#features" class="text-sm font-medium text-slate-300 hover:text-teal-400 transition-colors">Features</a>
+                    <a href="#examples" class="text-sm font-medium text-slate-300 hover:text-teal-400 transition-colors">Real Examples</a>
+                    <a href="#whats-inside" class="text-sm font-medium text-slate-300 hover:text-teal-400 transition-colors">Architecture</a>
+                    <a href="#author" class="text-sm font-medium text-slate-300 hover:text-teal-400 transition-colors">Author</a>
+                    <a href="#faq" class="text-sm font-medium text-slate-300 hover:text-teal-400 transition-colors">FAQ</a>
+                </nav>
+
+                <!-- CTA & Contact -->
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="https://wa.me/923055389967" target="_blank" class="text-slate-400 hover:text-green-500 transition-colors" title="WhatsApp Me">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                    </a>
+                    <a href="#pricing" class="bg-white hover:bg-slate-100 text-navy-900 px-6 py-2.5 rounded-full font-semibold transition-all shadow-lg hover:shadow-white/20 ml-2">
+                        Get Access <span class="ml-1 opacity-60 text-sm font-normal">($20)</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. Hero Section -->
+    <section class="pt-32 pb-16 lg:pt-48 lg:pb-24 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                
+                <!-- Left side (Text) -->
+                <div>
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-400 text-xs font-semibold uppercase tracking-wider mb-8 shadow-[0_0_10px_rgba(45,212,191,0.1)]">
+                        <i class="fa-solid fa-certificate"></i> Commercial License Included
+                    </div>
+                    
+                    <h1 class="text-5xl lg:text-7xl font-extrabold text-white leading-[1.1] mb-6 tracking-tight">
+                        The Practical AI <br/>
+                        <span class="gradient-text">Prompt Playbook</span>
+                    </h1>
+                    
+                    <p class="text-lg lg:text-xl text-slate-400 mb-10 leading-relaxed max-w-xl">
+                        Stop guessing with ChatGPT and Claude. Get 180 production-ready prompts, templates, and the exact <span class="text-slate-200 font-semibold border-b border-teal-500/30">8-Step Engineering Framework™</span> used by elite developers to build apps, marketing, and assets in seconds.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                        <a href="#pricing" class="flex-1 bg-gradient-to-r from-teal-500 to-teal-400 hover:from-teal-400 hover:to-teal-300 text-navy-900 px-8 py-4 rounded-xl font-bold text-lg text-center transition-all shadow-[0_0_30px_rgba(20,184,166,0.3)] hover:shadow-[0_0_40px_rgba(20,184,166,0.5)] transform hover:-translate-y-1">
+                            Get Instant Access — $47
+                        </a>
+                        <a href="#examples" class="flex-1 glass hover:bg-slate-800/80 text-white px-8 py-4 rounded-xl font-bold text-lg text-center transition-all border border-slate-700">
+                            See Real Examples
+                        </a>
+                    </div>
+                    
+                    <div class="flex items-center gap-6 text-sm text-slate-500">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-regular fa-file-pdf text-slate-400"></i> Instant PDF
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-scale-balanced text-slate-400"></i> Full Commercial Rights
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-arrows-rotate text-slate-400"></i> Lifetime Updates
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right side (Visual) -->
+                <div class="relative lg:ml-10 perspective-1000">
+                    <div class="relative w-full max-w-md mx-auto aspect-[3/4] bg-slate-800 rounded-2xl border border-slate-700/50 shadow-2xl flex flex-col items-center justify-center p-8 transform rotate-y-[-10deg] rotate-x-[5deg] hover:rotate-y-0 transition-transform duration-700 overflow-hidden group">
+                        <!-- Book Cover Design -->
+                        <div class="absolute inset-0 bg-gradient-to-br from-navy-900 via-[#0a192f] to-[#112240] z-0"></div>
+                        <div class="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmYiLz48L3N2Zz4=')] z-0"></div>
+                        
+                        <div class="relative z-10 flex flex-col items-center w-full">
+                            <div class="w-20 h-20 bg-teal-500 rounded-2xl flex items-center justify-center font-bold text-white text-3xl mb-8 shadow-2xl shadow-teal-500/50">AI</div>
+                            <h2 class="text-4xl font-extrabold text-white text-center mb-3 tracking-tight">Prompt<br>Playbook</h2>
+                            <div class="w-12 h-1 bg-teal-500 rounded-full mb-6"></div>
+                            <p class="text-teal-400 font-medium tracking-widest uppercase text-sm">The Master Framework</p>
+                        </div>
+                        
+                        <!-- Floating Badges -->
+                        <div class="absolute -right-8 top-12 glass border border-slate-600/50 px-4 py-2 rounded-lg shadow-xl animate-bounce" style="animation-duration: 3s;">
+                            <span class="text-white font-semibold text-sm flex items-center gap-2"><span class="text-teal-400">18</span> Master Chapters</span>
+                        </div>
+                        <div class="absolute -left-10 bottom-32 glass border border-slate-600/50 px-4 py-2 rounded-lg shadow-xl animate-bounce" style="animation-duration: 4s; animation-delay: 1s;">
+                            <span class="text-white font-semibold text-sm flex items-center gap-2"><span class="text-yellow-400">10</span> Visual Proof Plates</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted By / Tech Stack Band -->
+    <section class="border-y border-white/5 bg-white/5 backdrop-blur-sm py-8 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-center text-xs font-semibold text-slate-500 uppercase tracking-widest mb-6">Engineered to work flawlessly with</p>
+            <div class="flex flex-wrap justify-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                <!-- Logos using FontAwesome or Text for generic representation -->
+                <div class="flex items-center gap-2 text-xl font-bold text-slate-300"><i class="fa-solid fa-microchip"></i> ChatGPT</div>
+                <div class="flex items-center gap-2 text-xl font-bold text-slate-300"><i class="fa-solid fa-brain"></i> Claude 3.5</div>
+                <div class="flex items-center gap-2 text-xl font-bold text-slate-300"><i class="fa-solid fa-code"></i> Cursor IDE</div>
+                <div class="flex items-center gap-2 text-xl font-bold text-slate-300"><i class="fa-solid fa-palette"></i> Midjourney</div>
+                <div class="flex items-center gap-2 text-xl font-bold text-slate-300"><i class="fa-brands fa-react"></i> Next.js</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Real Examples (Visual Proof) -->
+    <section id="examples" class="py-24 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-teal-400 font-semibold tracking-wider uppercase text-sm">Visual Proof Plates</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mt-3 mb-6">Stop Outputting Garbage. <br/>Start Engineering.</h2>
+                <p class="text-slate-400 text-lg">See the difference between a standard prompt and the 8-Step Framework applied to real-world tasks.</p>
+            </div>
+
+            <div class="flex flex-col gap-12">
+                <!-- Example 1: Code Generation -->
+                <div class="glass border border-slate-700/50 rounded-3xl overflow-hidden p-1 md:p-2 shadow-2xl">
+                    <div class="bg-navy-900 rounded-2xl grid lg:grid-cols-2 overflow-hidden border border-slate-800">
+                        <!-- Prompt side -->
+                        <div class="p-8 border-b lg:border-b-0 lg:border-r border-slate-800 relative">
+                            <div class="absolute top-0 right-0 bg-teal-500/10 text-teal-400 text-xs font-bold px-3 py-1 rounded-bl-lg border-b border-l border-teal-500/20">The Playbook Prompt</div>
+                            <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                                <i class="fa-solid fa-terminal text-slate-500"></i> UI Engineering Task
+                            </h3>
+                            <div class="bg-slate-900 rounded-lg p-5 border border-slate-800 font-mono text-sm text-slate-300 leading-relaxed">
+                                <span class="text-purple-400">[Role]</span> Act as a Principal UI Engineer specializing in React and Tailwind CSS.<br><br>
+                                <span class="text-blue-400">[Objective]</span> Build a modern SaaS pricing card component.<br><br>
+                                <span class="text-green-400">[Context]</span> The brand is dark mode first, targeting B2B developers. We need high conversion.<br><br>
+                                <span class="text-yellow-400">[Constraints]</span> Use only Tailwind utility classes. No custom CSS. Ensure it is fully responsive. Include a subtle glassmorphism hover effect.<br><br>
+                                <span class="text-teal-400">[Output]</span> Return ONLY the raw valid JSX code.
+                            </div>
+                        </div>
+                        <!-- Result side -->
+                        <div class="p-8 bg-slate-900/50 relative flex items-center justify-center">
+                            <div class="absolute top-0 left-0 bg-green-500/10 text-green-400 text-xs font-bold px-3 py-1 rounded-br-lg border-b border-r border-green-500/20">The Flawless Output</div>
+                            
+                            <!-- Mock UI Output -->
+                            <div class="w-full max-w-sm glass border border-slate-700 rounded-2xl p-6 shadow-xl hover:shadow-teal-500/20 transition-all duration-300 transform hover:-translate-y-1">
+                                <h4 class="text-xl font-bold text-white mb-1">Pro Plan</h4>
+                                <p class="text-slate-400 text-sm mb-4">For power users</p>
+                                <div class="mb-6"><span class="text-4xl font-extrabold text-white">$49</span><span class="text-slate-500">/mo</span></div>
+                                <ul class="space-y-3 mb-6 text-sm text-slate-300">
+                                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-teal-400"></i> Unlimited Projects</li>
+                                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-teal-400"></i> Priority API Access</li>
+                                </ul>
+                                <button class="w-full bg-white text-black font-semibold py-2.5 rounded-lg hover:bg-slate-200 transition-colors">Upgrade to Pro</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <p class="text-slate-400 mb-6">This is just <span class="text-white font-medium">1 of 180</span> production-tested formulas included.</p>
+                <a href="#whats-inside" class="text-teal-400 hover:text-teal-300 font-semibold inline-flex items-center gap-2 transition-colors">
+                    View all categories <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Features / Benefits Section -->
+    <section id="features" class="py-24 bg-slate-900/50 border-y border-white/5 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-4xl font-bold text-white mb-4">Built for Serious Builders</h2>
+                <p class="text-slate-400 text-lg">Every chapter is designed to eliminate trial-and-error and speed up your deployment.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="glass p-8 rounded-2xl hover:border-teal-500/50 transition-colors group">
+                    <div class="w-12 h-12 bg-teal-500/10 rounded-lg flex items-center justify-center text-teal-400 text-xl mb-6 group-hover:bg-teal-500 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-layer-group"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">8-Step Prompt Framework™</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Role &rarr; Objective &rarr; Context &rarr; Constraints &rarr; Schema. A deterministic framework for flawless results every single time.
+                    </p>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="glass p-8 rounded-2xl hover:border-teal-500/50 transition-colors group">
+                    <div class="w-12 h-12 bg-teal-500/10 rounded-lg flex items-center justify-center text-teal-400 text-xl mb-6 group-hover:bg-teal-500 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-terminal"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">180 Production Prompts</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Organized by Tier 1 (Beginner), Tier 2 (Intermediate), and Tier 3 (Advanced) across every domain. Copy, paste, deploy.
+                    </p>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="glass p-8 rounded-2xl hover:border-teal-500/50 transition-colors group">
+                    <div class="w-12 h-12 bg-teal-500/10 rounded-lg flex items-center justify-center text-teal-400 text-xl mb-6 group-hover:bg-teal-500 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-file-contract"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Full Commercial License</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Use the generated outputs, code, and templates in client work, SaaS products, or your agency. Zero attribution required.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. What's Inside Section (Architecture) -->
+    <section id="whats-inside" class="py-24 relative z-10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-4">Complete Playbook Architecture</h2>
+                <p class="text-slate-400 text-lg">18 Master Chapters spanning over 150+ pages of high-density, filler-free knowledge.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Part I -->
+                <div class="glass rounded-2xl p-8 border-t-4 border-t-teal-500">
+                    <h3 class="text-teal-400 font-bold text-xs tracking-widest uppercase mb-3">Part I</h3>
+                    <h4 class="text-2xl font-bold text-white mb-6">Core Architecture</h4>
+                    <ul class="space-y-4 text-slate-300">
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-teal-500 mt-1 text-sm"></i> <span><strong>Ch 01:</strong> 8-Step Engineering Framework</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-teal-500 mt-1 text-sm"></i> <span><strong>Ch 02:</strong> Anatomy of Precision Prompts</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-teal-500 mt-1 text-sm"></i> <span><strong>Ch 03:</strong> Image Generation (Midjourney/Flux)</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-teal-500 mt-1 text-sm"></i> <span><strong>Ch 04:</strong> Cinematic Video Kinetics</span></li>
+                    </ul>
+                </div>
+
+                <!-- Part II -->
+                <div class="glass rounded-2xl p-8 border-t-4 border-t-blue-500">
+                    <h3 class="text-blue-400 font-bold text-xs tracking-widest uppercase mb-3">Part II</h3>
+                    <h4 class="text-2xl font-bold text-white mb-6">Code & Software</h4>
+                    <ul class="space-y-4 text-slate-300">
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-blue-500 mt-1 text-sm"></i> <span><strong>Ch 05:</strong> Web Generation (React/Tailwind)</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-blue-500 mt-1 text-sm"></i> <span><strong>Ch 06:</strong> SaaS & App Architecture</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-blue-500 mt-1 text-sm"></i> <span><strong>Ch 07:</strong> Documentation & Reports</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-blue-500 mt-1 text-sm"></i> <span><strong>Ch 08:</strong> Long-Form Technical Writing</span></li>
+                    </ul>
+                </div>
+
+                <!-- Part III -->
+                <div class="glass rounded-2xl p-8 border-t-4 border-t-purple-500">
+                    <h3 class="text-purple-400 font-bold text-xs tracking-widest uppercase mb-3">Part III</h3>
+                    <h4 class="text-2xl font-bold text-white mb-6">Distribution</h4>
+                    <ul class="space-y-4 text-slate-300">
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-purple-500 mt-1 text-sm"></i> <span><strong>Ch 09:</strong> Direct-Response Marketing</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-purple-500 mt-1 text-sm"></i> <span><strong>Ch 10:</strong> Social Media Growth</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-purple-500 mt-1 text-sm"></i> <span><strong>Ch 11:</strong> Freelancing Operations</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-purple-500 mt-1 text-sm"></i> <span><strong>Ch 12:</strong> Code Debugging Workflows</span></li>
+                    </ul>
+                </div>
+
+                <!-- Part IV -->
+                <div class="glass rounded-2xl p-8 border-t-4 border-t-orange-500 flex flex-col justify-center">
+                    <h3 class="text-orange-400 font-bold text-xs tracking-widest uppercase mb-3">Part IV</h3>
+                    <h4 class="text-2xl font-bold text-white mb-4">Advanced Orchestration</h4>
+                    <p class="text-slate-300 mb-4 text-sm leading-relaxed">Chapters 13–18 cover master-level concepts required for building autonomous systems and agentic workflows.</p>
+                    <ul class="space-y-2 text-slate-300 font-medium">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-arrow-right text-orange-500 text-xs"></i> Deep Research & Agents</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-arrow-right text-orange-500 text-xs"></i> Complex Prompt Chaining</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-arrow-right text-orange-500 text-xs"></i> Hallucination Troubleshooting</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-arrow-right text-orange-500 text-xs"></i> Master System Prompts</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Social Proof / Testimonials -->
+    <section class="py-24 bg-slate-900/50 border-y border-white/5 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Trusted by Digital Builders</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="glass p-6 rounded-2xl">
+                    <div class="flex text-yellow-400 text-sm mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="text-slate-300 mb-6 italic">"I was using ChatGPT like a search engine. This playbook taught me how to use it like a compiler. The UI generation prompts alone paid for the book."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-slate-700 rounded-full flex items-center justify-center font-bold">JD</div>
+                        <div>
+                            <div class="text-white font-bold text-sm">James D.</div>
+                            <div class="text-teal-400 text-xs">Full-Stack Developer</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass p-6 rounded-2xl relative">
+                    <div class="absolute -top-3 -right-3 bg-teal-500 text-navy-900 text-xs font-bold px-2 py-1 rounded shadow-lg">Verified</div>
+                    <div class="flex text-yellow-400 text-sm mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="text-slate-300 mb-6 italic">"The 8-Step Framework is incredible. I've standardized all my agency's client deliverables using these exact templates. It saves us hours every week."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-slate-700 rounded-full flex items-center justify-center font-bold">SM</div>
+                        <div>
+                            <div class="text-white font-bold text-sm">Sarah M.</div>
+                            <div class="text-teal-400 text-xs">Agency Owner</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass p-6 rounded-2xl">
+                    <div class="flex text-yellow-400 text-sm mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="text-slate-300 mb-6 italic">"Finally, a guide that isn't just '1000 random prompts'. This actually teaches you the architecture of how LLMs think. The Midjourney plates are stunning."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-slate-700 rounded-full flex items-center justify-center font-bold">AT</div>
+                        <div>
+                            <div class="text-white font-bold text-sm">Alex T.</div>
+                            <div class="text-teal-400 text-xs">UI/UX Designer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Author Section -->
+    <section id="author" class="py-24 relative z-10">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass border border-slate-700/50 rounded-3xl p-8 md:p-12 shadow-2xl flex flex-col md:flex-row gap-10 items-center relative overflow-hidden">
+                <!-- Background decorative element -->
+                <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="w-48 h-48 md:w-56 md:h-56 rounded-2xl overflow-hidden border-2 border-teal-500/30 shrink-0 shadow-xl shadow-teal-900/50 relative">
+                    <img src="author-pic.jpg" alt="Muhammad Ali" class="w-full h-full object-cover object-top" />
+                    <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-2xl"></div>
+                </div>
+                
+                <div class="relative z-10 text-center md:text-left">
+                    <h3 class="text-3xl font-bold text-white mb-1">Muhammad Ali</h3>
+                    <p class="text-teal-400 font-medium mb-4">Front-End Web Developer & UI Engineer</p>
+                    <p class="text-slate-300 mb-6 leading-relaxed">
+                        Based in Khyber Pakhtunkhwa, Pakistan. Founder of <a href="http://www.alibuild.site" target="_blank" class="text-white font-semibold underline decoration-teal-500/50 hover:decoration-teal-500 transition-colors">AliBuild Digital</a>. Specializes in high-performance responsive interfaces, Tailwind CSS architecture, and end-to-end automated workflows.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 mt-8">
+                        <a href="https://wa.me/923055389967" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1ebd5a] text-white px-6 py-3 rounded-xl font-bold transition-all shadow-lg hover:shadow-[#25D366]/30">
+                            <i class="fa-brands fa-whatsapp text-xl"></i> +92 305 5389967
+                        </a>
+                        <a href="mailto:alikhan1475623@gmail.com" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white px-6 py-3 rounded-xl font-bold transition-all">
+                            <i class="fa-regular fa-envelope text-xl"></i> Email Me
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Pricing Section -->
+    <section id="pricing" class="py-24 relative z-10">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Get Instant Access</h2>
+                <p class="text-slate-400 text-lg">Secure your copy now. Join hundreds of builders shipping faster.</p>
+            </div>
+            
+            <div class="max-w-md mx-auto glass border border-teal-500/30 rounded-3xl p-1 shadow-[0_0_50px_rgba(20,184,166,0.15)] relative overflow-hidden">
+                <!-- Highlight line -->
+                <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-400 to-blue-500"></div>
+
+                <div class="bg-slate-900 rounded-[22px] p-8 lg:p-10">
+                    <div class="text-center mb-8 border-b border-slate-800 pb-8">
+                        <h3 class="text-xl font-bold text-white mb-2">Playbook + Commercial Rights</h3>
+                        <div class="flex items-center justify-center gap-1 mb-2">
+                            <span class="text-slate-500 font-bold text-2xl mt-2">$</span>
+                            <span class="text-6xl font-extrabold text-white tracking-tighter">20</span>
+                        </div>
+                        <p class="text-teal-400 text-sm font-semibold uppercase tracking-wider">One-time payment</p>
+                    </div>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-check text-teal-400 mt-1"></i>
+                            <span class="text-slate-200"><strong>180</strong> production-ready prompts</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-check text-teal-400 mt-1"></i>
+                            <span class="text-slate-200">Full 8-Step Framework™</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-check text-teal-400 mt-1"></i>
+                            <span class="text-slate-200">18 Master Chapters (150+ pages)</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-check text-teal-400 mt-1"></i>
+                            <span class="text-slate-200">10 Visual Proof Plates</span>
+                        </div>
+                        <div class="flex items-start gap-3 bg-teal-500/10 -mx-4 px-4 py-2 rounded-lg border border-teal-500/20">
+                            <i class="fa-solid fa-scale-balanced text-teal-400 mt-1"></i>
+                            <span class="text-white font-bold">Unrestricted Commercial License</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-check text-teal-400 mt-1"></i>
+                            <span class="text-slate-200">Instant high-res PDF download</span>
+                        </div>
+                    </div>
+                    
+                    <button class="w-full bg-gradient-to-r from-teal-500 to-teal-400 hover:from-teal-400 hover:to-teal-300 text-navy-900 font-extrabold text-lg py-4 rounded-xl transition-all shadow-[0_0_20px_rgba(20,184,166,0.4)] hover:scale-[1.02] mb-4 flex items-center justify-center gap-2">
+                        Buy Now <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                    
+                    <div class="flex items-center justify-center gap-4 text-xs text-slate-500 mt-6">
+                        <span class="flex items-center gap-1"><i class="fa-solid fa-lock text-slate-400"></i> Secure</span>
+                        &bull;
+                        <span class="flex items-center gap-1"><i class="fa-brands fa-cc-stripe text-slate-400"></i> Stripe</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. FAQ Section -->
+    <section id="faq" class="py-24 bg-slate-900/30 border-t border-white/5 relative z-10">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-white">Frequently Asked Questions</h2>
+            </div>
+            
+            <div class="space-y-4">
+                <div class="glass border border-slate-700/50 p-6 rounded-xl">
+                    <h3 class="text-lg font-bold text-white mb-2">Is this a subscription?</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">No. This is a one-time payment of $20. You get the PDF playbook instantly, plus lifetime updates whenever we add new chapters or prompts.</p>
+                </div>
+                <div class="glass border border-slate-700/50 p-6 rounded-xl">
+                    <h3 class="text-lg font-bold text-white mb-2">What does the Commercial License cover?</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">It covers everything. You can use the prompts to generate code, images, or copy for your own SaaS, your agency's clients, or freelance projects. No attribution is required.</p>
+                </div>
+                <div class="glass border border-slate-700/50 p-6 rounded-xl">
+                    <h3 class="text-lg font-bold text-white mb-2">Do I need coding experience?</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Not necessarily. While Part II is focused on UI and Code generation (which helps developers), Parts I, III, and IV cover image generation, marketing, writing, and business operations which are perfect for non-technical creators.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Final CTA Strip -->
+    <section class="bg-gradient-to-r from-teal-900 to-navy-900 py-20 border-y border-teal-800 relative overflow-hidden z-10">
+        <div class="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmYiLz48L3N2Zz4=')]"></div>
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-8 tracking-tight">Stop guessing. <br class="md:hidden"/>Start shipping professional results.</h2>
+            <a href="#pricing" class="inline-flex items-center gap-2 bg-white text-navy-900 hover:bg-slate-100 px-10 py-4 rounded-xl font-extrabold text-lg transition-all shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:scale-105">
+                Get the Playbook Now <i class="fa-solid fa-bolt text-yellow-500"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- 11. Footer -->
+    <footer class="bg-[#02040a] pt-16 pb-8 border-t border-white/5 text-sm z-10 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12 border-b border-white/5 pb-12">
+                <!-- Brand -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-8 h-8 bg-teal-500 rounded flex items-center justify-center font-bold text-white">AI</div>
+                        <span class="text-lg font-bold text-white">Prompt Playbook</span>
+                    </div>
+                    <p class="text-slate-400 mb-6 max-w-sm leading-relaxed">The definitive guide to deterministic AI generation. Build faster, write better, and generate flawless assets.</p>
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-slate-900 border border-slate-800 text-teal-400 text-xs font-medium">
+                        <i class="fa-solid fa-certificate"></i> Commercial License Included
+                    </div>
+                </div>
+                
+                <!-- Links -->
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-xs">Product</h4>
+                    <div class="flex flex-col gap-3">
+                        <a href="#features" class="text-slate-400 hover:text-teal-400 transition-colors">Features</a>
+                        <a href="#examples" class="text-slate-400 hover:text-teal-400 transition-colors">Visual Proof Plates</a>
+                        <a href="#whats-inside" class="text-slate-400 hover:text-teal-400 transition-colors">Chapter Index</a>
+                        <a href="#pricing" class="text-slate-400 hover:text-teal-400 transition-colors">Pricing</a>
+                    </div>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-xs">Connect</h4>
+                    <div class="flex flex-col gap-3">
+                        <a href="http://www.alibuild.site" target="_blank" class="text-slate-400 hover:text-teal-400 transition-colors flex items-center gap-2">
+                            <i class="fa-solid fa-globe w-4"></i> alibuild.site
+                        </a>
+                        <a href="https://wa.me/923055389967" target="_blank" class="text-slate-400 hover:text-green-500 transition-colors flex items-center gap-2">
+                            <i class="fa-brands fa-whatsapp w-4"></i> +92 305 5389967
+                        </a>
+                        <a href="mailto:alikhan1475623@gmail.com" class="text-slate-400 hover:text-teal-400 transition-colors flex items-center gap-2">
+                            <i class="fa-solid fa-envelope w-4"></i> Email Author
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-slate-600 text-xs">
+                <p>&copy; 2026 Muhammad Ali &bull; AliBuild Digital. All rights reserved.</p>
+                <p>Designed for professional creators.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
