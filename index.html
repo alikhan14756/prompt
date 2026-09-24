@@ -55,9 +55,38 @@
         ::-webkit-scrollbar-track { background: #030712; }
         ::-webkit-scrollbar-thumb { background: #1f2937; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #374151; }
+    
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotateY(-10deg) rotateX(5deg); }
+            50% { transform: translateY(-20px) rotateY(-5deg) rotateX(2deg); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(20, 184, 166, 0.2); }
+            50% { box-shadow: 0 0 50px rgba(20, 184, 166, 0.5); }
+        }
+        .animate-glow {
+            animation: glow 4s ease-in-out infinite;
+        }
+        @keyframes typeWriter {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        .typing-effect {
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 2px solid #14b8a6;
+            animation: typeWriter 3s steps(40, end), blink 0.75s step-end infinite;
+        }
+        @keyframes blink {
+            from, to { border-color: transparent; }
+            50% { border-color: #14b8a6; }
+        }
     </style>
 </head>
-<body class="text-slate-200 antialiased relative overflow-x-hidden selection:bg-teal-500/30 selection:text-teal-200">
+<body class="text-slate-200 antialiased relative overflow-x-hidden selection:bg-teal-500/30 selection:text-teal-200 break-words">
 
     <!-- Ambient Background Lighting -->
     <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
@@ -129,13 +158,13 @@
                     </div>
                     
                     <div class="flex items-center gap-6 text-sm text-slate-500">
-                        <div class="flex items-center gap-2">
+                        <div class="flex items-center gap-2 px-4 text-center whitespace-normal break-words leading-tight">
                             <i class="fa-regular fa-file-pdf text-slate-400"></i> Instant PDF
                         </div>
-                        <div class="flex items-center gap-2">
+                        <div class="flex items-center gap-2 px-4 text-center whitespace-normal break-words leading-tight">
                             <i class="fa-solid fa-scale-balanced text-slate-400"></i> Full Commercial Rights
                         </div>
-                        <div class="flex items-center gap-2">
+                        <div class="flex items-center gap-2 px-4 text-center whitespace-normal break-words leading-tight">
                             <i class="fa-solid fa-arrows-rotate text-slate-400"></i> Lifetime Updates
                         </div>
                     </div>
@@ -143,7 +172,7 @@
 
                 <!-- Right side (Visual) -->
                 <div class="relative lg:ml-10 perspective-1000">
-                    <div class="relative w-full max-w-md mx-auto aspect-[3/4] bg-slate-800 rounded-2xl border border-slate-700/50 shadow-2xl flex flex-col items-center justify-center p-8 transform rotate-y-[-10deg] rotate-x-[5deg] hover:rotate-y-0 transition-transform duration-700 overflow-hidden group">
+                    <div class="relative w-full max-w-md mx-auto aspect-[3/4] bg-slate-800 rounded-2xl border border-teal-500/30 shadow-2xl flex flex-col items-center justify-center p-8 transform transition-transform duration-700 overflow-hidden group animate-float animate-glow">
                         <!-- Book Cover Design -->
                         <div class="absolute inset-0 bg-gradient-to-br from-navy-900 via-[#0a192f] to-[#112240] z-0"></div>
                         <div class="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmYiLz48L3N2Zz4=')] z-0"></div>
@@ -157,10 +186,10 @@
                         
                         <!-- Floating Badges -->
                         <div class="absolute -right-8 top-12 glass border border-slate-600/50 px-4 py-2 rounded-lg shadow-xl animate-bounce" style="animation-duration: 3s;">
-                            <span class="text-white font-semibold text-sm flex items-center gap-2"><span class="text-teal-400">18</span> Master Chapters</span>
+                            <span class="text-white font-semibold text-sm flex items-center gap-2 px-4 text-center whitespace-normal break-words leading-tight"><span class="text-teal-400">18</span> Master Chapters</span>
                         </div>
                         <div class="absolute -left-10 bottom-32 glass border border-slate-600/50 px-4 py-2 rounded-lg shadow-xl animate-bounce" style="animation-duration: 4s; animation-delay: 1s;">
-                            <span class="text-white font-semibold text-sm flex items-center gap-2"><span class="text-yellow-400">10</span> Visual Proof Plates</span>
+                            <span class="text-white font-semibold text-sm flex items-center gap-2 px-4 text-center whitespace-normal break-words leading-tight"><span class="text-yellow-400">10</span> Visual Proof Plates</span>
                         </div>
                     </div>
                 </div>
@@ -200,7 +229,7 @@
                         <!-- Prompt side -->
                         <div class="p-8 border-b lg:border-b-0 lg:border-r border-slate-800 relative">
                             <div class="absolute top-0 right-0 bg-teal-500/10 text-teal-400 text-xs font-bold px-3 py-1 rounded-bl-lg border-b border-l border-teal-500/20">The Playbook Prompt</div>
-                            <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                            <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2 px-4 text-center whitespace-normal break-words leading-tight">
                                 <i class="fa-solid fa-terminal text-slate-500"></i> UI Engineering Task
                             </h3>
                             <div class="bg-slate-900 rounded-lg p-5 border border-slate-800 font-mono text-sm text-slate-300 leading-relaxed">
@@ -221,8 +250,8 @@
                                 <p class="text-slate-400 text-sm mb-4">For power users</p>
                                 <div class="mb-6"><span class="text-4xl font-extrabold text-white">$20</span><span class="text-slate-500">/mo</span></div>
                                 <ul class="space-y-3 mb-6 text-sm text-slate-300">
-                                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-teal-400"></i> Unlimited Projects</li>
-                                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-teal-400"></i> Priority API Access</li>
+                                    <li class="flex items-center gap-2 px-4 text-center whitespace-normal break-words leading-tight"><i class="fa-solid fa-check text-teal-400"></i> Unlimited Projects</li>
+                                    <li class="flex items-center gap-2 px-4 text-center whitespace-normal break-words leading-tight"><i class="fa-solid fa-check text-teal-400"></i> Priority API Access</li>
                                 </ul>
                                 <button class="w-full bg-white text-black font-semibold py-2.5 rounded-lg hover:bg-slate-200 transition-colors">Upgrade to Pro</button>
                             </div>
@@ -290,7 +319,7 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-4xl font-bold text-white mb-4">Complete Playbook Architecture</h2>
-                <p class="text-slate-400 text-lg">18 Master Chapters spanning over 150+ pages of high-density, filler-free knowledge.</p>
+                <p class="text-slate-400 text-lg">18 Master Chapters spanning over 69 pages of high-density, filler-free knowledge.</p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-6">
@@ -299,10 +328,10 @@
                     <h3 class="text-teal-400 font-bold text-xs tracking-widest uppercase mb-3">Part I</h3>
                     <h4 class="text-2xl font-bold text-white mb-6">Core Architecture</h4>
                     <ul class="space-y-4 text-slate-300">
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-teal-500 mt-1 text-sm"></i> <span><strong>Ch 01:</strong> 8-Step Engineering Framework</span></li>
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-teal-500 mt-1 text-sm"></i> <span><strong>Ch 02:</strong> Anatomy of Precision Prompts</span></li>
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-teal-500 mt-1 text-sm"></i> <span><strong>Ch 03:</strong> Image Generation (Midjourney/Flux)</span></li>
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-teal-500 mt-1 text-sm"></i> <span><strong>Ch 04:</strong> Cinematic Video Kinetics</span></li>
+                        <li class="flex items-start gap-3 px-4 text-center whitespace-normal break-words leading-tight"><i class="fa-solid fa-check text-teal-500 mt-1 text-sm"></i> <span><strong>Ch 01:</strong> 8-Step Engineering Framework</span></li>
+                        <li class="flex items-start gap-3 px-4 text-center whitespace-normal break-words leading-tight"><i class="fa-solid fa-check text-teal-500 mt-1 text-sm"></i> <span><strong>Ch 02:</strong> Anatomy of Precision Prompts</span></li>
+                        <li class="flex items-start gap-3 px-4 text-center whitespace-normal break-words leading-tight"><i class="fa-solid fa-check text-teal-500 mt-1 text-sm"></i> <span><strong>Ch 03:</strong> Image Generation (Midjourney/Flux)</span></li>
+                        <li class="flex items-start gap-3 px-4 text-center whitespace-normal break-words leading-tight"><i class="fa-solid fa-check text-teal-500 mt-1 text-sm"></i> <span><strong>Ch 04:</strong> Cinematic Video Kinetics</span></li>
                     </ul>
                 </div>
 
@@ -311,10 +340,10 @@
                     <h3 class="text-blue-400 font-bold text-xs tracking-widest uppercase mb-3">Part II</h3>
                     <h4 class="text-2xl font-bold text-white mb-6">Code & Software</h4>
                     <ul class="space-y-4 text-slate-300">
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-blue-500 mt-1 text-sm"></i> <span><strong>Ch 05:</strong> Web Generation (React/Tailwind)</span></li>
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-blue-500 mt-1 text-sm"></i> <span><strong>Ch 06:</strong> SaaS & App Architecture</span></li>
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-blue-500 mt-1 text-sm"></i> <span><strong>Ch 07:</strong> Documentation & Reports</span></li>
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-blue-500 mt-1 text-sm"></i> <span><strong>Ch 08:</strong> Long-Form Technical Writing</span></li>
+                        <li class="flex items-start gap-3 px-4 text-center whitespace-normal break-words leading-tight"><i class="fa-solid fa-check text-blue-500 mt-1 text-sm"></i> <span><strong>Ch 05:</strong> Web Generation (React/Tailwind)</span></li>
+                        <li class="flex items-start gap-3 px-4 text-center whitespace-normal break-words leading-tight"><i class="fa-solid fa-check text-blue-500 mt-1 text-sm"></i> <span><strong>Ch 06:</strong> SaaS & App Architecture</span></li>
+                        <li class="flex items-start gap-3 px-4 text-center whitespace-normal break-words leading-tight"><i class="fa-solid fa-check text-blue-500 mt-1 text-sm"></i> <span><strong>Ch 07:</strong> Documentation & Reports</span></li>
+                        <li class="flex items-start gap-3 px-4 text-center whitespace-normal break-words leading-tight"><i class="fa-solid fa-check text-blue-500 mt-1 text-sm"></i> <span><strong>Ch 08:</strong> Long-Form Technical Writing</span></li>
                     </ul>
                 </div>
 
@@ -323,10 +352,10 @@
                     <h3 class="text-purple-400 font-bold text-xs tracking-widest uppercase mb-3">Part III</h3>
                     <h4 class="text-2xl font-bold text-white mb-6">Distribution</h4>
                     <ul class="space-y-4 text-slate-300">
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-purple-500 mt-1 text-sm"></i> <span><strong>Ch 09:</strong> Direct-Response Marketing</span></li>
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-purple-500 mt-1 text-sm"></i> <span><strong>Ch 10:</strong> Social Media Growth</span></li>
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-purple-500 mt-1 text-sm"></i> <span><strong>Ch 11:</strong> Freelancing Operations</span></li>
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-purple-500 mt-1 text-sm"></i> <span><strong>Ch 12:</strong> Code Debugging Workflows</span></li>
+                        <li class="flex items-start gap-3 px-4 text-center whitespace-normal break-words leading-tight"><i class="fa-solid fa-check text-purple-500 mt-1 text-sm"></i> <span><strong>Ch 09:</strong> Direct-Response Marketing</span></li>
+                        <li class="flex items-start gap-3 px-4 text-center whitespace-normal break-words leading-tight"><i class="fa-solid fa-check text-purple-500 mt-1 text-sm"></i> <span><strong>Ch 10:</strong> Social Media Growth</span></li>
+                        <li class="flex items-start gap-3 px-4 text-center whitespace-normal break-words leading-tight"><i class="fa-solid fa-check text-purple-500 mt-1 text-sm"></i> <span><strong>Ch 11:</strong> Freelancing Operations</span></li>
+                        <li class="flex items-start gap-3 px-4 text-center whitespace-normal break-words leading-tight"><i class="fa-solid fa-check text-purple-500 mt-1 text-sm"></i> <span><strong>Ch 12:</strong> Code Debugging Workflows</span></li>
                     </ul>
                 </div>
 
@@ -336,10 +365,10 @@
                     <h4 class="text-2xl font-bold text-white mb-4">Advanced Orchestration</h4>
                     <p class="text-slate-300 mb-4 text-sm leading-relaxed">Chapters 13–18 cover master-level concepts required for building autonomous systems and agentic workflows.</p>
                     <ul class="space-y-2 text-slate-300 font-medium">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-arrow-right text-orange-500 text-xs"></i> Deep Research & Agents</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-arrow-right text-orange-500 text-xs"></i> Complex Prompt Chaining</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-arrow-right text-orange-500 text-xs"></i> Hallucination Troubleshooting</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-arrow-right text-orange-500 text-xs"></i> Master System Prompts</li>
+                        <li class="flex items-center gap-2 px-4 text-center whitespace-normal break-words leading-tight"><i class="fa-solid fa-arrow-right text-orange-500 text-xs"></i> Deep Research & Agents</li>
+                        <li class="flex items-center gap-2 px-4 text-center whitespace-normal break-words leading-tight"><i class="fa-solid fa-arrow-right text-orange-500 text-xs"></i> Complex Prompt Chaining</li>
+                        <li class="flex items-center gap-2 px-4 text-center whitespace-normal break-words leading-tight"><i class="fa-solid fa-arrow-right text-orange-500 text-xs"></i> Hallucination Troubleshooting</li>
+                        <li class="flex items-center gap-2 px-4 text-center whitespace-normal break-words leading-tight"><i class="fa-solid fa-arrow-right text-orange-500 text-xs"></i> Master System Prompts</li>
                     </ul>
                 </div>
             </div>
@@ -357,7 +386,7 @@
                 <div class="glass p-6 rounded-2xl">
                     <div class="flex text-yellow-400 text-sm mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
                     <p class="text-slate-300 mb-6 italic">"I was using ChatGPT like a search engine. This playbook taught me how to use it like a compiler. The UI generation prompts alone paid for the book."</p>
-                    <div class="flex items-center gap-3">
+                    <div class="flex items-center gap-3 px-4 text-center whitespace-normal break-words leading-tight">
                         <div class="w-10 h-10 bg-slate-700 rounded-full flex items-center justify-center font-bold">JD</div>
                         <div>
                             <div class="text-white font-bold text-sm">James D.</div>
@@ -370,7 +399,7 @@
                     <div class="absolute -top-3 -right-3 bg-teal-500 text-navy-900 text-xs font-bold px-2 py-1 rounded shadow-lg">Verified</div>
                     <div class="flex text-yellow-400 text-sm mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
                     <p class="text-slate-300 mb-6 italic">"The 8-Step Framework is incredible. I've standardized all my agency's client deliverables using these exact templates. It saves us hours every week."</p>
-                    <div class="flex items-center gap-3">
+                    <div class="flex items-center gap-3 px-4 text-center whitespace-normal break-words leading-tight">
                         <div class="w-10 h-10 bg-slate-700 rounded-full flex items-center justify-center font-bold">SM</div>
                         <div>
                             <div class="text-white font-bold text-sm">Sarah M.</div>
@@ -382,7 +411,7 @@
                 <div class="glass p-6 rounded-2xl">
                     <div class="flex text-yellow-400 text-sm mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
                     <p class="text-slate-300 mb-6 italic">"Finally, a guide that isn't just '1000 random prompts'. This actually teaches you the architecture of how LLMs think. The Midjourney plates are stunning."</p>
-                    <div class="flex items-center gap-3">
+                    <div class="flex items-center gap-3 px-4 text-center whitespace-normal break-words leading-tight">
                         <div class="w-10 h-10 bg-slate-700 rounded-full flex items-center justify-center font-bold">AT</div>
                         <div>
                             <div class="text-white font-bold text-sm">Alex T.</div>
@@ -449,19 +478,19 @@
                     </div>
                     
                     <div class="space-y-4 mb-8">
-                        <div class="flex items-start gap-3">
+                        <div class="flex items-start gap-3 px-4 text-center whitespace-normal break-words leading-tight">
                             <i class="fa-solid fa-check text-teal-400 mt-1"></i>
                             <span class="text-slate-200"><strong>180</strong> production-ready prompts</span>
                         </div>
-                        <div class="flex items-start gap-3">
+                        <div class="flex items-start gap-3 px-4 text-center whitespace-normal break-words leading-tight">
                             <i class="fa-solid fa-check text-teal-400 mt-1"></i>
                             <span class="text-slate-200">Full 8-Step Framework™</span>
                         </div>
-                        <div class="flex items-start gap-3">
+                        <div class="flex items-start gap-3 px-4 text-center whitespace-normal break-words leading-tight">
                             <i class="fa-solid fa-check text-teal-400 mt-1"></i>
-                            <span class="text-slate-200">18 Master Chapters (150+ pages)</span>
+                            <span class="text-slate-200">18 Master Chapters (69 pages)</span>
                         </div>
-                        <div class="flex items-start gap-3">
+                        <div class="flex items-start gap-3 px-4 text-center whitespace-normal break-words leading-tight">
                             <i class="fa-solid fa-check text-teal-400 mt-1"></i>
                             <span class="text-slate-200">10 Visual Proof Plates</span>
                         </div>
@@ -469,12 +498,12 @@
                             <i class="fa-solid fa-scale-balanced text-teal-400 mt-1"></i>
                             <span class="text-white font-bold">Unrestricted Commercial License</span>
                         </div>
-                        <div class="flex items-start gap-3">
+                        <div class="flex items-start gap-3 px-4 text-center whitespace-normal break-words leading-tight">
                             <i class="fa-solid fa-check text-teal-400 mt-1"></i>
                             <span class="text-slate-200">Instant high-res PDF download</span>
                         </div>
                     </div>
-                    <button onclick="document.getElementById('paymentModal').classList.remove('hidden'); document.getElementById('paymentModal').classList.add('flex')" class="w-full bg-gradient-to-r from-teal-500 to-teal-400 hover:from-teal-400 hover:to-teal-300 text-navy-900 font-extrabold text-lg py-4 rounded-xl transition-all shadow-[0_0_20px_rgba(20,184,166,0.4)] hover:scale-[1.02] mb-4 flex items-center justify-center gap-2">
+                    <button onclick="document.getElementById('paymentModal').classList.remove('hidden'); document.getElementById('paymentModal').classList.add('flex')" class="w-full bg-gradient-to-r from-teal-500 to-teal-400 hover:from-teal-400 hover:to-teal-300 text-navy-900 font-extrabold text-lg py-4 rounded-xl transition-all shadow-[0_0_20px_rgba(20,184,166,0.4)] hover:scale-[1.02] mb-4 flex items-center justify-center gap-2 px-4 text-center whitespace-normal break-words leading-tight">
                         Buy Now <i class="fa-solid fa-arrow-right"></i>
                     </button>
                     
@@ -549,7 +578,7 @@
                 <!-- Links -->
                 <div>
                     <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-xs">Product</h4>
-                    <div class="flex flex-col gap-3">
+                    <div class="flex flex-col gap-3 px-4 text-center whitespace-normal break-words leading-tight">
                         <a href="#features" class="text-slate-400 hover:text-teal-400 transition-colors">Features</a>
                         <a href="#examples" class="text-slate-400 hover:text-teal-400 transition-colors">Visual Proof Plates</a>
                         <a href="#whats-inside" class="text-slate-400 hover:text-teal-400 transition-colors">Chapter Index</a>
@@ -560,14 +589,14 @@
                 <!-- Contact -->
                 <div>
                     <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-xs">Connect</h4>
-                    <div class="flex flex-col gap-3">
-                        <a href="http://www.alibuild.site" target="_blank" class="text-slate-400 hover:text-teal-400 transition-colors flex items-center gap-2">
+                    <div class="flex flex-col gap-3 px-4 text-center whitespace-normal break-words leading-tight">
+                        <a href="http://www.alibuild.site" target="_blank" class="text-slate-400 hover:text-teal-400 transition-colors flex items-center gap-2 px-4 text-center whitespace-normal break-words leading-tight">
                             <i class="fa-solid fa-globe w-4"></i> alibuild.site
                         </a>
-                        <a href="https://wa.me/923055389967" target="_blank" class="text-slate-400 hover:text-green-500 transition-colors flex items-center gap-2">
+                        <a href="https://wa.me/923055389967" target="_blank" class="text-slate-400 hover:text-green-500 transition-colors flex items-center gap-2 px-4 text-center whitespace-normal break-words leading-tight">
                             <i class="fa-brands fa-whatsapp w-4"></i> +92 305 5389967
                         </a>
-                        <a href="mailto:alikhan1475623@gmail.com" class="text-slate-400 hover:text-teal-400 transition-colors flex items-center gap-2">
+                        <a href="mailto:alikhan1475623@gmail.com" class="text-slate-400 hover:text-teal-400 transition-colors flex items-center gap-2 px-4 text-center whitespace-normal break-words leading-tight">
                             <i class="fa-solid fa-envelope w-4"></i> Email Author
                         </a>
                     </div>
@@ -595,7 +624,7 @@
             <!-- Promo Code Section -->
             <div class="mb-6 bg-slate-800/50 p-4 rounded-xl border border-slate-700">
                 <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Have a promo code?</label>
-                <div class="flex gap-2">
+                <div class="flex gap-2 px-4 text-center whitespace-normal break-words leading-tight">
                     <input type="text" id="promoInput" placeholder="Enter code (e.g. ALI50)" class="w-full bg-slate-900 border border-slate-600 text-white px-4 py-2 rounded-lg focus:outline-none focus:border-teal-500 uppercase">
                     <button onclick="applyPromo()" class="bg-teal-500/20 hover:bg-teal-500/30 text-teal-400 border border-teal-500/30 px-4 py-2 rounded-lg font-bold transition-colors">Apply</button>
                 </div>
@@ -663,7 +692,7 @@
 
             <div class="mt-4 text-center text-xs text-slate-400">Paying by Card? <a href="https://wa.me/923055389967?text=Hi!%20I%20am%20an%20international%20client.%20How%20can%20I%20pay%20with%20Card?" target="_blank" class="text-teal-400 hover:underline">Message us for link</a></div>
             <div class="mt-8 pt-6 border-t border-slate-800">
-                <a id="waButton" href="https://wa.me/923055389967?text=Hi!%20I%20just%20paid%20$20%20for%20the%20Prompt%20Playbook.%20Here%20is%20my%20screenshot." target="_blank" class="w-full bg-[#25D366] hover:bg-[#1ebd5a] text-white font-bold py-4 rounded-xl transition-all shadow-[0_0_20px_rgba(37,211,102,0.3)] hover:scale-[1.02] flex items-center justify-center gap-3">
+                <a id="waButton" href="https://wa.me/923055389967?text=Hi!%20I%20just%20paid%20$20%20for%20the%20Prompt%20Playbook.%20Here%20is%20my%20screenshot." target="_blank" class="w-full bg-[#25D366] hover:bg-[#1ebd5a] text-white font-bold py-4 rounded-xl transition-all shadow-[0_0_20px_rgba(37,211,102,0.3)] hover:scale-[1.02] flex items-center justify-center gap-3 px-4 text-center whitespace-normal break-words leading-tight">
                     <i class="fa-brands fa-whatsapp text-2xl"></i> I have paid, send Playbook
                 </a>
             </div>
