@@ -474,15 +474,19 @@
                             <span class="text-slate-200">Instant high-res PDF download</span>
                         </div>
                     </div>
-                    
-                    <button class="w-full bg-gradient-to-r from-teal-500 to-teal-400 hover:from-teal-400 hover:to-teal-300 text-navy-900 font-extrabold text-lg py-4 rounded-xl transition-all shadow-[0_0_20px_rgba(20,184,166,0.4)] hover:scale-[1.02] mb-4 flex items-center justify-center gap-2">
+                    <button onclick="document.getElementById('paymentModal').classList.remove('hidden'); document.getElementById('paymentModal').classList.add('flex')" class="w-full bg-gradient-to-r from-teal-500 to-teal-400 hover:from-teal-400 hover:to-teal-300 text-navy-900 font-extrabold text-lg py-4 rounded-xl transition-all shadow-[0_0_20px_rgba(20,184,166,0.4)] hover:scale-[1.02] mb-4 flex items-center justify-center gap-2">
                         Buy Now <i class="fa-solid fa-arrow-right"></i>
                     </button>
                     
-                    <div class="flex items-center justify-center gap-4 text-xs text-slate-500 mt-6">
-                        <span class="flex items-center gap-1"><i class="fa-solid fa-lock text-slate-400"></i> Secure</span>
+                    <div class="flex flex-wrap items-center justify-center gap-3 text-xs text-slate-500 mt-6">
+                        <span class="flex items-center gap-1 font-semibold text-slate-400">Accepted:</span>
+                        <span class="flex items-center gap-1">JazzCash</span>
                         &bull;
-                        <span class="flex items-center gap-1"><i class="fa-brands fa-cc-stripe text-slate-400"></i> Stripe</span>
+                        <span class="flex items-center gap-1">EasyPaisa</span>
+                        &bull;
+                        <span class="flex items-center gap-1">SadaPay</span>
+                        &bull;
+                        <span class="flex items-center gap-1">NayaPay</span>
                     </div>
                 </div>
             </div>
@@ -574,6 +578,72 @@
             </div>
         </div>
     </footer>
+    <!-- Payment Modal -->
+    <div id="paymentModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="document.getElementById('paymentModal').classList.add('hidden'); document.getElementById('paymentModal').classList.remove('flex')"></div>
+        <!-- Modal Content -->
+        <div class="bg-slate-900 border border-teal-500/30 rounded-3xl p-8 max-w-md w-full relative z-10 shadow-[0_0_50px_rgba(20,184,166,0.15)] overflow-y-auto max-h-[90vh]">
+            <button onclick="document.getElementById('paymentModal').classList.add('hidden'); document.getElementById('paymentModal').classList.remove('flex')" class="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            
+            <h3 class="text-2xl font-bold text-white mb-2 text-center">Checkout ($20)</h3>
+            <p class="text-slate-400 text-sm text-center mb-8">Send your payment to any of the accounts below, then tap the WhatsApp button to send a screenshot and receive your Playbook instantly.</p>
+            
+            <div class="space-y-4">
+                <!-- JazzCash -->
+                <div class="glass p-4 rounded-xl flex items-center justify-between border border-slate-700/50">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-red-500/10 rounded-xl flex items-center justify-center text-red-500 text-xl"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                        <div>
+                            <div class="text-slate-300 text-xs font-semibold uppercase tracking-wider mb-1">JazzCash</div>
+                            <div class="text-white font-mono font-bold text-lg tracking-wide">0321 542 3874</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- EasyPaisa -->
+                <div class="glass p-4 rounded-xl flex items-center justify-between border border-slate-700/50">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-green-500/10 rounded-xl flex items-center justify-center text-green-500 text-xl"><i class="fa-solid fa-money-bill-transfer"></i></div>
+                        <div>
+                            <div class="text-slate-300 text-xs font-semibold uppercase tracking-wider mb-1">EasyPaisa</div>
+                            <div class="text-white font-mono font-bold text-lg tracking-wide">0321 542 3874</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SadaPay -->
+                <div class="glass p-4 rounded-xl flex items-center justify-between border border-slate-700/50">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-orange-500/10 rounded-xl flex items-center justify-center text-orange-500 text-xl"><i class="fa-solid fa-credit-card"></i></div>
+                        <div>
+                            <div class="text-slate-300 text-xs font-semibold uppercase tracking-wider mb-1">SadaPay</div>
+                            <div class="text-white font-mono font-bold text-lg tracking-wide">0305 538 9967</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NayaPay -->
+                <div class="glass p-4 rounded-xl flex items-center justify-between border border-slate-700/50">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-500 text-xl"><i class="fa-solid fa-wallet"></i></div>
+                        <div>
+                            <div class="text-slate-300 text-xs font-semibold uppercase tracking-wider mb-1">NayaPay</div>
+                            <div class="text-white font-mono font-bold text-lg tracking-wide">0321 542 3874</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-slate-800">
+                <a href="https://wa.me/923055389967" target="_blank" class="w-full bg-[#25D366] hover:bg-[#1ebd5a] text-white font-bold py-4 rounded-xl transition-all shadow-[0_0_20px_rgba(37,211,102,0.3)] hover:scale-[1.02] flex items-center justify-center gap-3">
+                    <i class="fa-brands fa-whatsapp text-2xl"></i> I have paid, send Playbook
+                </a>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
