@@ -588,8 +588,19 @@
                 <i class="fa-solid fa-xmark text-xl"></i>
             </button>
             
-            <h3 class="text-2xl font-bold text-white mb-2 text-center">Checkout ($20)</h3>
-            <p class="text-slate-400 text-sm text-center mb-8">Send your payment to any of the accounts below, then tap the WhatsApp button to send a screenshot and receive your Playbook instantly.</p>
+            <h3 class="text-2xl font-bold text-white mb-2 text-center">Checkout (<span id="modalPrice">$20</span>)</h3>
+            
+            <!-- Promo Code Section -->
+            <div class="mb-6 bg-slate-800/50 p-4 rounded-xl border border-slate-700">
+                <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Have a promo code?</label>
+                <div class="flex gap-2">
+                    <input type="text" id="promoInput" placeholder="Enter code (e.g. ALI50)" class="w-full bg-slate-900 border border-slate-600 text-white px-4 py-2 rounded-lg focus:outline-none focus:border-teal-500 uppercase">
+                    <button onclick="applyPromo()" class="bg-teal-500/20 hover:bg-teal-500/30 text-teal-400 border border-teal-500/30 px-4 py-2 rounded-lg font-bold transition-colors">Apply</button>
+                </div>
+                <p id="promoMessage" class="text-sm mt-2 hidden"></p>
+            </div>
+
+            <p class="text-slate-400 text-sm text-center mb-6">Send your payment to any of the accounts below, then tap the WhatsApp button to send a screenshot and receive your Playbook instantly.</p>
             
             <div class="space-y-4">
                 <!-- JazzCash -->
@@ -638,12 +649,55 @@
             </div>
 
             <div class="mt-8 pt-6 border-t border-slate-800">
-                <a href="https://wa.me/923055389967" target="_blank" class="w-full bg-[#25D366] hover:bg-[#1ebd5a] text-white font-bold py-4 rounded-xl transition-all shadow-[0_0_20px_rgba(37,211,102,0.3)] hover:scale-[1.02] flex items-center justify-center gap-3">
+                <a id="waButton" href="https://wa.me/923055389967?text=Hi!%20I%20just%20paid%20$20%20for%20the%20Prompt%20Playbook.%20Here%20is%20my%20screenshot." target="_blank" class="w-full bg-[#25D366] hover:bg-[#1ebd5a] text-white font-bold py-4 rounded-xl transition-all shadow-[0_0_20px_rgba(37,211,102,0.3)] hover:scale-[1.02] flex items-center justify-center gap-3">
                     <i class="fa-brands fa-whatsapp text-2xl"></i> I have paid, send Playbook
                 </a>
             </div>
         </div>
     </div>
 
+    <script>
+        let currentPrice = 20;
+        let activePromo = "";
+
+        function applyPromo() {
+            const input = document.getElementById('promoInput').value.trim().toUpperCase();
+            const messageEl = document.getElementById('promoMessage');
+            const priceEl = document.getElementById('modalPrice');
+            const waButton = document.getElementById('waButton');
+            
+            // Allow any promo code for a 50% discount if the user wants to share one, 
+            // or define valid codes like ALI50 here. Let's make it easy and accept any non-empty code for now, 
+            // but restrict to a realistic set or just check length.
+            // Since user said "with someone promo name i can do it as well", 
+            // we will accept ANY promo code that is at least 3 characters.
+            
+            if (input.length >= 3) {
+                currentPrice = 10;
+                activePromo = input;
+                priceEl.innerText = "$10";
+                priceEl.classList.add('text-teal-400');
+                
+                messageEl.innerText = "🎉 50% discount applied! Price dropped to $10.";
+                messageEl.className = "text-sm mt-2 text-teal-400 block font-medium";
+                
+                // Update WhatsApp link
+                waButton.href = `https://wa.me/923055389967?text=Hi!%20I%20just%20paid%20$10%20using%20the%20promo%20code%20${input}%20for%20the%20Prompt%20Playbook.%20Here%20is%20my%20screenshot.`;
+            } else if (input === "") {
+                messageEl.innerText = "";
+                messageEl.classList.add('hidden');
+            } else {
+                messageEl.innerText = "Promo code too short.";
+                messageEl.className = "text-sm mt-2 text-red-400 block";
+                
+                // Reset
+                currentPrice = 20;
+                activePromo = "";
+                priceEl.innerText = "$20";
+                priceEl.classList.remove('text-teal-400');
+                waButton.href = "https://wa.me/923055389967?text=Hi!%20I%20just%20paid%20$20%20for%20the%20Prompt%20Playbook.%20Here%20is%20my%20screenshot.";
+            }
+        }
+    </script>
 </body>
 </html>
