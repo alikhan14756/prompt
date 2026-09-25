@@ -1,0 +1,19 @@
+{
+  "name": "prompt-playbook-ecommerce",
+  "version": "1.0.0",
+  "description": "The Practical AI Prompt Playbook - Full MERN E-Commerce Site",
+  "scripts": {
+    "server": "cd server && node server.js",
+    "client": "cd client && npm run dev",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build": "cd client && npm run build",
+    "seed": "cd server && node seed.js",
+    "start": "cd server && node server.js"
+  },
+  "keywords": ["prompt-playbook", "ecommerce", "mern"],
+  "author": "Muhammad Ali",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
