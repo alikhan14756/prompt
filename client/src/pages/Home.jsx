@@ -113,7 +113,7 @@ const Home = () => {
                 onClick={() => setIsPaymentModalOpen(true)}
                 className="w-full sm:w-auto btn-primary text-base sm:text-lg py-3.5 px-8 font-extrabold flex items-center justify-center gap-2 shadow-[0_0_25px_rgba(20,184,166,0.4)] transform hover:-translate-y-0.5 transition-all"
               >
-                <i className="fa-solid fa-bolt text-navy-900"></i> Get Instant Access — $20
+                <i className="fa-solid fa-bolt text-navy-900"></i> Get Instant Access — $20 <span className="text-xs font-bold opacity-85 ml-1">(Rs. 5,600 PKR)</span>
               </button>
               <a
                 href="#pricing"
@@ -336,6 +336,9 @@ const Home = () => {
                 <span className="text-6xl font-black text-white tracking-tighter">20</span>
                 <span className="text-slate-500 text-sm font-semibold ml-1">USD</span>
               </div>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-300 text-xs font-mono font-bold mt-2 mb-1">
+                <span>🇵🇰 Approx. Rs. 5,600 PKR</span>
+              </div>
               <p className="text-teal-400 text-xs font-semibold mt-1">One-time payment • Promo discount code supported</p>
             </div>
 
@@ -354,7 +357,7 @@ const Home = () => {
               onClick={() => setIsPaymentModalOpen(true)}
               className="btn-primary w-full text-lg py-4 font-extrabold flex items-center justify-center gap-2 shadow-[0_0_25px_rgba(20,184,166,0.4)]"
             >
-              <i className="fa-solid fa-bolt text-navy-900"></i> Buy Now — $20
+              <i className="fa-solid fa-bolt text-navy-900"></i> Buy Now — $20 (Rs. 5,600 PKR)
             </button>
             
             <p className="text-slate-500 text-[11px]">
@@ -374,10 +377,10 @@ const Home = () => {
           
           <div className="space-y-4">
             {[
-              { q: "Is this a recurring subscription?", a: "No. It is a single one-time payment of $20. You get instant access and lifetime updates whenever new model chapters are released." },
+              { q: "Is this a recurring subscription?", a: "No. It is a single one-time payment of $20 (approx. Rs. 5,600 PKR). You get instant access and lifetime updates whenever new model chapters are released." },
               { q: "How do I receive the full 69-page playbook?", a: "After sending your payment through any of our payment accounts (JazzCash, EasyPaisa, SadaPay, NayaPay, or Binance), tap the WhatsApp confirmation button to send your Transaction ID. You will receive the high-res PDF immediately." },
               { q: "Can I use the generated outputs for commercial client work?", a: "Yes. Every purchase includes an unrestricted Commercial Single-User License. You can use all prompts in client deliverables, software products, and agency campaigns without attribution." },
-              { q: "Do you offer promo code discounts?", a: "Yes! If you have an active promo code (like WALEED for 50% off), you can enter it right in the checkout modal to drop the price to $10." }
+              { q: "Do you offer promo code discounts?", a: "Yes! If you have an active promo code (like WALEED for 50% off), you can enter it right in the checkout modal to drop the price to $10 (Rs. 2,800 PKR)." }
             ].map((faq, i) => (
               <div key={i} className="glass p-6 rounded-2xl border border-white/5 space-y-2">
                 <h4 className="font-bold text-sm text-teal-400">{faq.q}</h4>

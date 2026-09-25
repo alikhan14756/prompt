@@ -54,7 +54,7 @@ const Header = () => {
             href="/#pricing"
             className="btn-primary py-1.5 px-3 sm:py-2.5 sm:px-5 text-xs sm:text-sm font-extrabold shadow-[0_0_15px_rgba(20,184,166,0.3)] whitespace-nowrap shrink-0"
           >
-            Buy Now <span className="opacity-80">($20)</span>
+            Buy Now <span className="opacity-80">($20 / Rs. 5,600)</span>
           </a>
 
           {/* Mobile Hamburger Toggle Button */}

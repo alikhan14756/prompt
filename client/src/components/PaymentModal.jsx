@@ -74,9 +74,15 @@ const PaymentModal = () => {
           <button onClick={() => setIsPaymentModalOpen(false)} className="text-gray-400 hover:text-white"><i className="fa-solid fa-xmark text-xl"></i></button>
         </div>
         
-        <div className="flex justify-between items-center mb-6 p-4 bg-teal-900/30 border border-teal-500/30 rounded-lg">
-          <span className="font-semibold text-lg">Total to Pay:</span>
-          <span className="text-2xl font-bold text-teal-400">${finalPrice}</span>
+        <div className="flex justify-between items-center mb-6 p-4 bg-teal-900/30 border border-teal-500/30 rounded-xl">
+          <div>
+            <span className="font-semibold text-base sm:text-lg block text-white">Total to Pay:</span>
+            <span className="text-xs text-teal-300 font-mono font-bold">🇵🇰 Rs. {(finalPrice * 280).toLocaleString()} PKR</span>
+          </div>
+          <div className="text-right">
+            <span className="text-2xl sm:text-3xl font-black text-teal-400">${finalPrice}</span>
+            <span className="text-xs text-slate-400 block font-mono">USD</span>
+          </div>
         </div>
 
         <PromoInput onApply={handleApplyPromo} />
