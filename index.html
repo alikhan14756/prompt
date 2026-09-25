@@ -145,8 +145,8 @@
                     </div>
                 </a>
 
-                <!-- Desktop Links -->
-                <nav class="hidden md:flex items-center gap-8 text-xs font-medium text-slate-300">
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center gap-7 text-xs font-medium text-slate-300">
                     <a href="#curriculum" class="hover:text-teal-400 transition-colors">Curriculum</a>
                     <a href="#proof" class="hover:text-teal-400 transition-colors">Visual Proof</a>
                     <a href="#framework" class="hover:text-teal-400 transition-colors">8-Step Method</a>
@@ -160,37 +160,51 @@
                     </button>
                 </nav>
 
-                <!-- Header Actions -->
+                <!-- Header Actions (WhatsApp Button + Buy Button + Hamburger Button) -->
                 <div class="flex items-center gap-2 sm:gap-3 shrink-0">
-                    <a href="https://wa.me/923055389967" target="_blank" class="w-9 h-9 rounded-xl glass-panel text-slate-300 hover:text-green-400 flex items-center justify-center transition-colors" title="WhatsApp Author Support">
-                        <i class="fa-brands fa-whatsapp text-base"></i>
+                    <!-- Shifted WhatsApp Button in Header -->
+                    <a href="https://wa.me/923055389967" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl bg-[#25D366]/15 hover:bg-[#25D366]/25 border border-[#25D366]/40 text-[#25D366] text-xs font-bold transition-all shadow-[0_0_15px_rgba(37,211,102,0.2)] hover:shadow-[0_0_20px_rgba(37,211,102,0.4)] shrink-0" title="Chat directly on WhatsApp">
+                        <i class="fa-brands fa-whatsapp text-sm sm:text-base"></i>
+                        <span class="hidden sm:inline">WhatsApp</span>
                     </a>
 
-                    <button onclick="openPaymentModal()" class="btn-elite px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl text-xs sm:text-sm flex items-center gap-2">
-                        <span>Get Playbook</span>
-                        <span class="opacity-75 font-mono text-xs font-bold border-l border-navy-950/20 pl-2">$20</span>
+                    <!-- Buy CTA Button -->
+                    <button onclick="openPaymentModal()" class="btn-elite px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-xl text-xs sm:text-sm flex items-center gap-1.5 shrink-0">
+                        <span>Buy</span>
+                        <span class="opacity-80 font-mono text-xs font-bold border-l border-navy-950/25 pl-1.5">$20</span>
                     </button>
 
-                    <!-- Mobile Menu Toggle -->
-                    <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-xl text-slate-400 hover:text-white glass-panel focus:outline-none" aria-label="Toggle navigation">
-                        <i id="mobileMenuIcon" class="fa-solid fa-bars text-sm"></i>
+                    <!-- Prominent Mobile/Tablet Hamburger Toggle Button -->
+                    <button onclick="toggleMobileMenu()" id="hamburgerBtn" class="lg:hidden p-2 rounded-xl text-white bg-slate-800/90 hover:bg-slate-700 border border-white/15 focus:outline-none flex items-center justify-center transition-colors shrink-0 shadow-md" aria-label="Toggle navigation menu">
+                        <i id="mobileMenuIcon" class="fa-solid fa-bars text-base text-teal-300"></i>
                     </button>
                 </div>
             </div>
         </div>
 
         <!-- Mobile Drawer Navigation -->
-        <div id="mobileDropdownMenu" class="hidden md:hidden border-t border-white/[0.08] bg-navy-950/95 backdrop-blur-2xl px-5 py-5 space-y-3">
-            <a href="#curriculum" onclick="toggleMobileMenu()" class="block text-sm font-medium text-slate-200 hover:text-teal-400 py-1 border-b border-white/5">69-Page Curriculum</a>
-            <a href="#proof" onclick="toggleMobileMenu()" class="block text-sm font-medium text-slate-200 hover:text-teal-400 py-1 border-b border-white/5">Visual Proof Plates</a>
-            <a href="#framework" onclick="toggleMobileMenu()" class="block text-sm font-medium text-slate-200 hover:text-teal-400 py-1 border-b border-white/5">8-Step Framework</a>
-            <a href="#pricing" onclick="toggleMobileMenu()" class="block text-sm font-medium text-slate-200 hover:text-teal-400 py-1 border-b border-white/5">Pricing ($20 / Rs. 5,600)</a>
-            <button onclick="toggleMobileMenu(); openOrderStatusModal()" class="w-full text-left flex items-center gap-2 text-sm font-medium text-teal-400 py-1 border-b border-white/5">
+        <div id="mobileDropdownMenu" class="hidden lg:hidden border-t border-white/[0.08] bg-navy-950/98 backdrop-blur-2xl px-5 py-5 space-y-3.5 shadow-2xl">
+            <a href="#curriculum" onclick="toggleMobileMenu()" class="flex items-center gap-2.5 text-sm font-medium text-slate-200 hover:text-teal-400 py-1.5 border-b border-white/5">
+                <i class="fa-solid fa-book-open text-xs text-teal-400"></i> 69-Page Curriculum
+            </a>
+            <a href="#proof" onclick="toggleMobileMenu()" class="flex items-center gap-2.5 text-sm font-medium text-slate-200 hover:text-teal-400 py-1.5 border-b border-white/5">
+                <i class="fa-solid fa-layer-group text-xs text-teal-400"></i> Visual Proof Plates
+            </a>
+            <a href="#framework" onclick="toggleMobileMenu()" class="flex items-center gap-2.5 text-sm font-medium text-slate-200 hover:text-teal-400 py-1.5 border-b border-white/5">
+                <i class="fa-solid fa-brain text-xs text-teal-400"></i> 8-Step Framework
+            </a>
+            <a href="#pricing" onclick="toggleMobileMenu()" class="flex items-center gap-2.5 text-sm font-medium text-slate-200 hover:text-teal-400 py-1.5 border-b border-white/5">
+                <i class="fa-solid fa-tag text-xs text-teal-400"></i> Pricing ($20 / Rs. 5,600)
+            </a>
+            <button onclick="toggleMobileMenu(); openOrderStatusModal()" class="w-full text-left flex items-center gap-2.5 text-sm font-medium text-teal-400 py-1.5 border-b border-white/5">
                 <i class="fa-solid fa-truck-fast text-xs"></i> Check Order Status
             </button>
-            <button onclick="toggleMobileMenu(); openAdminModal()" class="w-full text-left flex items-center gap-2 text-sm font-medium text-slate-400 py-1">
+            <button onclick="toggleMobileMenu(); openAdminModal()" class="w-full text-left flex items-center gap-2.5 text-sm font-medium text-slate-400 py-1.5 border-b border-white/5 hover:text-white">
                 <i class="fa-solid fa-lock text-xs text-teal-400"></i> Admin Portal
             </button>
+            <a href="https://wa.me/923055389967" target="_blank" onclick="toggleMobileMenu()" class="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-[#25D366]/20 border border-[#25D366]/40 text-[#25D366] text-xs font-bold">
+                <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp Support (+92 305 5389967)
+            </a>
         </div>
     </header>
 
