@@ -92,15 +92,13 @@ const Home = () => {
               <i className="fa-solid fa-certificate text-teal-400"></i> Full Commercial License Included
             </div>
             
-            <div className="perspective-container">
-              <div className="animate-3d-headline">
-                <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.1] text-white">
-                  The Practical AI <br />
-                  <span className="text-3d-extrusion bg-gradient-to-r from-teal-300 via-teal-400 to-cyan-400 bg-clip-text text-transparent inline-block">
-                    Prompt Playbook
-                  </span>
-                </h1>
-              </div>
+            <div>
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.12] text-white">
+                The Practical AI <br />
+                <span className="bg-gradient-to-r from-teal-300 via-teal-400 to-cyan-400 bg-clip-text text-transparent inline-block">
+                  Prompt Playbook
+                </span>
+              </h1>
             </div>
             
             <p className="text-base sm:text-lg text-slate-300 max-w-xl mx-auto lg:mx-0 leading-relaxed">
