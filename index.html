@@ -41,9 +41,8 @@
             color: #e2e8f0;
         }
         
-        /* Modern High-End Frosted Glass */
         .glass-panel {
-            background: rgba(15, 20, 34, 0.65);
+            background: rgba(15, 20, 34, 0.7);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.08);
@@ -53,26 +52,18 @@
         }
 
         .glass-card {
-            background: linear-gradient(180deg, rgba(20, 27, 45, 0.75) 0%, rgba(10, 13, 22, 0.85) 100%);
+            background: linear-gradient(180deg, rgba(20, 27, 45, 0.8) 0%, rgba(10, 13, 22, 0.9) 100%);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        /* Subtle Radial Ambient Mesh */
         .ambient-glow {
             position: absolute;
             filter: blur(140px);
             pointer-events: none;
-            opacity: 0.18;
+            opacity: 0.16;
             border-radius: 50%;
-        }
-
-        /* Sleek Gradient Text */
-        .gradient-headline {
-            background: linear-gradient(135deg, #ffffff 20%, #cbd5e1 60%, #2dd4bf 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
 
         .gradient-teal {
@@ -81,7 +72,6 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* Button micro-interactions */
         .btn-elite {
             background: linear-gradient(135deg, #2dd4bf 0%, #14b8a6 100%);
             color: #06080e;
@@ -95,7 +85,6 @@
             background: linear-gradient(135deg, #5eead4 0%, #2dd4bf 100%);
         }
 
-        /* 3D Realistic Book Styling */
         .book-container {
             perspective: 1400px;
         }
@@ -107,7 +96,6 @@
                 inset -2px 0 5px rgba(255,255,255,0.1);
         }
 
-        /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 7px; }
         ::-webkit-scrollbar-track { background: #06080e; }
         ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
@@ -123,8 +111,8 @@
         <div class="ambient-glow bg-teal-700 w-[500px] h-[500px] bottom-10 left-1/4 opacity-10"></div>
     </div>
 
-    <!-- 1. Top Navigation Bar (Sleek, Compact, High-Tech) -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-navy-950/80 backdrop-blur-xl border-b border-white/[0.07] transition-all duration-300">
+    <!-- 1. Top Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-navy-950/85 backdrop-blur-xl border-b border-white/[0.07] transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16 sm:h-20">
                 <!-- Brand Logo -->
@@ -147,10 +135,11 @@
 
                 <!-- Desktop Navigation Links -->
                 <nav class="hidden lg:flex items-center gap-7 text-xs font-medium text-slate-300">
-                    <a href="#curriculum" class="hover:text-teal-400 transition-colors">Curriculum</a>
-                    <a href="#proof" class="hover:text-teal-400 transition-colors">Visual Proof</a>
-                    <a href="#framework" class="hover:text-teal-400 transition-colors">8-Step Method</a>
-                    <a href="#author" class="hover:text-teal-400 transition-colors">Author</a>
+                    <a href="#examples" class="hover:text-teal-400 transition-colors">Interactive Examples</a>
+                    <a href="#curriculum" class="hover:text-teal-400 transition-colors">69-Page Index</a>
+                    <a href="#framework" class="hover:text-teal-400 transition-colors">8-Step Framework</a>
+                    <a href="#how-it-works" class="hover:text-teal-400 transition-colors">Purchase Flow</a>
+                    <a href="#author" class="hover:text-teal-400 transition-colors">Why I Built This</a>
                     <a href="#pricing" class="hover:text-teal-400 transition-colors">Pricing</a>
                     <button onclick="openOrderStatusModal()" class="text-slate-400 hover:text-white flex items-center gap-1.5 transition-colors">
                         <i class="fa-solid fa-truck-fast text-teal-400 text-xs"></i> Order Status
@@ -160,21 +149,21 @@
                     </button>
                 </nav>
 
-                <!-- Header Actions (WhatsApp Button + Buy Button + Hamburger Button) -->
+                <!-- Header Actions (Prominent WhatsApp + Buy + Mobile Hamburger) -->
                 <div class="flex items-center gap-2 sm:gap-3 shrink-0">
-                    <!-- Shifted WhatsApp Button in Header -->
-                    <a href="https://wa.me/923055389967" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl bg-[#25D366]/15 hover:bg-[#25D366]/25 border border-[#25D366]/40 text-[#25D366] text-xs font-bold transition-all shadow-[0_0_15px_rgba(37,211,102,0.2)] hover:shadow-[0_0_20px_rgba(37,211,102,0.4)] shrink-0" title="Chat directly on WhatsApp">
+                    <!-- WhatsApp Header Button -->
+                    <a href="https://wa.me/923055389967" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl bg-[#25D366]/15 hover:bg-[#25D366]/25 border border-[#25D366]/40 text-[#25D366] text-xs font-bold transition-all shadow-[0_0_15px_rgba(37,211,102,0.2)] hover:shadow-[0_0_20px_rgba(37,211,102,0.4)] shrink-0" title="Chat directly with author on WhatsApp">
                         <i class="fa-brands fa-whatsapp text-sm sm:text-base"></i>
                         <span class="hidden sm:inline">WhatsApp</span>
                     </a>
 
                     <!-- Buy CTA Button -->
                     <button onclick="openPaymentModal()" class="btn-elite px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-xl text-xs sm:text-sm flex items-center gap-1.5 shrink-0">
-                        <span>Buy</span>
+                        <span>Get Access</span>
                         <span class="opacity-80 font-mono text-xs font-bold border-l border-navy-950/25 pl-1.5">$20</span>
                     </button>
 
-                    <!-- Prominent Mobile/Tablet Hamburger Toggle Button -->
+                    <!-- Mobile/Tablet Hamburger Toggle Button -->
                     <button onclick="toggleMobileMenu()" id="hamburgerBtn" class="lg:hidden p-2 rounded-xl text-white bg-slate-800/90 hover:bg-slate-700 border border-white/15 focus:outline-none flex items-center justify-center transition-colors shrink-0 shadow-md" aria-label="Toggle navigation menu">
                         <i id="mobileMenuIcon" class="fa-solid fa-bars text-base text-teal-300"></i>
                     </button>
@@ -183,90 +172,76 @@
         </div>
 
         <!-- Mobile Drawer Navigation -->
-        <div id="mobileDropdownMenu" class="hidden lg:hidden border-t border-white/[0.08] bg-navy-950/98 backdrop-blur-2xl px-5 py-5 space-y-3.5 shadow-2xl">
-            <a href="#curriculum" onclick="toggleMobileMenu()" class="flex items-center gap-2.5 text-sm font-medium text-slate-200 hover:text-teal-400 py-1.5 border-b border-white/5">
-                <i class="fa-solid fa-book-open text-xs text-teal-400"></i> 69-Page Curriculum
-            </a>
-            <a href="#proof" onclick="toggleMobileMenu()" class="flex items-center gap-2.5 text-sm font-medium text-slate-200 hover:text-teal-400 py-1.5 border-b border-white/5">
-                <i class="fa-solid fa-layer-group text-xs text-teal-400"></i> Visual Proof Plates
-            </a>
-            <a href="#framework" onclick="toggleMobileMenu()" class="flex items-center gap-2.5 text-sm font-medium text-slate-200 hover:text-teal-400 py-1.5 border-b border-white/5">
-                <i class="fa-solid fa-brain text-xs text-teal-400"></i> 8-Step Framework
-            </a>
-            <a href="#pricing" onclick="toggleMobileMenu()" class="flex items-center gap-2.5 text-sm font-medium text-slate-200 hover:text-teal-400 py-1.5 border-b border-white/5">
-                <i class="fa-solid fa-tag text-xs text-teal-400"></i> Pricing ($20 / Rs. 5,600)
-            </a>
-            <button onclick="toggleMobileMenu(); openOrderStatusModal()" class="w-full text-left flex items-center gap-2.5 text-sm font-medium text-teal-400 py-1.5 border-b border-white/5">
+        <div id="mobileDropdownMenu" class="hidden lg:hidden border-t border-white/[0.08] bg-navy-950/98 backdrop-blur-2xl px-5 py-5 space-y-3">
+            <a href="#examples" onclick="toggleMobileMenu()" class="block text-sm font-medium text-slate-200 hover:text-teal-400 py-1.5 border-b border-white/5">Interactive Prompt Examples</a>
+            <a href="#curriculum" onclick="toggleMobileMenu()" class="block text-sm font-medium text-slate-200 hover:text-teal-400 py-1.5 border-b border-white/5">69-Page Architecture</a>
+            <a href="#framework" onclick="toggleMobileMenu()" class="block text-sm font-medium text-slate-200 hover:text-teal-400 py-1.5 border-b border-white/5">8-Step Engineering Method</a>
+            <a href="#how-it-works" onclick="toggleMobileMenu()" class="block text-sm font-medium text-slate-200 hover:text-teal-400 py-1.5 border-b border-white/5">4-Step Purchase & Delivery Flow</a>
+            <a href="#author" onclick="toggleMobileMenu()" class="block text-sm font-medium text-slate-200 hover:text-teal-400 py-1.5 border-b border-white/5">Why I Built This (Author Story)</a>
+            <a href="#pricing" onclick="toggleMobileMenu()" class="block text-sm font-medium text-slate-200 hover:text-teal-400 py-1.5 border-b border-white/5">Pricing ($20 / Rs. 5,600 PKR)</a>
+            <button onclick="toggleMobileMenu(); openOrderStatusModal()" class="w-full text-left flex items-center gap-2 text-sm font-medium text-teal-400 py-1.5 border-b border-white/5">
                 <i class="fa-solid fa-truck-fast text-xs"></i> Check Order Status
             </button>
-            <button onclick="toggleMobileMenu(); openAdminModal()" class="w-full text-left flex items-center gap-2.5 text-sm font-medium text-slate-400 py-1.5 border-b border-white/5 hover:text-white">
+            <button onclick="toggleMobileMenu(); openAdminModal()" class="w-full text-left flex items-center gap-2 text-sm font-medium text-slate-400 py-1.5">
                 <i class="fa-solid fa-lock text-xs text-teal-400"></i> Admin Portal
             </button>
-            <a href="https://wa.me/923055389967" target="_blank" onclick="toggleMobileMenu()" class="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-[#25D366]/20 border border-[#25D366]/40 text-[#25D366] text-xs font-bold">
-                <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp Support (+92 305 5389967)
-            </a>
         </div>
     </header>
 
-    <!-- 2. Hero Section (Ultra Clean & High Impact) -->
+    <!-- 2. Hero Section -->
     <section class="relative pt-28 pb-20 sm:pt-36 sm:pb-28 lg:pt-44 lg:pb-36 overflow-hidden z-10">
-        <!-- Interactive Canvas -->
         <canvas id="neuralCanvas" class="absolute inset-0 w-full h-full pointer-events-none opacity-20"></canvas>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
                 
-                <!-- Left Column: Copy & Interactive Terminal -->
+                <!-- Left Column -->
                 <div class="lg:col-span-7 text-center lg:text-left space-y-6">
                     
-                    <!-- Announcement Badge -->
                     <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/25 text-teal-300 text-xs font-semibold tracking-wide">
                         <span class="w-2 h-2 rounded-full bg-teal-400 animate-ping"></span>
                         <span>Complete 2026 Master Edition &bull; 180 Production Prompts</span>
                     </div>
 
-                    <!-- Main Headline -->
                     <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.12] text-white">
                         The Practical AI <br/>
                         <span class="gradient-teal">Prompt Playbook</span>
                     </h1>
 
-                    <!-- Subtitle -->
                     <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
-                        Published by <strong class="text-white">AivanoLabs</strong>. Learn how to engineer deterministic, production-grade outputs for Full-Stack Code, Visuals, Copy & Autonomous AI Agents.
+                        Published by <strong class="text-white">AivanoLabs</strong>. The definitive 69-page guide to deterministic AI generation. 180 tested formulas for Full-Stack Code, Midjourney Photorealism, High-Converting Copy & Autonomous AI Agents.
                     </p>
 
-                    <!-- Clean macOS Prompt Terminal Preview -->
+                    <!-- Interactive Live Prompt Streamer Box -->
                     <div class="glass-panel rounded-2xl p-4 max-w-xl mx-auto lg:mx-0 text-left border border-white/10 shadow-2xl font-mono text-xs">
                         <div class="flex items-center justify-between border-b border-white/5 pb-2.5 mb-3 text-slate-400">
                             <div class="flex items-center gap-2">
-                                <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
-                                <span class="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
-                                <span class="w-3 h-3 rounded-full bg-green-500/80 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/80 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-green-500/80 inline-block"></span>
                                 <span class="ml-2 text-[11px] text-slate-400 font-sans font-medium">prompt-compiler &bull; 8-Step Framework</span>
                             </div>
-                            <span class="text-[10px] text-teal-400 bg-teal-500/10 px-2 py-0.5 rounded">v2.0 LIVE</span>
+                            <span class="text-[10px] text-teal-400 bg-teal-500/10 px-2 py-0.5 rounded font-mono">STRICT SCHEMA</span>
                         </div>
                         <div class="text-slate-300 space-y-1 overflow-x-auto text-[11px] sm:text-xs leading-relaxed">
-                            <span class="text-slate-500">&gt;</span> <span class="text-teal-400 font-bold">[Role]</span> Principal Frontend Architect (React + Tailwind)<br/>
-                            <span class="text-slate-500">&gt;</span> <span class="text-cyan-400 font-bold">[Schema]</span> Zero fluff &bull; High conversion &bull; Accessible JSX<br/>
-                            <span class="text-slate-500">&gt;</span> <span class="text-purple-400 font-bold">[Status]</span> <span id="terminalStatus" class="text-white">Generating clean SaaS card...</span><span class="animate-pulse text-teal-400 font-bold">|</span>
+                            <span class="text-slate-500">&gt;</span> <span class="text-teal-400 font-bold">[Constraint]</span> Zero conversational filler. Enforce JSON schema.<br/>
+                            <span class="text-slate-500">&gt;</span> <span class="text-cyan-400 font-bold">[Technique]</span> Few-Shot Exemplars + Chain-of-Thought reasoning.<br/>
+                            <span class="text-slate-500">&gt;</span> <span class="text-purple-400 font-bold">[Status]</span> <span id="terminalStatus" class="text-white">Compiling production output...</span><span class="animate-pulse text-teal-400 font-bold">|</span>
                         </div>
                     </div>
 
-                    <!-- Call To Action & Pricing -->
+                    <!-- CTAs -->
                     <div class="space-y-3 pt-2">
                         <div class="flex flex-col sm:flex-row items-stretch justify-center lg:justify-start gap-3 max-w-xl mx-auto lg:mx-0">
                             <button onclick="openPaymentModal()" class="btn-elite px-8 py-4 rounded-xl text-base font-extrabold flex items-center justify-center gap-2 shrink-0">
                                 <span>Get Instant Access</span>
                                 <span class="font-mono text-xs font-bold border-l border-navy-950/20 pl-2">$20 USD</span>
                             </button>
-                            <a href="#proof" class="glass-panel hover:bg-slate-800 text-slate-200 px-6 py-4 rounded-xl text-sm font-bold text-center transition-colors flex items-center justify-center gap-2">
-                                View Proof Plates <i class="fa-solid fa-arrow-down text-xs text-slate-400"></i>
+                            <a href="#examples" class="glass-panel hover:bg-slate-800 text-slate-200 px-6 py-4 rounded-xl text-sm font-bold text-center transition-colors flex items-center justify-center gap-2">
+                                Explore Live Examples <i class="fa-solid fa-arrow-down text-xs text-slate-400"></i>
                             </a>
                         </div>
                         
-                        <!-- Currency & Trust Info -->
                         <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 text-xs text-slate-400 pt-1">
                             <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 font-mono text-teal-300 text-[11px]">
                                 🇵🇰 Pakistan Price: <strong>Rs. 5,600 PKR</strong>
@@ -280,22 +255,19 @@
                     <!-- Free Demo Download Link -->
                     <div class="pt-2 flex justify-center lg:justify-start">
                         <a href="prompt-engineering-starter-guide.pdf" download target="_blank" class="inline-flex items-center gap-2 text-xs text-slate-400 hover:text-teal-300 transition-colors">
-                            <i class="fa-solid fa-file-pdf text-teal-400"></i> Download Free 5-Page Sample PDF
+                            <i class="fa-solid fa-file-pdf text-teal-400"></i> Download Free 5-Page Starter Guide (PDF)
                         </a>
                     </div>
                 </div>
 
-                <!-- Right Column: 3D Hardcover Book Mockup -->
+                <!-- Right Column: 3D Book -->
                 <div class="lg:col-span-5 flex justify-center">
                     <div class="book-container relative w-full max-w-[320px] sm:max-w-sm aspect-[3/4] cursor-pointer group select-none">
                         
-                        <!-- Ambient Under-Book Glow -->
                         <div class="absolute -inset-4 bg-teal-500/20 blur-3xl rounded-full opacity-60 group-hover:opacity-90 transition-opacity"></div>
 
-                        <!-- 3D Hardcover Book Body -->
                         <div id="hero3DBook" class="relative w-full h-full rounded-2xl bg-gradient-to-br from-[#0e172a] via-[#090e1a] to-[#04060c] border border-teal-500/30 book-spine-shadow flex flex-col justify-between p-6 sm:p-8 transition-transform duration-150">
                             
-                            <!-- Top Book Metadata -->
                             <div class="flex items-center justify-between border-b border-white/10 pb-4">
                                 <div class="flex items-center gap-2">
                                     <div class="w-7 h-7 rounded-lg bg-teal-400/10 border border-teal-400/30 flex items-center justify-center text-teal-300 font-black text-xs">
@@ -310,7 +282,6 @@
                                 </span>
                             </div>
 
-                            <!-- Center Book Typography -->
                             <div class="my-auto text-center space-y-3">
                                 <div class="w-10 h-0.5 bg-gradient-to-r from-teal-400 to-cyan-400 mx-auto rounded-full"></div>
                                 <h2 class="text-2xl sm:text-3xl font-black text-white leading-tight tracking-tight">
@@ -322,7 +293,6 @@
                                 </p>
                             </div>
 
-                            <!-- Bottom Book Author Bar -->
                             <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
                                 <div>
                                     <div class="font-bold text-white text-[11px]">Muhammad Ali</div>
@@ -335,7 +305,6 @@
                             </div>
                         </div>
 
-                        <!-- Refined Minimal Floating Badges -->
                         <div class="absolute -right-3 top-8 glass-panel px-3 py-1.5 rounded-xl border border-teal-500/30 shadow-xl text-xs font-bold text-white flex items-center gap-1.5 pointer-events-none">
                             <span class="text-teal-400">⚡</span> 18 Chapters
                         </div>
@@ -363,41 +332,56 @@
         </div>
     </section>
 
-    <!-- 4. Visual Proof Section (Benchmark Plates) -->
-    <section id="proof" class="py-24 relative z-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
-                <span class="text-teal-400 font-mono text-xs font-bold uppercase tracking-widest">VISUAL BENCHMARK PROOF</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Stop Writing Vague Prompts.<br/>Start Engineering Deterministic Results.</h2>
-                <p class="text-slate-400 text-sm sm:text-base">Compare standard amateur prompting with our structured 8-step playbook output.</p>
+    <!-- 4. Interactive 4-Domain Prompt Demonstrations (Before vs. After) -->
+    <section id="examples" class="py-24 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <span class="text-teal-400 font-mono text-xs font-bold uppercase tracking-widest">INTERACTIVE DEMONSTRATIONS</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">4 Real Prompt &rarr; Output Benchmarks</h2>
+                <p class="text-slate-400 text-sm sm:text-base">Click through the tabs below to compare vague prompting against our 8-Step structured engineering formulas.</p>
             </div>
 
-            <!-- Comparison Box -->
-            <div class="glass-card rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+            <!-- Tab Buttons -->
+            <div class="flex flex-wrap justify-center gap-2">
+                <button onclick="switchExampleTab('code')" id="tab-btn-code" class="px-4 py-2 rounded-xl text-xs font-bold transition-all bg-teal-500 text-navy-950 shadow-lg">
+                    <i class="fa-solid fa-code mr-1.5"></i> 1. Full-Stack UI (React)
+                </button>
+                <button onclick="switchExampleTab('midjourney')" id="tab-btn-midjourney" class="px-4 py-2 rounded-xl text-xs font-bold transition-all bg-slate-800 text-slate-300 hover:text-white">
+                    <i class="fa-solid fa-camera mr-1.5"></i> 2. Midjourney Photorealism
+                </button>
+                <button onclick="switchExampleTab('copy')" id="tab-btn-copy" class="px-4 py-2 rounded-xl text-xs font-bold transition-all bg-slate-800 text-slate-300 hover:text-white">
+                    <i class="fa-solid fa-pen-nib mr-1.5"></i> 3. Direct-Response Copy
+                </button>
+                <button onclick="switchExampleTab('agent')" id="tab-btn-agent" class="px-4 py-2 rounded-xl text-xs font-bold transition-all bg-slate-800 text-slate-300 hover:text-white">
+                    <i class="fa-solid fa-robot mr-1.5"></i> 4. ReAct Autonomous Agent
+                </button>
+            </div>
+
+            <!-- Example 1: React UI Card -->
+            <div id="example-panel-code" class="glass-card rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
                 <div class="grid lg:grid-cols-2">
-                    
-                    <!-- Left: Playbook Formula -->
-                    <div class="p-6 sm:p-8 border-b lg:border-b-0 lg:border-r border-white/10 bg-navy-950/70">
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="text-xs font-mono font-bold text-teal-300 bg-teal-500/10 px-2.5 py-1 rounded-lg border border-teal-500/20">
-                                <i class="fa-solid fa-terminal mr-1"></i> The Playbook Input Formula
-                            </span>
-                            <span class="text-slate-400 text-xs font-mono">Ch 05 (p.22)</span>
+                    <div class="p-6 sm:p-8 border-b lg:border-b-0 lg:border-r border-white/10 bg-navy-950/70 space-y-4">
+                        <div class="space-y-1">
+                            <span class="text-[10px] font-mono text-red-400 font-bold uppercase tracking-wider block">❌ Typical Vague Prompt (Fails with hallucinations)</span>
+                            <div class="p-3 bg-red-500/10 border border-red-500/20 rounded-xl text-xs text-red-200 font-mono">
+                                "Make me a modern SaaS subscription billing card in React with Tailwind."
+                            </div>
                         </div>
-                        <div class="bg-black/50 rounded-xl p-5 border border-white/5 font-mono text-xs text-slate-300 leading-relaxed space-y-2">
-                            <div><span class="text-teal-400 font-bold">[Role]</span> Act as a Principal Frontend Engineer specializing in Tailwind CSS.</div>
-                            <div><span class="text-cyan-400 font-bold">[Objective]</span> Build an ultra-modern dark SaaS pricing component.</div>
-                            <div><span class="text-blue-400 font-bold">[Context]</span> B2B developer tool, clean obsidian aesthetic, high conversion.</div>
-                            <div><span class="text-purple-400 font-bold">[Constraints]</span> Semantic HTML, accessible JSX, zero unnecessary dependencies.</div>
-                            <div><span class="text-green-400 font-bold">[Output]</span> Production-ready React code.</div>
+                        <div class="space-y-1">
+                            <span class="text-[10px] font-mono text-teal-400 font-bold uppercase tracking-wider block">✅ The 8-Step Playbook Prompt (Chapter 05 &bull; p.22)</span>
+                            <div class="p-4 bg-black/60 border border-teal-500/30 rounded-xl text-xs text-slate-300 font-mono space-y-1.5 leading-relaxed overflow-x-auto">
+                                <div><span class="text-teal-400 font-bold">[Role]</span> Principal Frontend Engineer specializing in accessible React & Tailwind.</div>
+                                <div><span class="text-cyan-400 font-bold">[Objective]</span> Build a high-converting pricing card component with monthly/annual toggle.</div>
+                                <div><span class="text-blue-400 font-bold">[Context]</span> B2B developer tool, dark-mode first (#06080e), crisp borders (rgba 255,255,255,0.08).</div>
+                                <div><span class="text-yellow-400 font-bold">[Constraints]</span> Zero arbitrary CSS classes. Include ARIA role="status" and hover micro-animations.</div>
+                                <div><span class="text-green-400 font-bold">[Schema]</span> Return clean, typed JSX with zero conversational preamble.</div>
+                            </div>
                         </div>
                     </div>
-
-                    <!-- Right: Flawless Generated Output Preview -->
                     <div class="p-6 sm:p-8 bg-navy-900/50 flex items-center justify-center">
                         <div class="w-full max-w-sm glass-panel p-6 rounded-2xl border border-white/10 shadow-xl space-y-4">
                             <div class="flex justify-between items-center">
-                                <span class="text-sm font-bold text-white">Developer Edition</span>
+                                <span class="text-sm font-bold text-white">Pro Plan</span>
                                 <span class="text-[10px] font-mono font-bold bg-teal-500/15 text-teal-300 px-2 py-0.5 rounded border border-teal-500/30">POPULAR</span>
                             </div>
                             <div>
@@ -417,9 +401,105 @@
                             </button>
                         </div>
                     </div>
-
                 </div>
             </div>
+
+            <!-- Example 2: Midjourney -->
+            <div id="example-panel-midjourney" class="hidden glass-card rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+                <div class="grid lg:grid-cols-2">
+                    <div class="p-6 sm:p-8 border-b lg:border-b-0 lg:border-r border-white/10 bg-navy-950/70 space-y-4">
+                        <div class="space-y-1">
+                            <span class="text-[10px] font-mono text-red-400 font-bold uppercase tracking-wider block">❌ Typical Vague Prompt</span>
+                            <div class="p-3 bg-red-500/10 border border-red-500/20 rounded-xl text-xs text-red-200 font-mono">
+                                "A luxury modern penthouse living room at sunset realistic."
+                            </div>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="text-[10px] font-mono text-teal-400 font-bold uppercase tracking-wider block">✅ The 8-Step Playbook Prompt (Chapter 03 &bull; p.15)</span>
+                            <div class="p-4 bg-black/60 border border-teal-500/30 rounded-xl text-xs text-slate-300 font-mono space-y-1.5 leading-relaxed overflow-x-auto">
+                                <div><span class="text-teal-400 font-bold">[Optics]</span> 35mm f/1.4 anamorphic prime lens, Hasselblad X2D 100C.</div>
+                                <div><span class="text-cyan-400 font-bold">[Lighting]</span> Golden-hour directional Rayleigh scattering, volumetric dusk ambient bounce.</div>
+                                <div><span class="text-blue-400 font-bold">[Scene]</span> Brutalist architectural penthouse, floor-to-ceiling glass, Mies van der Rohe lounge.</div>
+                                <div><span class="text-yellow-400 font-bold">[Parameters]</span> --ar 16:9 --style raw --v 6.0 --stop 95</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 sm:p-8 bg-navy-900/50 flex flex-col justify-center space-y-3">
+                        <div class="p-4 rounded-xl bg-black/40 border border-white/10 text-xs text-slate-300 space-y-2">
+                            <div class="font-bold text-teal-300"><i class="fa-solid fa-sliders mr-1.5"></i> Key Engineering Physics Applied:</div>
+                            <div class="text-[11px] text-slate-400 leading-relaxed">
+                                &bull; <strong>Volumetric Scattering:</strong> Prevents blown-out digital white highlights.<br/>
+                                &bull; <strong>Camera Lens Specification:</strong> Forces natural optical bokeh instead of AI blurring filters.<br/>
+                                &bull; <strong>Raw Style Flag:</strong> Disables Midjourney's cartoonish color saturation bias.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Example 3: Copywriting -->
+            <div id="example-panel-copy" class="hidden glass-card rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+                <div class="grid lg:grid-cols-2">
+                    <div class="p-6 sm:p-8 border-b lg:border-b-0 lg:border-r border-white/10 bg-navy-950/70 space-y-4">
+                        <div class="space-y-1">
+                            <span class="text-[10px] font-mono text-red-400 font-bold uppercase tracking-wider block">❌ Typical Vague Prompt</span>
+                            <div class="p-3 bg-red-500/10 border border-red-500/20 rounded-xl text-xs text-red-200 font-mono">
+                                "Write a high-converting sales pitch for my AI developer platform."
+                            </div>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="text-[10px] font-mono text-teal-400 font-bold uppercase tracking-wider block">✅ The 8-Step Playbook Prompt (Chapter 09 &bull; p.35)</span>
+                            <div class="p-4 bg-black/60 border border-teal-500/30 rounded-xl text-xs text-slate-300 font-mono space-y-1.5 leading-relaxed overflow-x-auto">
+                                <div><span class="text-teal-400 font-bold">[Framework]</span> Problem-Agitate-Solve (PAS) + Quantified Value Proposition.</div>
+                                <div><span class="text-cyan-400 font-bold">[Persona]</span> Senior Engineering Manager who hates marketing jargon.</div>
+                                <div><span class="text-yellow-400 font-bold">[Negative Constraints]</span> Banned words: 'synergy', 'revolutionary', 'game-changer', 'unleash'.</div>
+                                <div><span class="text-green-400 font-bold">[Proof Anchors]</span> Include specific 4.2x speedup and 14-day zero-risk trial.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 sm:p-8 bg-navy-900/50 flex flex-col justify-center space-y-3">
+                        <div class="p-4 rounded-xl bg-black/40 border border-white/10 text-xs text-slate-200 space-y-2">
+                            <span class="text-[10px] font-mono text-teal-400 font-bold uppercase">Engineered Headline Output:</span>
+                            <h4 class="text-base font-bold text-white leading-snug">"Cut API latency by 64% without rewriting your database queries."</h4>
+                            <p class="text-slate-400 text-xs leading-relaxed">
+                                Stop wasting sprint cycles debugging slow ORM queries. Our lightweight proxy caches SQL transactions at the edge in &lt;3ms.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Example 4: Autonomous Agent -->
+            <div id="example-panel-agent" class="hidden glass-card rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+                <div class="grid lg:grid-cols-2">
+                    <div class="p-6 sm:p-8 border-b lg:border-b-0 lg:border-r border-white/10 bg-navy-950/70 space-y-4">
+                        <div class="space-y-1">
+                            <span class="text-[10px] font-mono text-red-400 font-bold uppercase tracking-wider block">❌ Typical Vague Prompt</span>
+                            <div class="p-3 bg-red-500/10 border border-red-500/20 rounded-xl text-xs text-red-200 font-mono">
+                                "Act like an automated AI agent and find competitors."
+                            </div>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="text-[10px] font-mono text-teal-400 font-bold uppercase tracking-wider block">✅ The 8-Step Playbook Prompt (Chapter 14 &bull; p.50)</span>
+                            <div class="p-4 bg-black/60 border border-teal-500/30 rounded-xl text-xs text-slate-300 font-mono space-y-1.5 leading-relaxed overflow-x-auto">
+                                <div><span class="text-teal-400 font-bold">[Loop Architecture]</span> Strict ReAct loop: Thought &rarr; Action &rarr; Observation &rarr; Final.</div>
+                                <div><span class="text-cyan-400 font-bold">[Tools]</span> [WebSearch, CodeSandbox, DatabaseQuery]. Max iterations: 4.</div>
+                                <div><span class="text-yellow-400 font-bold">[State Guardrail]</span> If tool returns null, fallback to schema repair without hallucination.</div>
+                                <div><span class="text-green-400 font-bold">[Schema]</span> Structured JSON payload matching Zod interface.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 sm:p-8 bg-navy-900/50 flex flex-col justify-center space-y-3">
+                        <div class="p-4 rounded-xl bg-black/40 border border-white/10 text-xs text-slate-300 space-y-2">
+                            <div class="font-bold text-teal-300"><i class="fa-solid fa-shield-halved mr-1.5"></i> Why This Never Loops Infinitely:</div>
+                            <div class="text-[11px] text-slate-400 leading-relaxed">
+                                Standard agents get stuck in infinite recursive loops when a web search fails. The playbook formulas provide deterministic exit criteria, state-memory persistence, and schema repair.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -477,7 +557,7 @@
         </div>
     </section>
 
-    <!-- 6. 69-Page Master Curriculum Index -->
+    <!-- 6. 69-Page Architecture -->
     <section id="curriculum" class="py-24 relative z-10">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 space-y-2">
@@ -487,7 +567,6 @@
             </div>
 
             <div class="grid md:grid-cols-2 gap-6">
-                <!-- Part 1 -->
                 <div class="glass-panel p-6 sm:p-8 rounded-2xl border-l-4 border-l-teal-400 space-y-4">
                     <span class="text-xs font-mono font-bold text-teal-400 uppercase">Part I &bull; Foundation & Vision</span>
                     <h3 class="text-lg font-bold text-white">Prompt Engineering & Visual Media</h3>
@@ -499,7 +578,6 @@
                     </ul>
                 </div>
 
-                <!-- Part 2 -->
                 <div class="glass-panel p-6 sm:p-8 rounded-2xl border-l-4 border-l-blue-400 space-y-4">
                     <span class="text-xs font-mono font-bold text-blue-400 uppercase">Part II &bull; Engineering</span>
                     <h3 class="text-lg font-bold text-white">Full-Stack Code & Technical Assets</h3>
@@ -511,7 +589,6 @@
                     </ul>
                 </div>
 
-                <!-- Part 3 -->
                 <div class="glass-panel p-6 sm:p-8 rounded-2xl border-l-4 border-l-purple-400 space-y-4">
                     <span class="text-xs font-mono font-bold text-purple-400 uppercase">Part III &bull; Growth</span>
                     <h3 class="text-lg font-bold text-white">Marketing & High-Ticket Operations</h3>
@@ -523,7 +600,6 @@
                     </ul>
                 </div>
 
-                <!-- Part 4 -->
                 <div class="glass-panel p-6 sm:p-8 rounded-2xl border-l-4 border-l-cyan-400 space-y-4">
                     <span class="text-xs font-mono font-bold text-cyan-400 uppercase">Part IV &bull; Intelligence</span>
                     <h3 class="text-lg font-bold text-white">Autonomous AI Agents & Swarms</h3>
@@ -538,36 +614,94 @@
         </div>
     </section>
 
-    <!-- 7. Author Section -->
-    <section id="author" class="py-20 bg-navy-950/40 border-t border-white/[0.06] relative z-10">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="glass-card rounded-3xl p-6 sm:p-10 flex flex-col md:flex-row items-center gap-8">
-                <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden border-2 border-teal-400/30 shrink-0 shadow-2xl">
-                    <img src="author-pic.jpg" alt="Muhammad Ali" class="w-full h-full object-cover object-top" />
-                </div>
-                <div class="text-center md:text-left space-y-3">
-                    <div>
-                        <h3 class="text-2xl font-bold text-white">Muhammad Ali</h3>
-                        <p class="text-xs font-mono text-teal-400">Founder, AivanoLabs &bull; aivanolabs.site</p>
-                    </div>
-                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                        Based in Khyber Pakhtunkhwa, Pakistan. Specializes in modern frontend web architectures, deterministic prompt engineering, and automated AI workflows.
+    <!-- 7. Crystal Clear 4-Step Purchase Flow -->
+    <section id="how-it-works" class="py-24 bg-navy-950/60 border-t border-white/[0.06] relative z-10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            <div class="text-center max-w-3xl mx-auto space-y-2">
+                <span class="text-teal-400 font-mono text-xs font-bold uppercase tracking-widest">TRANSPARENT PROCESS</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">How Your Purchase & Delivery Works</h2>
+                <p class="text-slate-400 text-sm">Simple, secure, and completed in under 2 minutes.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="glass-panel p-6 rounded-2xl space-y-3 relative">
+                    <div class="w-10 h-10 rounded-xl bg-teal-500/10 border border-teal-500/30 text-teal-400 flex items-center justify-center font-bold text-sm">1</div>
+                    <h3 class="font-bold text-white text-base">Choose Method</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Tap "Get Access" to open the payment modal. Select JazzCash, EasyPaisa, SadaPay, NayaPay, UBL Bank IBAN, or Binance Pay.
                     </p>
-                    <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-2">
-                        <a href="https://wa.me/923055389967" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-green-500/10 border border-green-500/30 text-green-400 text-xs font-bold hover:bg-green-500/20 transition-colors">
-                            <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp: +92 305 5389967
-                        </a>
-                        <a href="mailto:alikhan1475623@gmail.com" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 border border-white/10 text-slate-300 text-xs font-bold hover:bg-slate-700 transition-colors">
-                            <i class="fa-solid fa-envelope"></i> alikhan1475623@gmail.com
-                        </a>
-                    </div>
+                </div>
+
+                <div class="glass-panel p-6 rounded-2xl space-y-3 relative">
+                    <div class="w-10 h-10 rounded-xl bg-teal-500/10 border border-teal-500/30 text-teal-400 flex items-center justify-center font-bold text-sm">2</div>
+                    <h3 class="font-bold text-white text-base">Send Payment</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Transfer $20 USD or Rs. 5,600 PKR (or $10 / Rs. 2,800 if you applied promo code <span class="font-mono text-teal-300 font-bold">WALEED</span>).
+                    </p>
+                </div>
+
+                <div class="glass-panel p-6 rounded-2xl space-y-3 relative">
+                    <div class="w-10 h-10 rounded-xl bg-teal-500/10 border border-teal-500/30 text-teal-400 flex items-center justify-center font-bold text-sm">3</div>
+                    <h3 class="font-bold text-white text-base">Submit TID</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Enter your Transaction ID (TID) and phone number in the checkout form, then tap "Submit & Send WhatsApp".
+                    </p>
+                </div>
+
+                <div class="glass-panel p-6 rounded-2xl space-y-3 relative">
+                    <div class="w-10 h-10 rounded-xl bg-green-500/10 border border-green-500/30 text-green-400 flex items-center justify-center font-bold text-sm">4</div>
+                    <h3 class="font-bold text-white text-base">Receive PDF Instantly</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Your 69-page high-resolution PDF with lifetime access and commercial rights is sent directly to your WhatsApp chat.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 8. Pricing Section (Clean & High Converting) -->
-    <section id="pricing" class="py-24 relative z-10">
+    <!-- 8. Why I Built This (Author Narrative) -->
+    <section id="author" class="py-24 relative z-10">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card rounded-3xl p-6 sm:p-10 border border-white/10 shadow-2xl space-y-8">
+                
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden border-2 border-teal-400/30 shrink-0 shadow-2xl">
+                        <img src="author-pic.jpg" alt="Muhammad Ali" class="w-full h-full object-cover object-top" />
+                    </div>
+                    <div class="text-center md:text-left space-y-2">
+                        <span class="text-teal-400 font-mono text-xs font-bold uppercase tracking-wider">AUTHOR & CREATOR</span>
+                        <h3 class="text-2xl font-bold text-white">Muhammad Ali</h3>
+                        <p class="text-xs font-mono text-slate-400">Front-End Web Developer & UI Engineer &bull; Founder, AivanoLabs</p>
+                        <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-2">
+                            <a href="https://wa.me/923055389967" target="_blank" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-green-500/10 border border-green-500/30 text-green-400 text-xs font-bold hover:bg-green-500/20 transition-colors">
+                                <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp: +92 305 5389967
+                            </a>
+                            <a href="mailto:alikhan1475623@gmail.com" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-slate-800 border border-white/10 text-slate-300 text-xs font-bold hover:bg-slate-700 transition-colors">
+                                <i class="fa-solid fa-envelope"></i> alikhan1475623@gmail.com
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-t border-white/10 pt-6 space-y-4 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                    <h4 class="text-base font-bold text-white">Why I Built The Practical AI Prompt Playbook:</h4>
+                    <p>
+                        Like thousands of developers and digital creators in 2024–2026, I was constantly frustrated by generic "AI prompt packs" circulating online. 99% of them were lazy one-liners like <em>"Act as an expert copywriter"</em> that produced generic, hallucinated fluff when tested on real production codebases or client design projects.
+                    </p>
+                    <p>
+                        Modern LLMs (GPT-4o, Claude 3.5 Sonnet) and diffusion engines (Midjourney v6) are deterministic computational graphs. When you provide structured schemas, negative constraints, and few-shot exemplars, their output quality jumps by 10x.
+                    </p>
+                    <p>
+                        I spent over 300 hours engineering, benchmarking, and pressure-testing these 180 formulas across real client apps, marketing funnels, and autonomous agent loops. This 69-page playbook is the exact manual I wish I had on day one.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Pricing Section -->
+    <section id="pricing" class="py-24 bg-navy-950/40 border-t border-white/[0.06] relative z-10">
         <div class="max-w-lg mx-auto px-4 sm:px-6 relative">
             <div class="text-center mb-10 space-y-2">
                 <span class="text-teal-400 font-mono text-xs font-bold uppercase tracking-widest">TRANSPARENT PRICING</span>
@@ -609,13 +743,13 @@
                 </button>
 
                 <p class="text-[11px] text-slate-400 font-mono">
-                    JazzCash &bull; EasyPaisa &bull; SadaPay &bull; NayaPay &bull; UBL IBAN &bull; Binance
+                    JazzCash &bull; EasyPaisa &bull; SadaPay &bull; NayaPay &bull; UBL IBAN &bull; Binance Pay
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- 9. FAQ Section -->
+    <!-- 10. FAQ Section -->
     <section class="py-20 bg-navy-950/60 border-t border-white/[0.06] relative z-10">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
             <div class="text-center space-y-2">
@@ -640,7 +774,7 @@
         </div>
     </section>
 
-    <!-- 10. Footer -->
+    <!-- 11. Footer -->
     <footer class="bg-navy-950 pt-16 pb-8 border-t border-white/[0.07] text-xs relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -657,8 +791,8 @@
                 <div>
                     <h4 class="text-white font-bold mb-3 uppercase tracking-wider text-[11px]">Product</h4>
                     <div class="flex flex-col gap-2 text-slate-400">
+                        <a href="#examples" class="hover:text-teal-400 transition-colors">Interactive Examples</a>
                         <a href="#curriculum" class="hover:text-teal-400 transition-colors">69-Page Index</a>
-                        <a href="#proof" class="hover:text-teal-400 transition-colors">Visual Proof Plates</a>
                         <a href="#framework" class="hover:text-teal-400 transition-colors">8-Step Framework</a>
                         <a href="#pricing" class="hover:text-teal-400 transition-colors">Pricing ($20 / Rs. 5,600)</a>
                     </div>
@@ -724,7 +858,6 @@
 
             <!-- Payment Accounts List -->
             <div class="space-y-2 text-xs mb-4">
-                <!-- JazzCash -->
                 <div class="p-3 rounded-xl bg-black/40 border border-white/10 flex items-center justify-between">
                     <div>
                         <div class="text-slate-400 text-[10px] font-bold uppercase">JazzCash</div>
@@ -733,7 +866,6 @@
                     </div>
                 </div>
 
-                <!-- EasyPaisa -->
                 <div class="p-3 rounded-xl bg-black/40 border border-white/10 flex items-center justify-between">
                     <div>
                         <div class="text-slate-400 text-[10px] font-bold uppercase">EasyPaisa</div>
@@ -742,7 +874,6 @@
                     </div>
                 </div>
 
-                <!-- SadaPay -->
                 <div class="p-3 rounded-xl bg-black/40 border border-white/10 flex items-center justify-between">
                     <div>
                         <div class="text-slate-400 text-[10px] font-bold uppercase">SadaPay</div>
@@ -751,7 +882,6 @@
                     </div>
                 </div>
 
-                <!-- NayaPay -->
                 <div class="p-3 rounded-xl bg-black/40 border border-white/10 flex items-center justify-between">
                     <div>
                         <div class="text-slate-400 text-[10px] font-bold uppercase">NayaPay</div>
@@ -760,7 +890,6 @@
                     </div>
                 </div>
 
-                <!-- UBL IBAN -->
                 <div class="p-3 rounded-xl bg-black/40 border border-teal-500/20 flex items-center justify-between">
                     <div>
                         <div class="text-teal-400 text-[10px] font-bold uppercase">UBL Bank (IBAN)</div>
@@ -769,10 +898,9 @@
                     </div>
                 </div>
 
-                <!-- Binance -->
                 <div class="p-3 rounded-xl bg-black/40 border border-yellow-500/20 flex items-center justify-between">
                     <div>
-                        <div class="text-yellow-400 text-[10px] font-bold uppercase">Binance Pay</div>
+                        <div class="text-yellow-400 text-[10px] font-bold uppercase">Binance Pay (International)</div>
                         <div class="text-white font-mono font-bold text-xs break-all">alikhanwebdeveloper@gmail.com</div>
                     </div>
                 </div>
@@ -791,7 +919,7 @@
         </div>
     </div>
 
-    <!-- Order Status Modal -->
+    <!-- Order Status Modal (Privacy Protected) -->
     <div id="orderStatusModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-3 sm:p-4">
         <div class="absolute inset-0 bg-black/85 backdrop-blur-md" onclick="closeOrderStatusModal()"></div>
         <div class="glass-card rounded-3xl p-6 sm:p-8 max-w-md w-full relative z-10 border border-teal-500/30 shadow-2xl space-y-4">
@@ -800,17 +928,17 @@
             </button>
             <div>
                 <h3 class="text-xl font-bold text-white">Order Status Lookup</h3>
-                <p class="text-slate-400 text-xs mt-1">Enter your Order ID, Phone number, or Transaction ID.</p>
+                <p class="text-slate-400 text-xs mt-1">Enter your Order ID (e.g. ORD-12345) to check verification.</p>
             </div>
             <div class="flex gap-2">
-                <input type="text" id="lookupInput" placeholder="e.g. ORD-91024 or 0321..." class="w-full bg-black/50 border border-white/10 text-white px-3 py-2.5 rounded-xl text-xs font-mono focus:outline-none focus:border-teal-400">
+                <input type="text" id="lookupInput" placeholder="Enter Order ID" class="w-full bg-black/50 border border-white/10 text-white px-3 py-2.5 rounded-xl text-xs font-mono focus:outline-none focus:border-teal-400">
                 <button onclick="handleLookupOrder()" class="btn-elite px-4 py-2.5 rounded-xl text-xs font-bold shrink-0">Search</button>
             </div>
             <div id="lookupResult" class="hidden p-4 rounded-xl bg-black/60 border border-white/10 text-xs space-y-2"></div>
         </div>
     </div>
 
-    <!-- Admin Dashboard Modal -->
+    <!-- Admin Dashboard Modal (Zero Hardcoded Password Leaks) -->
     <div id="adminModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-3 sm:p-4">
         <div class="absolute inset-0 bg-black/90 backdrop-blur-md" onclick="closeAdminModal()"></div>
         <div class="glass-card rounded-3xl p-6 sm:p-8 max-w-4xl w-full relative z-10 border border-teal-500/40 shadow-2xl overflow-y-auto max-h-[92vh]">
@@ -821,37 +949,32 @@
             <!-- Admin Login View -->
             <div id="adminLoginSection" class="max-w-sm mx-auto text-center py-8 space-y-4">
                 <div class="w-12 h-12 bg-teal-500/10 text-teal-400 rounded-2xl flex items-center justify-center text-xl mx-auto border border-teal-500/30">
-                    <i class="fa-solid fa-lock"></i>
+                    <i class="fa-solid fa-shield-halved"></i>
                 </div>
                 <div>
-                    <h3 class="text-xl font-bold text-white">Admin Dashboard Login</h3>
-                    <p class="text-slate-400 text-xs">Enter your administrator credentials.</p>
+                    <h3 class="text-xl font-bold text-white">Owner Admin Portal</h3>
+                    <p class="text-slate-400 text-xs">Enter your secure administrator access key.</p>
                 </div>
                 <form onsubmit="handleAdminLogin(event)" class="space-y-3 text-left">
                     <div>
-                        <label class="block text-[11px] font-bold text-slate-300 uppercase mb-1">Username</label>
-                        <input type="text" id="adminUser" required class="w-full bg-black/50 border border-white/10 text-white px-3 py-2 rounded-xl text-xs focus:outline-none focus:border-teal-400">
-                    </div>
-                    <div>
-                        <label class="block text-[11px] font-bold text-slate-300 uppercase mb-1">Password</label>
-                        <input type="password" id="adminPass" required class="w-full bg-black/50 border border-white/10 text-white px-3 py-2 rounded-xl text-xs focus:outline-none focus:border-teal-400">
+                        <label class="block text-[11px] font-bold text-slate-300 uppercase mb-1">Access Key / Password</label>
+                        <input type="password" id="adminPass" required placeholder="Enter private master key" class="w-full bg-black/50 border border-white/10 text-white px-3 py-2 rounded-xl text-xs focus:outline-none focus:border-teal-400">
                     </div>
                     <div id="adminLoginError" class="text-red-400 text-xs hidden"></div>
-                    <button type="submit" class="w-full btn-elite py-2.5 rounded-xl text-xs font-bold mt-2">Login to Portal</button>
+                    <button type="submit" class="w-full btn-elite py-2.5 rounded-xl text-xs font-bold mt-2">Authorize Access</button>
                 </form>
-                <p class="text-[10px] text-slate-500">Default: admin / admin123</p>
             </div>
 
             <!-- Admin Dashboard Content -->
             <div id="adminDashboardSection" class="hidden space-y-6">
                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 border-b border-white/10 pb-4">
                     <div>
-                        <span class="text-xs font-mono text-teal-400 font-bold">AIVANOLABS ADMIN</span>
+                        <span class="text-xs font-mono text-teal-400 font-bold">AIVANOLABS MANAGEMENT</span>
                         <h3 class="text-xl font-bold text-white">Analytics & Orders</h3>
                     </div>
                     <div class="flex items-center gap-2">
                         <button onclick="toggleAdminPassChange()" class="text-xs px-3 py-1.5 rounded-xl bg-teal-500/10 border border-teal-500/30 text-teal-300 font-bold hover:bg-teal-500/20">
-                            <i class="fa-solid fa-key mr-1"></i> Password
+                            <i class="fa-solid fa-key mr-1"></i> Change Key
                         </button>
                         <button onclick="handleAdminLogout()" class="text-xs px-3 py-1.5 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 font-bold hover:bg-red-500/20">
                             <i class="fa-solid fa-power-off mr-1"></i> Logout
@@ -859,12 +982,12 @@
                     </div>
                 </div>
 
-                <!-- Password Modal Form -->
+                <!-- Update Key Form -->
                 <div id="adminPassChangeForm" class="hidden p-4 rounded-2xl bg-black/60 border border-teal-500/30 space-y-3">
-                    <h4 class="text-xs font-bold text-teal-300 uppercase">Update Admin Password</h4>
+                    <h4 class="text-xs font-bold text-teal-300 uppercase">Set New Access Key</h4>
                     <div class="flex flex-col sm:flex-row gap-2">
-                        <input type="password" id="newAdminPassInput" placeholder="Enter new password" class="w-full bg-navy-950 border border-white/10 text-white px-3 py-2 rounded-xl text-xs focus:outline-none focus:border-teal-400">
-                        <button onclick="handleUpdateAdminPass()" class="btn-elite px-4 py-2 rounded-xl text-xs font-bold shrink-0">Save</button>
+                        <input type="password" id="newAdminPassInput" placeholder="Enter new secret key" class="w-full bg-navy-950 border border-white/10 text-white px-3 py-2 rounded-xl text-xs focus:outline-none focus:border-teal-400">
+                        <button onclick="handleUpdateAdminPass()" class="btn-elite px-4 py-2 rounded-xl text-xs font-bold shrink-0">Save Key</button>
                     </div>
                 </div>
 
@@ -890,15 +1013,13 @@
 
                 <!-- Promo Analytics -->
                 <div>
-                    <div class="flex justify-between items-center mb-3">
-                        <h4 class="text-xs font-bold text-slate-300 uppercase tracking-wider">Promo Code Performance</h4>
-                    </div>
+                    <h4 class="text-xs font-bold text-slate-300 uppercase tracking-wider mb-3">Promo Code Analytics</h4>
                     <div id="adminPromoCardsGrid" class="grid sm:grid-cols-3 gap-3"></div>
                 </div>
 
                 <!-- Orders Table -->
                 <div>
-                    <h4 class="text-xs font-bold text-slate-300 uppercase tracking-wider mb-3">Customer Orders</h4>
+                    <h4 class="text-xs font-bold text-slate-300 uppercase tracking-wider mb-3">Orders List</h4>
                     <div class="overflow-x-auto rounded-xl border border-white/10">
                         <table class="w-full text-left text-xs text-slate-300">
                             <thead class="bg-black/50 text-[10px] uppercase font-bold text-slate-400 border-b border-white/10">
@@ -922,22 +1043,16 @@
 
     <!-- ==================== JAVASCRIPT LOGIC ==================== -->
     <script>
-        // --- 1. LOCAL STORAGE & DATA INITIALIZATION ---
+        // --- 1. PROMO CODES ---
         const DEFAULT_PROMOS = [
             { id: 'p_1', code: 'WALEED', discountPercent: 50, isActive: true },
             { id: 'p_2', code: 'AIVANO30', discountPercent: 30, isActive: true },
             { id: 'p_3', code: 'PROMPT20', discountPercent: 20, isActive: true }
         ];
 
-        const DEFAULT_ORDERS = [
-            { id: 'ORD-91024', name: 'Waleed Khan', phone: '03215423874', method: 'EasyPaisa', trxId: 'EP-449102', promo: 'WALEED', amount: 10, status: 'delivered', date: new Date().toLocaleDateString() },
-            { id: 'ORD-84910', name: 'Hamza Ali', phone: '03001234567', method: 'JazzCash', trxId: 'JC-881920', promo: 'WALEED', amount: 10, status: 'confirmed', date: new Date().toLocaleDateString() },
-            { id: 'ORD-72019', name: 'John Smith', phone: '+14155552671', method: 'Binance Pay', trxId: 'BN-192801', promo: '', amount: 20, status: 'delivered', date: new Date().toLocaleDateString() }
-        ];
-
         function getStoredOrders() {
             const raw = localStorage.getItem('aivano_orders');
-            return raw ? JSON.parse(raw) : DEFAULT_ORDERS;
+            return raw ? JSON.parse(raw) : [];
         }
         function saveStoredOrders(orders) {
             localStorage.setItem('aivano_orders', JSON.stringify(orders));
@@ -955,12 +1070,28 @@
             return (usd * 280).toLocaleString();
         }
 
-        // --- 2. MODAL & UI HANDLERS ---
+        // --- 2. EXAMPLE TABS HANDLER ---
+        function switchExampleTab(tabId) {
+            const tabs = ['code', 'midjourney', 'copy', 'agent'];
+            tabs.forEach(t => {
+                const btn = document.getElementById(`tab-btn-${t}`);
+                const panel = document.getElementById(`example-panel-${t}`);
+                if (t === tabId) {
+                    btn.className = "px-4 py-2 rounded-xl text-xs font-bold transition-all bg-teal-500 text-navy-950 shadow-lg";
+                    panel.classList.remove('hidden');
+                } else {
+                    btn.className = "px-4 py-2 rounded-xl text-xs font-bold transition-all bg-slate-800 text-slate-300 hover:text-white";
+                    panel.classList.add('hidden');
+                }
+            });
+        }
+
+        // --- 3. MODAL & UI HANDLERS ---
         function toggleMobileMenu() {
             const menu = document.getElementById('mobileDropdownMenu');
             const icon = document.getElementById('mobileMenuIcon');
             menu.classList.toggle('hidden');
-            icon.className = menu.classList.contains('hidden') ? 'fa-solid fa-bars text-sm' : 'fa-solid fa-xmark text-sm';
+            icon.className = menu.classList.contains('hidden') ? 'fa-solid fa-bars text-base text-teal-300' : 'fa-solid fa-xmark text-base text-white';
         }
 
         function openPaymentModal() {
@@ -993,7 +1124,7 @@
             document.getElementById('adminModal').classList.remove('flex');
         }
 
-        // --- 3. CHECKOUT & PROMO CODE LOGIC ---
+        // --- 4. CHECKOUT & PROMO CODE LOGIC ---
         let currentOrderAmount = 20;
         let appliedPromoCode = '';
 
@@ -1060,14 +1191,14 @@
             window.open(waUrl, '_blank');
         }
 
-        // --- 4. ORDER STATUS LOOKUP ---
+        // --- 5. ORDER STATUS LOOKUP ---
         function handleLookupOrder() {
             const query = document.getElementById('lookupInput').value.trim().toLowerCase();
             const resultEl = document.getElementById('lookupResult');
             if (!query) return;
 
             const orders = getStoredOrders();
-            const found = orders.find(o => o.id.toLowerCase() === query || o.phone.includes(query) || o.trxId.toLowerCase() === query);
+            const found = orders.find(o => o.id.toLowerCase() === query);
 
             resultEl.classList.remove('hidden');
             if (found) {
@@ -1083,29 +1214,36 @@
                         <span class="font-mono font-bold text-teal-400">${found.id}</span>
                         <span>${statusBadge}</span>
                     </div>
-                    <div class="text-slate-300">Customer: <strong class="text-white">${found.name}</strong> (${found.phone})</div>
-                    <div class="text-slate-300">Amount: <strong class="text-white">$${found.amount} (Rs. ${pkr} PKR)</strong> ${found.promo ? `(Promo: ${found.promo})` : ''}</div>
-                    <div class="text-slate-400 text-[11px]">Date: ${found.date}</div>
+                    <div class="text-slate-300">Customer: <strong class="text-white">${found.name}</strong></div>
+                    <div class="text-slate-300">Amount: <strong class="text-white">$${found.amount} (Rs. ${pkr} PKR)</strong></div>
+                    <div class="text-slate-400 text-[11px]">Status Date: ${found.date}</div>
                 `;
             } else {
-                resultEl.innerHTML = `<div class="text-red-400 font-bold">No order found matching "${query}". Please check your Order ID or contact WhatsApp support (+92 305 5389967).</div>`;
+                resultEl.innerHTML = `<div class="text-red-400 font-bold">No order found matching "${query}". Please verify your Order ID or contact WhatsApp support (+92 305 5389967).</div>`;
             }
         }
 
-        // --- 5. ADMIN AUTH & DASHBOARD ---
+        // --- 6. ADMIN AUTHENTICATION ---
         function handleAdminLogin(e) {
             e.preventDefault();
-            const u = document.getElementById('adminUser').value.trim();
             const p = document.getElementById('adminPass').value.trim();
-            const storedPass = localStorage.getItem('aivano_admin_pass') || 'admin123';
+            const storedKey = localStorage.getItem('aivano_master_key');
             const errEl = document.getElementById('adminLoginError');
 
-            if (u === 'admin' && p === storedPass) {
+            if (!storedKey) {
+                localStorage.setItem('aivano_master_key', p);
+                sessionStorage.setItem('aivano_admin_logged', 'true');
+                errEl.classList.add('hidden');
+                showAdminDashboard();
+                return;
+            }
+
+            if (p === storedKey) {
                 sessionStorage.setItem('aivano_admin_logged', 'true');
                 errEl.classList.add('hidden');
                 showAdminDashboard();
             } else {
-                errEl.innerText = 'Invalid username or password.';
+                errEl.innerText = 'Unauthorized access key.';
                 errEl.classList.remove('hidden');
             }
         }
@@ -1129,12 +1267,12 @@
 
         function handleUpdateAdminPass() {
             const np = document.getElementById('newAdminPassInput').value.trim();
-            if (np.length < 4) {
-                alert('Password must be at least 4 characters long.');
+            if (np.length < 6) {
+                alert('Access key must be at least 6 characters long.');
                 return;
             }
-            localStorage.setItem('aivano_admin_pass', np);
-            alert('Admin password updated successfully!');
+            localStorage.setItem('aivano_master_key', np);
+            alert('Admin key updated successfully.');
             document.getElementById('adminPassChangeForm').classList.add('hidden');
             document.getElementById('newAdminPassInput').value = '';
         }
@@ -1190,7 +1328,7 @@
 
             const tbody = document.getElementById('adminOrdersTableBody');
             if (orders.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="7" class="py-6 text-center text-slate-500">No orders placed yet.</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="7" class="py-6 text-center text-slate-500">No customer orders in storage.</td></tr>`;
             } else {
                 tbody.innerHTML = orders.map(o => `
                     <tr class="hover:bg-white/[0.02]">
@@ -1243,7 +1381,7 @@
             }
         }
 
-        // --- 6. 3D BOOK TILT MOUSE PHYSICS ---
+        // --- 7. 3D BOOK TILT ---
         const bookCard = document.getElementById('hero3DBook');
         if (bookCard) {
             window.addEventListener('mousemove', (e) => {
@@ -1253,8 +1391,8 @@
                 const mouseX = e.clientX - centerX;
                 const mouseY = e.clientY - centerY;
 
-                const rotateY = (mouseX / window.innerWidth) * 22;
-                const rotateX = -(mouseY / window.innerHeight) * 22;
+                const rotateY = (mouseX / window.innerWidth) * 20;
+                const rotateX = -(mouseY / window.innerHeight) * 20;
 
                 bookCard.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
             });
@@ -1264,12 +1402,12 @@
             });
         }
 
-        // --- 7. SUBTLE NEURAL PARTICLE NETWORK CANVAS ---
+        // --- 8. NEURAL CANVAS ---
         const canvas = document.getElementById('neuralCanvas');
         if (canvas) {
             const ctx = canvas.getContext('2d');
             let particles = [];
-            const particleCount = 45;
+            const particleCount = 40;
 
             function resizeCanvas() {
                 canvas.width = window.innerWidth;
@@ -1282,8 +1420,8 @@
                 particles.push({
                     x: Math.random() * canvas.width,
                     y: Math.random() * canvas.height,
-                    vx: (Math.random() - 0.5) * 0.4,
-                    vy: (Math.random() - 0.5) * 0.4,
+                    vx: (Math.random() - 0.5) * 0.35,
+                    vy: (Math.random() - 0.5) * 0.35,
                     radius: Math.random() * 1.5 + 0.5
                 });
             }
@@ -1308,7 +1446,7 @@
                         const p2 = particles[j];
                         const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
                         if (dist < 120) {
-                            ctx.strokeStyle = `rgba(45, 212, 191, ${0.15 * (1 - dist / 120)})`;
+                            ctx.strokeStyle = `rgba(45, 212, 191, ${0.12 * (1 - dist / 120)})`;
                             ctx.lineWidth = 0.6;
                             ctx.beginPath();
                             ctx.moveTo(p.x, p.y);
@@ -1322,12 +1460,12 @@
             animateParticles();
         }
 
-        // --- 8. TYPEWRITER TERMINAL ---
+        // --- 9. TERMINAL TYPEWRITER ---
         const phrases = [
-            "Generating clean SaaS card...",
-            "Validating strict TypeScript types...",
-            "Applying Tailwind responsive grid...",
-            "Compiling deterministic AI prompt..."
+            "Compiling production React UI...",
+            "Applying Few-Shot Conditioning...",
+            "Verifying negative constraints...",
+            "Generating deterministic output..."
         ];
         let phraseIdx = 0;
         let charIdx = 0;
@@ -1345,7 +1483,7 @@
                 charIdx++;
             }
 
-            let speed = isDeleting ? 25 : 50;
+            let speed = isDeleting ? 25 : 45;
 
             if (!isDeleting && charIdx === current.length) {
                 speed = 2000;
