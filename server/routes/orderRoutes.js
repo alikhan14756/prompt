@@ -15,9 +15,33 @@ let inMemoryOrders = [
     paymentMethod: 'JazzCash',
     promoCode: 'WALEED',
     amount: 10,
-    status: 'pending',
+    status: 'delivered',
     transactionId: 'TXN-987654321',
-    createdAt: new Date(),
+    createdAt: new Date(Date.now() - 3600000 * 2),
+  },
+  {
+    _id: 'ord_demo_102',
+    customerName: 'Waleed Khan',
+    customerEmail: 'waleed@example.com',
+    customerPhone: '03215423874',
+    paymentMethod: 'EasyPaisa',
+    promoCode: 'WALEED',
+    amount: 10,
+    status: 'confirmed',
+    transactionId: 'EP-44582910',
+    createdAt: new Date(Date.now() - 3600000 * 5),
+  },
+  {
+    _id: 'ord_demo_103',
+    customerName: 'Global Client',
+    customerEmail: 'global@techcorp.io',
+    customerPhone: '+14155552671',
+    paymentMethod: 'Binance',
+    promoCode: '',
+    amount: 20,
+    status: 'delivered',
+    transactionId: 'BINANCE-99281',
+    createdAt: new Date(Date.now() - 3600000 * 12),
   }
 ];
 
@@ -39,11 +63,11 @@ router.post('/', async (req, res) => {
     if (!isMongoConnected) {
       const newOrder = {
         _id: `ord_${Date.now()}`,
-        customerName,
-        customerEmail,
-        customerPhone,
-        paymentMethod,
-        promoCode: promoCode || '',
+        customerName: customerName || 'Anonymous',
+        customerEmail: customerEmail || '',
+        customerPhone: customerPhone || '',
+        paymentMethod: paymentMethod || 'JazzCash',
+        promoCode: promoCode ? promoCode.trim().toUpperCase() : '',
         amount: Number(amount) || 20,
         status: 'pending',
         transactionId: transactionId || '',
@@ -58,7 +82,7 @@ router.post('/', async (req, res) => {
       customerEmail,
       customerPhone,
       paymentMethod,
-      promoCode,
+      promoCode: promoCode ? promoCode.trim().toUpperCase() : '',
       amount,
       transactionId,
     });
@@ -110,10 +134,10 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// @route   PATCH /api/orders/:id/status
+// @route   PUT /api/orders/:id or PATCH /api/orders/:id/status
 // @desc    Update order status
 // @access  Private/Admin
-router.patch('/:id/status', protect, async (req, res) => {
+const updateStatusHandler = async (req, res) => {
   try {
     const { status } = req.body;
 
@@ -132,6 +156,32 @@ router.patch('/:id/status', protect, async (req, res) => {
       order.status = status;
       const updatedOrder = await order.save();
       res.json(updatedOrder);
+    } else {
+      res.status(404).json({ message: 'Order not found' });
+    }
+  } catch (error) {
+    res.status(500).json({ message: 'Server error', error: error.message });
+  }
+};
+
+router.patch('/:id/status', protect, updateStatusHandler);
+router.put('/:id', protect, updateStatusHandler);
+router.patch('/:id', protect, updateStatusHandler);
+
+// @route   DELETE /api/orders/:id
+// @desc    Delete order
+// @access  Private/Admin
+router.delete('/:id', protect, async (req, res) => {
+  try {
+    if (!isMongoConnected) {
+      inMemoryOrders = inMemoryOrders.filter((o) => o._id !== req.params.id);
+      return res.json({ message: 'Order deleted successfully' });
+    }
+
+    const order = await Order.findById(req.params.id);
+    if (order) {
+      await order.deleteOne();
+      res.json({ message: 'Order deleted successfully' });
     } else {
       res.status(404).json({ message: 'Order not found' });
     }

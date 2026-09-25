@@ -12,8 +12,16 @@ let inMemoryPromos = [
     code: 'WALEED',
     discountPercent: 50,
     isActive: true,
+    usageCount: 2,
+    createdAt: new Date(Date.now() - 86400000 * 3),
+  },
+  {
+    _id: 'promo_launch_id',
+    code: 'LAUNCH30',
+    discountPercent: 30,
+    isActive: true,
     usageCount: 0,
-    createdAt: new Date(),
+    createdAt: new Date(Date.now() - 86400000),
   }
 ];
 
@@ -32,7 +40,7 @@ router.post('/validate', async (req, res) => {
     if (!isMongoConnected) {
       const promo = inMemoryPromos.find((p) => p.code === upperCode && p.isActive);
       if (promo) {
-        return res.json({ discountPercent: promo.discountPercent });
+        return res.json({ discountPercent: promo.discountPercent, code: promo.code });
       } else {
         return res.status(400).json({ message: 'Invalid or inactive promo code' });
       }
@@ -40,7 +48,7 @@ router.post('/validate', async (req, res) => {
 
     const promo = await PromoCode.findOne({ code: upperCode });
     if (promo && promo.isActive) {
-      res.json({ discountPercent: promo.discountPercent });
+      res.json({ discountPercent: promo.discountPercent, code: promo.code });
     } else {
       res.status(400).json({ message: 'Invalid or inactive promo code' });
     }
@@ -54,8 +62,12 @@ router.post('/validate', async (req, res) => {
 // @access  Private/Admin
 router.post('/', protect, async (req, res) => {
   try {
-    const { code, discountPercent } = req.body;
+    const { code, discountPercent, discountAmount } = req.body;
+    if (!code) {
+      return res.status(400).json({ message: 'Code is required' });
+    }
     const upperCode = code.trim().toUpperCase();
+    const percent = Number(discountPercent) || (discountAmount ? (Number(discountAmount) / 20) * 100 : 50);
 
     if (!isMongoConnected) {
       const exists = inMemoryPromos.find((p) => p.code === upperCode);
@@ -65,7 +77,7 @@ router.post('/', protect, async (req, res) => {
       const newPromo = {
         _id: `promo_${Date.now()}`,
         code: upperCode,
-        discountPercent: Number(discountPercent),
+        discountPercent: percent,
         isActive: true,
         usageCount: 0,
         createdAt: new Date(),
@@ -81,7 +93,7 @@ router.post('/', protect, async (req, res) => {
 
     const promo = new PromoCode({
       code: upperCode,
-      discountPercent,
+      discountPercent: percent,
     });
 
     const createdPromo = await promo.save();
@@ -99,12 +111,45 @@ router.get('/', protect, async (req, res) => {
     if (!isMongoConnected) {
       return res.json(inMemoryPromos);
     }
-    const promos = await PromoCode.find({});
+    const promos = await PromoCode.find({}).sort({ createdAt: -1 });
     res.json(promos);
   } catch (error) {
     res.status(500).json({ message: 'Server error', error: error.message });
   }
 });
+
+// @route   PUT /api/promo/:id or PATCH /api/promo/:id
+// @desc    Toggle promo code active state
+// @access  Private/Admin
+const updatePromoHandler = async (req, res) => {
+  try {
+    const { isActive } = req.body;
+
+    if (!isMongoConnected) {
+      const promo = inMemoryPromos.find((p) => p._id === req.params.id);
+      if (promo) {
+        if (typeof isActive === 'boolean') promo.isActive = isActive;
+        return res.json(promo);
+      } else {
+        return res.status(404).json({ message: 'Promo code not found' });
+      }
+    }
+
+    const promo = await PromoCode.findById(req.params.id);
+    if (promo) {
+      if (typeof isActive === 'boolean') promo.isActive = isActive;
+      const updatedPromo = await promo.save();
+      res.json(updatedPromo);
+    } else {
+      res.status(404).json({ message: 'Promo code not found' });
+    }
+  } catch (error) {
+    res.status(500).json({ message: 'Server error', error: error.message });
+  }
+};
+
+router.put('/:id', protect, updatePromoHandler);
+router.patch('/:id', protect, updatePromoHandler);
 
 // @route   DELETE /api/promo/:id
 // @desc    Delete a promo code
