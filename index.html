@@ -91,22 +91,31 @@
                 </a>
                 
                 <!-- Navigation -->
-                <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-300">
                     <a href="#features" class="hover:text-teal-400 transition-colors">Features</a>
                     <a href="#examples" class="hover:text-teal-400 transition-colors">Real Examples</a>
                     <a href="#whats-inside" class="hover:text-teal-400 transition-colors">69-Page Architecture</a>
                     <a href="#author" class="hover:text-teal-400 transition-colors">Author</a>
                     <a href="#faq" class="hover:text-teal-400 transition-colors">FAQ</a>
+                    <button onclick="openOrderStatusModal()" class="hover:text-teal-400 transition-colors flex items-center gap-1.5 text-xs text-slate-400 hover:text-white">
+                        <i class="fa-solid fa-truck-fast text-teal-400"></i> Order Status
+                    </button>
+                    <button onclick="openAdminModal()" class="hover:text-teal-400 transition-colors flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 hover:border-teal-500/30 text-slate-400 hover:text-white">
+                        <i class="fa-solid fa-lock text-[10px] text-teal-400"></i> Admin
+                    </button>
                 </nav>
 
                 <!-- CTA & Contact -->
                 <div class="flex items-center gap-3">
+                    <button onclick="openAdminModal()" class="lg:hidden text-xs px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-teal-400">
+                        <i class="fa-solid fa-lock"></i>
+                    </button>
                     <a href="https://wa.me/923055389967" target="_blank" class="w-10 h-10 rounded-full glass hover:bg-green-500/20 text-slate-300 hover:text-green-400 flex items-center justify-center transition-all" title="WhatsApp Author">
                         <i class="fa-brands fa-whatsapp text-lg"></i>
                     </a>
-                    <a href="#pricing" class="bg-gradient-to-r from-teal-500 to-teal-400 hover:from-teal-400 hover:to-teal-300 text-navy-900 px-5 py-2.5 rounded-full font-bold text-sm transition-all shadow-[0_0_20px_rgba(20,184,166,0.4)] hover:scale-105">
+                    <button onclick="openPaymentModal()" class="bg-gradient-to-r from-teal-500 to-teal-400 hover:from-teal-400 hover:to-teal-300 text-navy-900 px-5 py-2.5 rounded-full font-bold text-sm transition-all shadow-[0_0_20px_rgba(20,184,166,0.4)] hover:scale-105">
                         Get Access — $20
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
@@ -114,13 +123,12 @@
 
     <!-- 2. Hero Section with Interactive JS Neural Canvas -->
     <section class="pt-32 pb-16 lg:pt-44 lg:pb-24 relative z-10 overflow-hidden">
-        <!-- Interactive JS Particle Canvas (Background) -->
         <canvas id="heroNeuralCanvas" class="absolute inset-0 w-full h-full pointer-events-none z-0"></canvas>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
                 
-                <!-- Left Column (Text & Value Prop) -->
+                <!-- Left Column -->
                 <div class="lg:col-span-7 text-center lg:text-left">
                     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-300 text-xs font-bold uppercase tracking-wider mb-6 shadow-[0_0_15px_rgba(45,212,191,0.15)]">
                         <i class="fa-solid fa-certificate text-teal-400"></i> Full Commercial License Included
@@ -149,9 +157,9 @@
 
                     <!-- Call To Action Buttons -->
                     <div class="flex flex-col sm:flex-row items-stretch justify-center lg:justify-start gap-4 mb-6 max-w-xl mx-auto lg:mx-0">
-                        <a href="#pricing" class="flex-1 flex items-center justify-center border border-transparent bg-gradient-to-r from-teal-500 to-teal-400 hover:from-teal-400 hover:to-teal-300 text-navy-900 px-8 py-4 rounded-xl font-extrabold text-lg text-center transition-all shadow-[0_0_30px_rgba(20,184,166,0.35)] hover:shadow-[0_0_45px_rgba(20,184,166,0.6)] transform hover:-translate-y-1">
+                        <button onclick="openPaymentModal()" class="flex-1 flex items-center justify-center border border-transparent bg-gradient-to-r from-teal-500 to-teal-400 hover:from-teal-400 hover:to-teal-300 text-navy-900 px-8 py-4 rounded-xl font-extrabold text-lg text-center transition-all shadow-[0_0_30px_rgba(20,184,166,0.35)] hover:shadow-[0_0_45px_rgba(20,184,166,0.6)] transform hover:-translate-y-1">
                             Get Instant Access — $20
-                        </a>
+                        </button>
                         <a href="#examples" class="flex-1 flex items-center justify-center glass hover:bg-slate-800/80 text-white px-8 py-4 rounded-xl font-bold text-lg text-center transition-all border border-slate-700 hover:border-teal-500/40">
                             See Real Examples
                         </a>
@@ -172,23 +180,17 @@
                     </div>
                 </div>
 
-                <!-- Right Column (Interactive 3D Physics-Tilt Book) -->
+                <!-- Right Column (3D Interactive Book) -->
                 <div class="lg:col-span-5 relative flex justify-center">
                     <div id="bookCardWrapper" class="relative w-full max-w-sm aspect-[3/4] perspective-[1200px] cursor-pointer group">
                         
-                        <!-- Floating Background Aura -->
                         <div class="absolute -inset-6 bg-gradient-to-tr from-teal-500/30 via-cyan-500/20 to-blue-600/30 blur-3xl rounded-full animate-pulse opacity-70 pointer-events-none"></div>
 
-                        <!-- 3D Book Cover Container -->
                         <div id="bookCard" class="relative w-full h-full rounded-2xl bg-gradient-to-br from-[#0c1631] via-[#070e20] to-[#030712] border-2 border-teal-500/40 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9),0_0_40px_rgba(20,184,166,0.3)] flex flex-col justify-between p-8 overflow-hidden select-none transition-transform duration-100 animate-book-float">
                             
-                            <!-- Dynamic Specular Glare Reflection -->
                             <div id="bookGlare" class="absolute inset-0 pointer-events-none z-20 opacity-0 transition-opacity duration-300"></div>
-
-                            <!-- Geometric Background Pattern -->
                             <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#2dd4bf_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
 
-                            <!-- Book Top Header -->
                             <div class="relative z-10 flex items-center justify-between">
                                 <div class="flex items-center gap-2">
                                     <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-teal-400 to-teal-600 flex items-center justify-center font-black text-navy-900 shadow-[0_0_15px_rgba(45,212,191,0.6)] text-base">
@@ -203,7 +205,6 @@
                                 </span>
                             </div>
 
-                            <!-- Book Middle Title -->
                             <div class="relative z-10 my-auto text-center space-y-3">
                                 <div class="w-12 h-1 bg-gradient-to-r from-teal-400 to-cyan-400 rounded-full mx-auto"></div>
                                 <h2 class="text-3xl font-black text-white leading-tight tracking-tight">
@@ -217,7 +218,6 @@
                                 </p>
                             </div>
 
-                            <!-- Book Bottom Footer -->
                             <div class="relative z-10 pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
                                 <div>
                                     <div class="font-extrabold text-white text-xs">MUHAMMAD ALI</div>
@@ -258,7 +258,7 @@
         </div>
     </section>
 
-    <!-- Vendor Neutral Logos -->
+    <!-- Vendor Logos -->
     <section class="border-y border-white/5 bg-white/[0.02] backdrop-blur-sm py-8 relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <p class="text-center text-xs font-semibold text-slate-500 uppercase tracking-widest mb-6">Engineered to work flawlessly with</p>
@@ -283,7 +283,6 @@
 
             <div class="glass border border-slate-700/50 rounded-3xl overflow-hidden p-1 md:p-2 shadow-2xl">
                 <div class="bg-navy-900 rounded-2xl grid lg:grid-cols-2 overflow-hidden border border-slate-800">
-                    <!-- Prompt Side -->
                     <div class="p-6 md:p-8 border-b lg:border-b-0 lg:border-r border-slate-800 relative">
                         <div class="absolute top-0 right-0 bg-teal-500/10 text-teal-400 text-xs font-bold px-3 py-1 rounded-bl-lg border-b border-l border-teal-500/20">The Playbook Prompt</div>
                         <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
@@ -298,7 +297,6 @@
                         </div>
                     </div>
 
-                    <!-- Output Side -->
                     <div class="p-6 md:p-8 bg-slate-900/50 relative flex items-center justify-center">
                         <div class="absolute top-0 left-0 bg-green-500/10 text-green-400 text-xs font-bold px-3 py-1 rounded-br-lg border-b border-r border-green-500/20">The Flawless Output</div>
                         
@@ -314,7 +312,7 @@
                                 <li class="flex items-center gap-2"><i class="fa-solid fa-check text-teal-400"></i> 10 Visual Proof Plates</li>
                                 <li class="flex items-center gap-2"><i class="fa-solid fa-check text-teal-400"></i> Commercial License Included</li>
                             </ul>
-                            <button class="w-full bg-white hover:bg-slate-200 text-black font-extrabold py-3 rounded-xl transition-colors text-xs">
+                            <button onclick="openPaymentModal()" class="w-full bg-white hover:bg-slate-200 text-black font-extrabold py-3 rounded-xl transition-colors text-xs">
                                 Instant Download
                             </button>
                         </div>
@@ -550,17 +548,20 @@
                 </div>
                 
                 <div>
-                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-[11px]">Connect & Support</h4>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-[11px]">Connect & Admin</h4>
                     <div class="flex flex-col gap-2.5 text-slate-400">
                         <a href="http://www.alibuild.site" target="_blank" class="hover:text-teal-400 transition-colors flex items-center gap-2">
                             <i class="fa-solid fa-globe w-4"></i> alibuild.site
                         </a>
                         <a href="https://wa.me/923055389967" target="_blank" class="hover:text-green-400 transition-colors flex items-center gap-2">
-                            <i class="fa-brands fa-whatsapp w-4"></i> +92 305 5389967
+                            <i class="fa-brands fa-whatsapp w-4"></i> WhatsApp: +92 305 5389967
                         </a>
-                        <a href="mailto:alikhan1475623@gmail.com" class="hover:text-teal-400 transition-colors flex items-center gap-2">
-                            <i class="fa-solid fa-envelope w-4"></i> alikhan1475623@gmail.com
-                        </a>
+                        <button onclick="openOrderStatusModal()" class="hover:text-teal-400 transition-colors flex items-center gap-2 text-left">
+                            <i class="fa-solid fa-truck-fast w-4"></i> Order Status Lookup
+                        </button>
+                        <button onclick="openAdminModal()" class="hover:text-teal-400 transition-colors flex items-center gap-2 text-left text-teal-400 font-semibold mt-1">
+                            <i class="fa-solid fa-lock w-4"></i> 🔒 Admin Dashboard Portal
+                        </button>
                     </div>
                 </div>
             </div>
@@ -583,8 +584,20 @@
             <h3 class="text-2xl font-black text-white mb-1 text-center">Checkout (<span id="modalPrice" class="text-teal-400">$20</span>)</h3>
             <p class="text-slate-400 text-xs text-center mb-6">Choose your preferred payment method below:</p>
             
+            <!-- Customer Info Form -->
+            <div class="space-y-3 mb-5">
+                <div>
+                    <label class="block text-[11px] font-bold text-slate-300 uppercase tracking-wider mb-1">Your Name</label>
+                    <input type="text" id="custName" placeholder="Full Name" class="w-full bg-slate-950 border border-slate-700 text-white px-3 py-2 rounded-xl text-xs focus:outline-none focus:border-teal-500">
+                </div>
+                <div>
+                    <label class="block text-[11px] font-bold text-slate-300 uppercase tracking-wider mb-1">WhatsApp Phone (For PDF Delivery)</label>
+                    <input type="text" id="custPhone" placeholder="0300 1234567" class="w-full bg-slate-950 border border-slate-700 text-white px-3 py-2 rounded-xl text-xs focus:outline-none focus:border-teal-500">
+                </div>
+            </div>
+
             <!-- Promo Code Input -->
-            <div class="mb-6 bg-slate-950 p-3.5 rounded-2xl border border-slate-800">
+            <div class="mb-5 bg-slate-950 p-3.5 rounded-2xl border border-slate-800">
                 <label class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">Have a discount promo code?</label>
                 <div class="flex gap-2">
                     <input type="text" id="promoInput" placeholder="Enter code (e.g. WALEED)" class="w-full bg-slate-900 border border-slate-700 text-white px-3 py-2 rounded-xl text-xs font-mono uppercase focus:outline-none focus:border-teal-500">
@@ -594,7 +607,7 @@
             </div>
 
             <!-- Payment Accounts List -->
-            <div class="space-y-3 text-xs">
+            <div class="space-y-3 text-xs mb-5">
                 <!-- JazzCash -->
                 <div class="glass p-3.5 rounded-2xl flex items-center justify-between border border-slate-700/60 hover:border-red-500/40 transition-colors">
                     <div class="flex items-center gap-3">
@@ -656,66 +669,567 @@
                 </div>
             </div>
 
-            <!-- WhatsApp Delivery Button -->
-            <div class="mt-6 pt-4 border-t border-slate-800">
-                <a id="waButton" href="https://wa.me/923055389967?text=Hi!%20I%20just%20paid%20$20%20for%20the%20Prompt%20Playbook.%20Here%20is%20my%20screenshot." target="_blank" class="w-full bg-[#25D366] hover:bg-[#1ebd5a] text-white font-extrabold py-3.5 rounded-xl transition-all shadow-[0_0_20px_rgba(37,211,102,0.3)] hover:scale-[1.02] flex items-center justify-center gap-2 text-xs">
-                    <i class="fa-brands fa-whatsapp text-lg"></i> I Have Paid — Send My Playbook PDF
-                </a>
+            <!-- Transaction ID Input -->
+            <div class="mb-5">
+                <label class="block text-[11px] font-bold text-slate-300 uppercase tracking-wider mb-1">Transaction ID / Reference Number</label>
+                <input type="text" id="custTrxId" placeholder="e.g. TRX-9821820" class="w-full bg-slate-950 border border-slate-700 text-white px-3 py-2 rounded-xl text-xs focus:outline-none focus:border-teal-500">
+            </div>
+
+            <!-- Submit & WhatsApp Delivery Button -->
+            <div class="pt-2">
+                <button onclick="handlePlaceOrder()" class="w-full bg-[#25D366] hover:bg-[#1ebd5a] text-white font-extrabold py-3.5 rounded-xl transition-all shadow-[0_0_20px_rgba(37,211,102,0.3)] hover:scale-[1.02] flex items-center justify-center gap-2 text-xs">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> Submit Order & Send Screenshot via WhatsApp
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Interactive JS Scripts -->
+    <!-- 11. Order Status Lookup Modal -->
+    <div id="orderStatusModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-md" onclick="closeOrderStatusModal()"></div>
+        <div class="bg-slate-900 border border-teal-500/40 rounded-3xl p-6 md:p-8 max-w-md w-full relative z-10 shadow-2xl space-y-5">
+            <button onclick="closeOrderStatusModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <div>
+                <h3 class="text-xl font-bold text-white">Order Status Lookup</h3>
+                <p class="text-xs text-slate-400">Track your playbook delivery status</p>
+            </div>
+
+            <div class="space-y-3">
+                <input type="text" id="lookupInput" placeholder="Enter Order ID or WhatsApp Phone" class="w-full bg-slate-950 border border-slate-700 text-white px-3 py-2.5 rounded-xl text-xs focus:outline-none focus:border-teal-500">
+                <button onclick="handleLookupOrder()" class="w-full bg-teal-500 hover:bg-teal-400 text-navy-900 font-bold py-2.5 rounded-xl text-xs transition-colors">
+                    Check Status
+                </button>
+            </div>
+
+            <div id="lookupResult" class="hidden p-4 rounded-xl glass border border-slate-700 text-xs space-y-2"></div>
+        </div>
+    </div>
+
+    <!-- 12. Full Admin Dashboard Modal -->
+    <div id="adminModal" class="fixed inset-0 z-[110] hidden items-center justify-center p-2 md:p-6">
+        <div class="absolute inset-0 bg-black/85 backdrop-blur-lg" onclick="closeAdminModal()"></div>
+        <div class="bg-slate-900 border border-teal-500/40 rounded-3xl w-full max-w-5xl max-h-[92vh] overflow-y-auto relative z-10 shadow-2xl p-6 md:p-8 space-y-6 text-slate-200">
+            
+            <button onclick="closeAdminModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+
+            <!-- Admin Login View (If not logged in) -->
+            <div id="adminLoginView" class="max-w-sm mx-auto py-8 space-y-6 text-center">
+                <div class="w-14 h-14 bg-teal-500/10 rounded-2xl flex items-center justify-center text-teal-400 text-2xl mx-auto shadow-[0_0_20px_rgba(20,184,166,0.3)]">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-black text-white">Admin Portal</h3>
+                    <p class="text-xs text-slate-400">Enter your credentials to manage orders & promos</p>
+                </div>
+
+                <div id="adminLoginError" class="hidden p-3 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-bold"></div>
+
+                <form onsubmit="handleAdminLogin(event)" class="space-y-4 text-left">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1">Username</label>
+                        <input required type="text" id="adminUserInput" value="admin" class="w-full bg-slate-950 border border-slate-700 focus:border-teal-500 text-white px-3 py-2.5 rounded-xl text-xs focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1">Password</label>
+                        <input required type="password" id="adminPassInput" value="admin123" class="w-full bg-slate-950 border border-slate-700 focus:border-teal-500 text-white px-3 py-2.5 rounded-xl text-xs focus:outline-none">
+                    </div>
+                    <button type="submit" class="w-full bg-teal-500 hover:bg-teal-400 text-navy-900 font-black py-3 rounded-xl text-xs transition-all shadow-[0_0_15px_rgba(20,184,166,0.3)]">
+                        Login to Dashboard
+                    </button>
+                    <p class="text-[11px] text-slate-500 text-center">Default credentials: admin / admin123</p>
+                </form>
+            </div>
+
+            <!-- Admin Dashboard View (When logged in) -->
+            <div id="adminDashboardView" class="hidden space-y-6">
+                <!-- Top Dashboard Bar -->
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-slate-800 pb-4">
+                    <div>
+                        <span class="text-[10px] font-mono font-bold text-teal-400 bg-teal-500/10 px-2 py-0.5 rounded uppercase">Live Admin System</span>
+                        <h3 class="text-2xl font-black text-white">Store Analytics & Orders</h3>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="toggleAdminPassChange()" class="text-xs px-3 py-1.5 rounded-xl bg-teal-500/10 border border-teal-500/30 text-teal-300 font-bold hover:bg-teal-500/20">
+                            <i class="fa-solid fa-key mr-1"></i> Change Password
+                        </button>
+                        <button onclick="handleAdminLogout()" class="text-xs px-3 py-1.5 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 font-bold hover:bg-red-500/20">
+                            <i class="fa-solid fa-power-off mr-1"></i> Logout
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Password Change Box (Collapsible) -->
+                <div id="adminPassChangeBox" class="hidden p-4 rounded-2xl bg-slate-950 border border-teal-500/30 space-y-3">
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider">Update Admin Password</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <input type="text" id="updateUserVal" placeholder="New Username" class="bg-slate-900 border border-slate-700 text-white px-3 py-2 rounded-xl text-xs focus:outline-none focus:border-teal-500">
+                        <input type="password" id="updatePassVal" placeholder="New Password" class="bg-slate-900 border border-slate-700 text-white px-3 py-2 rounded-xl text-xs focus:outline-none focus:border-teal-500">
+                        <button onclick="saveNewAdminPassword()" class="bg-teal-500 hover:bg-teal-400 text-navy-900 font-bold px-4 py-2 rounded-xl text-xs">
+                            Save Password
+                        </button>
+                    </div>
+                    <p id="passChangeMsg" class="text-xs hidden"></p>
+                </div>
+
+                <!-- KPI Overview Grid -->
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="glass p-4 rounded-2xl border border-teal-500/20">
+                        <span class="text-[11px] text-slate-400 font-bold uppercase">Total Revenue</span>
+                        <div id="statTotalRev" class="text-2xl font-black text-white mt-1">$0</div>
+                    </div>
+                    <div class="glass p-4 rounded-2xl border border-blue-500/20">
+                        <span class="text-[11px] text-slate-400 font-bold uppercase">Copies Sold</span>
+                        <div id="statTotalCopies" class="text-2xl font-black text-blue-400 mt-1">0</div>
+                    </div>
+                    <div class="glass p-4 rounded-2xl border border-purple-500/20">
+                        <span class="text-[11px] text-slate-400 font-bold uppercase">Promo Sales</span>
+                        <div id="statPromoCopies" class="text-2xl font-black text-purple-400 mt-1">0</div>
+                    </div>
+                    <div class="glass p-4 rounded-2xl border border-yellow-500/20">
+                        <span class="text-[11px] text-slate-400 font-bold uppercase">Pending Verification</span>
+                        <div id="statPendingOrders" class="text-2xl font-black text-yellow-400 mt-1">0</div>
+                    </div>
+                </div>
+
+                <!-- Promo Sales Performance Section -->
+                <div class="glass p-5 rounded-2xl border border-teal-500/30 space-y-4">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                        <div>
+                            <h4 class="font-bold text-white text-base">Book Copies Sold By Promo Code</h4>
+                            <p class="text-[11px] text-slate-400">Track which promo code generated how many sales</p>
+                        </div>
+                        <!-- Add Promo Form -->
+                        <div class="flex items-center gap-2">
+                            <input type="text" id="newPromoCodeInput" placeholder="NEW CODE" class="bg-slate-950 border border-slate-700 text-white px-3 py-1.5 rounded-xl text-xs font-mono uppercase focus:outline-none focus:border-teal-500 w-28">
+                            <input type="number" id="newPromoDiscInput" value="50" min="1" max="100" class="bg-slate-950 border border-slate-700 text-white px-2 py-1.5 rounded-xl text-xs font-bold w-14 text-center focus:outline-none">
+                            <button onclick="handleAddPromo()" class="bg-teal-500 hover:bg-teal-400 text-navy-900 font-bold px-3 py-1.5 rounded-xl text-xs">
+                                + Add Promo
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Promo Cards Grid -->
+                    <div id="adminPromoCardsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3"></div>
+                </div>
+
+                <!-- Orders Table -->
+                <div class="glass p-5 rounded-2xl border border-slate-800 space-y-4">
+                    <div class="flex justify-between items-center">
+                        <h4 class="font-bold text-white text-base">Customer Orders</h4>
+                        <button onclick="renderAdminDashboard()" class="text-xs text-slate-400 hover:text-white">
+                            <i class="fa-solid fa-rotate mr-1"></i> Refresh
+                        </button>
+                    </div>
+
+                    <div class="overflow-x-auto rounded-xl border border-slate-800">
+                        <table class="w-full text-left text-xs text-slate-300">
+                            <thead class="bg-slate-950 text-slate-400 uppercase font-semibold border-b border-slate-800">
+                                <tr>
+                                    <th class="py-3 px-3">Order ID</th>
+                                    <th class="py-3 px-3">Customer</th>
+                                    <th class="py-3 px-3">Method & TID</th>
+                                    <th class="py-3 px-3">Promo</th>
+                                    <th class="py-3 px-3">Paid</th>
+                                    <th class="py-3 px-3">Status</th>
+                                    <th class="py-3 px-3 text-right">Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody id="adminOrdersTableBody" class="divide-y divide-slate-800/60 bg-slate-950/40"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Scripts -->
     <script>
-        // Modal Controls
+        // --- LOCAL STORAGE DATA ENGINE ---
+        const DEFAULT_PROMOS = [
+            { id: 'p_waleed', code: 'WALEED', discountPercent: 50, isActive: true },
+            { id: 'p_launch', code: 'LAUNCH30', discountPercent: 30, isActive: true }
+        ];
+
+        const DEFAULT_ORDERS = [
+            { id: 'ORD-91024', name: 'Waleed Khan', phone: '03215423874', method: 'EasyPaisa', trxId: 'EP-449102', promo: 'WALEED', amount: 10, status: 'delivered', date: new Date().toLocaleDateString() },
+            { id: 'ORD-84910', name: 'Hamza Ali', phone: '03001234567', method: 'JazzCash', trxId: 'JC-881920', promo: 'WALEED', amount: 10, status: 'confirmed', date: new Date().toLocaleDateString() },
+            { id: 'ORD-72019', name: 'John Smith', phone: '+14155552671', method: 'Binance Pay', trxId: 'BN-192801', promo: '', amount: 20, status: 'delivered', date: new Date().toLocaleDateString() }
+        ];
+
+        function getStoredOrders() {
+            const data = localStorage.getItem('prompt_orders');
+            return data ? JSON.parse(data) : DEFAULT_ORDERS;
+        }
+
+        function saveStoredOrders(orders) {
+            localStorage.setItem('prompt_orders', JSON.stringify(orders));
+        }
+
+        function getStoredPromos() {
+            const data = localStorage.getItem('prompt_promos');
+            return data ? JSON.parse(data) : DEFAULT_PROMOS;
+        }
+
+        function saveStoredPromos(promos) {
+            localStorage.setItem('prompt_promos', JSON.stringify(promos));
+        }
+
+        function getAdminCredentials() {
+            const data = localStorage.getItem('prompt_admin_cred');
+            return data ? JSON.parse(data) : { username: 'admin', password: 'admin123' };
+        }
+
+        function saveAdminCredentials(cred) {
+            localStorage.setItem('prompt_admin_cred', JSON.stringify(cred));
+        }
+
+        // --- MODAL CONTROLS ---
         function openPaymentModal() {
-            const m = document.getElementById('paymentModal');
-            m.classList.remove('hidden');
-            m.classList.add('flex');
+            document.getElementById('paymentModal').classList.remove('hidden');
+            document.getElementById('paymentModal').classList.add('flex');
         }
 
         function closePaymentModal() {
-            const m = document.getElementById('paymentModal');
-            m.classList.add('hidden');
-            m.classList.remove('flex');
+            document.getElementById('paymentModal').classList.add('hidden');
+            document.getElementById('paymentModal').classList.remove('flex');
         }
 
-        // Promo Code Logic (WALEED gives 50% discount)
-        let currentPrice = 20;
-        let activePromo = "";
+        function openOrderStatusModal() {
+            document.getElementById('orderStatusModal').classList.remove('hidden');
+            document.getElementById('orderStatusModal').classList.add('flex');
+        }
+
+        function closeOrderStatusModal() {
+            document.getElementById('orderStatusModal').classList.add('hidden');
+            document.getElementById('orderStatusModal').classList.remove('flex');
+        }
+
+        function openAdminModal() {
+            document.getElementById('adminModal').classList.remove('hidden');
+            document.getElementById('adminModal').classList.add('flex');
+            
+            const isAuth = sessionStorage.getItem('admin_session_auth');
+            if (isAuth === 'true') {
+                document.getElementById('adminLoginView').classList.add('hidden');
+                document.getElementById('adminDashboardView').classList.remove('hidden');
+                renderAdminDashboard();
+            } else {
+                document.getElementById('adminLoginView').classList.remove('hidden');
+                document.getElementById('adminDashboardView').classList.add('hidden');
+            }
+        }
+
+        function closeAdminModal() {
+            document.getElementById('adminModal').classList.add('hidden');
+            document.getElementById('adminModal').classList.remove('flex');
+        }
+
+        // --- CHECKOUT & PROMO CODE LOGIC ---
+        let currentOrderAmount = 20;
+        let appliedPromoCode = '';
 
         function applyPromoCode() {
             const input = document.getElementById('promoInput').value.trim().toUpperCase();
             const messageEl = document.getElementById('promoMessage');
             const priceEl = document.getElementById('modalPrice');
-            const waButton = document.getElementById('waButton');
+            const promos = getStoredPromos();
 
-            if (input === 'WALEED') {
-                currentPrice = 10;
-                activePromo = input;
-                priceEl.innerText = "$10";
+            const matched = promos.find(p => p.code === input && p.isActive);
+
+            if (matched) {
+                const discountRate = matched.discountPercent / 100;
+                currentOrderAmount = Math.round(20 * (1 - discountRate));
+                appliedPromoCode = matched.code;
+
+                priceEl.innerText = `$${currentOrderAmount}`;
                 priceEl.classList.add('text-green-400');
-                
-                messageEl.innerText = "🎉 50% discount applied! Price dropped to $10.";
-                messageEl.className = "text-xs mt-2 text-green-400 block font-bold";
-                
-                waButton.href = `https://wa.me/923055389967?text=Hi!%20I%20just%20paid%20$10%20using%20the%20promo%20code%20${input}%20for%20The%20Practical%20AI%20Prompt%20Playbook.%20Here%20is%20my%20screenshot.`;
-            } else if (input === "") {
-                messageEl.innerText = "";
+
+                messageEl.innerText = `🎉 ${matched.discountPercent}% discount applied! Price: $${currentOrderAmount}`;
+                messageEl.className = 'text-xs mt-2 text-green-400 block font-bold';
+            } else if (input === '') {
+                messageEl.innerText = '';
                 messageEl.classList.add('hidden');
             } else {
-                messageEl.innerText = "❌ Invalid promo code.";
-                messageEl.className = "text-xs mt-2 text-red-400 block font-bold";
-                
-                currentPrice = 20;
-                activePromo = "";
-                priceEl.innerText = "$20";
+                currentOrderAmount = 20;
+                appliedPromoCode = '';
+                priceEl.innerText = '$20';
                 priceEl.classList.remove('text-green-400');
-                waButton.href = "https://wa.me/923055389967?text=Hi!%20I%20just%20paid%20$20%20for%20The%20Practical%20AI%20Prompt%20Playbook.%20Here%20is%20my%20screenshot.";
+
+                messageEl.innerText = '❌ Invalid or inactive promo code.';
+                messageEl.className = 'text-xs mt-2 text-red-400 block font-bold';
             }
         }
 
-        // 1. Interactive Neural Network Canvas Animation
+        function handlePlaceOrder() {
+            const name = document.getElementById('custName').value.trim() || 'Anonymous';
+            const phone = document.getElementById('custPhone').value.trim() || 'N/A';
+            const trxId = document.getElementById('custTrxId').value.trim() || 'Pending';
+
+            const newOrder = {
+                id: `ORD-${Math.floor(10000 + Math.random() * 90000)}`,
+                name,
+                phone,
+                method: 'Direct Payment',
+                trxId,
+                promo: appliedPromoCode,
+                amount: currentOrderAmount,
+                status: 'pending',
+                date: new Date().toLocaleDateString()
+            };
+
+            const orders = getStoredOrders();
+            orders.unshift(newOrder);
+            saveStoredOrders(orders);
+
+            // WhatsApp link
+            const promoText = appliedPromoCode ? ` using promo code ${appliedPromoCode}` : '';
+            const msg = `Hi Muhammad Ali! I just placed order ${newOrder.id} for The Practical AI Prompt Playbook ($${currentOrderAmount}${promoText}). My Name: ${name}, Phone: ${phone}, TID: ${trxId}. Here is my payment screenshot!`;
+            const waUrl = `https://wa.me/923055389967?text=${encodeURIComponent(msg)}`;
+
+            closePaymentModal();
+            window.open(waUrl, '_blank');
+        }
+
+        // --- ORDER STATUS LOOKUP ---
+        function handleLookupOrder() {
+            const query = document.getElementById('lookupInput').value.trim().toLowerCase();
+            const resultEl = document.getElementById('lookupResult');
+            if (!query) return;
+
+            const orders = getStoredOrders();
+            const found = orders.find(o => o.id.toLowerCase() === query || o.phone.includes(query) || o.trxId.toLowerCase() === query);
+
+            resultEl.classList.remove('hidden');
+            if (found) {
+                const statusBadge = found.status === 'delivered' 
+                    ? '<span class="text-green-400 font-bold">✅ Delivered (PDF Sent)</span>'
+                    : found.status === 'confirmed'
+                    ? '<span class="text-blue-400 font-bold">💳 Confirmed (Dispatching)</span>'
+                    : '<span class="text-yellow-400 font-bold">⏳ Pending Verification</span>';
+
+                resultEl.innerHTML = `
+                    <div class="flex justify-between items-center border-b border-slate-700 pb-2">
+                        <span class="font-mono font-bold text-teal-400">${found.id}</span>
+                        <span>${statusBadge}</span>
+                    </div>
+                    <div class="text-slate-300">Customer: <strong class="text-white">${found.name}</strong> (${found.phone})</div>
+                    <div class="text-slate-300">Amount: <strong class="text-white">$${found.amount}</strong> ${found.promo ? `(Promo: ${found.promo})` : ''}</div>
+                    <div class="text-slate-400 text-[11px]">Date: ${found.date}</div>
+                `;
+            } else {
+                resultEl.innerHTML = `<div class="text-red-400 font-bold">No order found matching "${query}". Please check your Order ID or contact WhatsApp support (+92 305 5389967).</div>`;
+            }
+        }
+
+        // --- ADMIN LOGIN & DASHBOARD ---
+        function handleAdminLogin(e) {
+            e.preventDefault();
+            const user = document.getElementById('adminUserInput').value.trim();
+            const pass = document.getElementById('adminPassInput').value;
+            const cred = getAdminCredentials();
+            const errEl = document.getElementById('adminLoginError');
+
+            if (user === cred.username && pass === cred.password) {
+                sessionStorage.setItem('admin_session_auth', 'true');
+                errEl.classList.add('hidden');
+                document.getElementById('adminLoginView').classList.add('hidden');
+                document.getElementById('adminDashboardView').classList.remove('hidden');
+                renderAdminDashboard();
+            } else {
+                errEl.innerText = 'Invalid username or password';
+                errEl.classList.remove('hidden');
+            }
+        }
+
+        function handleAdminLogout() {
+            sessionStorage.removeItem('admin_session_auth');
+            document.getElementById('adminLoginView').classList.remove('hidden');
+            document.getElementById('adminDashboardView').classList.add('hidden');
+        }
+
+        function toggleAdminPassChange() {
+            const box = document.getElementById('adminPassChangeBox');
+            box.classList.toggle('hidden');
+        }
+
+        function saveNewAdminPassword() {
+            const u = document.getElementById('updateUserVal').value.trim();
+            const p = document.getElementById('updatePassVal').value;
+            const msg = document.getElementById('passChangeMsg');
+
+            if (!p || p.length < 4) {
+                msg.innerText = 'Password must be at least 4 characters!';
+                msg.className = 'text-xs text-red-400 block font-bold';
+                return;
+            }
+
+            const cred = getAdminCredentials();
+            if (u) cred.username = u;
+            cred.password = p;
+            saveAdminCredentials(cred);
+
+            msg.innerText = '✅ Admin credentials updated successfully!';
+            msg.className = 'text-xs text-green-400 block font-bold';
+            document.getElementById('updatePassVal').value = '';
+        }
+
+        function handleAddPromo() {
+            const code = document.getElementById('newPromoCodeInput').value.trim().toUpperCase();
+            const discount = Number(document.getElementById('newPromoDiscInput').value) || 50;
+            if (!code) return;
+
+            const promos = getStoredPromos();
+            if (promos.find(p => p.code === code)) {
+                alert('Promo code already exists!');
+                return;
+            }
+
+            promos.push({
+                id: `p_${Date.now()}`,
+                code,
+                discountPercent: discount,
+                isActive: true
+            });
+            saveStoredPromos(promos);
+            document.getElementById('newPromoCodeInput').value = '';
+            renderAdminDashboard();
+        }
+
+        function deleteStoredPromo(id) {
+            if (!confirm('Delete this promo code?')) return;
+            let promos = getStoredPromos();
+            promos = promos.filter(p => p.id !== id);
+            saveStoredPromos(promos);
+            renderAdminDashboard();
+        }
+
+        function toggleStoredPromo(id) {
+            const promos = getStoredPromos();
+            const p = promos.find(item => item.id === id);
+            if (p) p.isActive = !p.isActive;
+            saveStoredPromos(promos);
+            renderAdminDashboard();
+        }
+
+        function updateStoredOrderStatus(orderId, newStatus) {
+            const orders = getStoredOrders();
+            const o = orders.find(item => item.id === orderId);
+            if (o) o.status = newStatus;
+            saveStoredOrders(orders);
+            renderAdminDashboard();
+        }
+
+        function deleteStoredOrder(orderId) {
+            if (!confirm('Delete this order record?')) return;
+            let orders = getStoredOrders();
+            orders = orders.filter(item => item.id !== orderId);
+            saveStoredOrders(orders);
+            renderAdminDashboard();
+        }
+
+        function renderAdminDashboard() {
+            const orders = getStoredOrders();
+            const promos = getStoredPromos();
+
+            // Stats
+            const totalRev = orders.reduce((acc, o) => acc + (Number(o.amount) || 0), 0);
+            const totalCopies = orders.length;
+            const promoCopies = orders.filter(o => o.promo && o.promo.trim().length > 0).length;
+            const pendingOrders = orders.filter(o => o.status === 'pending').length;
+
+            document.getElementById('statTotalRev').innerText = `$${totalRev}`;
+            document.getElementById('statTotalCopies').innerText = `${totalCopies}`;
+            document.getElementById('statPromoCopies').innerText = `${promoCopies} (${totalCopies > 0 ? Math.round((promoCopies/totalCopies)*100) : 0}%)`;
+            document.getElementById('statPendingOrders').innerText = `${pendingOrders}`;
+
+            // Promo sales breakdown
+            const promoCounts = {};
+            orders.forEach(o => {
+                const c = o.promo ? o.promo.toUpperCase() : 'NO PROMO';
+                if (!promoCounts[c]) promoCounts[c] = { count: 0, rev: 0 };
+                promoCounts[c].count++;
+                promoCounts[c].rev += Number(o.amount) || 0;
+            });
+
+            // Render Promo Grid
+            const promoGrid = document.getElementById('adminPromoCardsGrid');
+            let promoHtml = `
+                <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="text-xs font-mono font-bold text-slate-300">DIRECT (NO PROMO)</span>
+                        <span class="text-xs text-slate-400">$20 / copy</span>
+                    </div>
+                    <div class="text-xl font-black text-white">${promoCounts['NO PROMO']?.count || 0} <span class="text-xs font-normal text-slate-400">copies sold</span></div>
+                    <div class="text-xs font-bold text-teal-400 mt-1">$${promoCounts['NO PROMO']?.rev || 0} Revenue</div>
+                </div>
+            `;
+
+            promos.forEach(p => {
+                const stats = promoCounts[p.code] || { count: 0, rev: 0 };
+                promoHtml += `
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 hover:border-teal-500/30">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="text-xs font-mono font-black text-teal-400 bg-teal-500/10 px-2 py-0.5 rounded">${p.code}</span>
+                            <div class="flex items-center gap-1.5">
+                                <button onclick="toggleStoredPromo('${p.id}')" class="text-[10px] font-bold px-1.5 py-0.5 rounded ${p.isActive ? 'bg-green-500/10 text-green-400' : 'bg-slate-800 text-slate-500'}">
+                                    ${p.isActive ? 'Active' : 'Off'}
+                                </button>
+                                <button onclick="deleteStoredPromo('${p.id}')" class="text-slate-500 hover:text-red-400 text-xs p-0.5">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="text-xl font-black text-white">${stats.count} <span class="text-xs font-normal text-slate-400">copies sold</span></div>
+                        <div class="text-xs font-bold text-teal-400 mt-1">$${stats.rev} Revenue (${p.discountPercent}% OFF)</div>
+                    </div>
+                `;
+            });
+            promoGrid.innerHTML = promoHtml;
+
+            // Render Orders Table
+            const tbody = document.getElementById('adminOrdersTableBody');
+            if (orders.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="7" class="py-6 text-center text-slate-500">No orders placed yet.</td></tr>`;
+            } else {
+                tbody.innerHTML = orders.map(o => `
+                    <tr class="hover:bg-slate-900/50">
+                        <td class="py-3 px-3 font-mono text-[11px] text-teal-300 font-bold">${o.id}</td>
+                        <td class="py-3 px-3">
+                            <div class="font-bold text-white">${o.name}</div>
+                            <div class="text-[11px] text-green-400">${o.phone}</div>
+                        </td>
+                        <td class="py-3 px-3 font-mono text-[11px] text-slate-300">
+                            <div>${o.method}</div>
+                            <div class="text-slate-500 text-[10px]">${o.trxId}</div>
+                        </td>
+                        <td class="py-3 px-3">
+                            ${o.promo ? `<span class="px-2 py-0.5 rounded bg-teal-500/10 text-teal-300 font-mono font-bold text-[10px] border border-teal-500/30">${o.promo}</span>` : '<span class="text-slate-500 text-[10px]">Full $20</span>'}
+                        </td>
+                        <td class="py-3 px-3 font-black text-white">$${o.amount}</td>
+                        <td class="py-3 px-3">
+                            <select onchange="updateStoredOrderStatus('${o.id}', this.value)" class="bg-slate-900 border border-slate-700 text-xs rounded px-2 py-1 text-slate-200 focus:outline-none">
+                                <option value="pending" ${o.status === 'pending' ? 'selected' : ''}>⏳ Pending</option>
+                                <option value="confirmed" ${o.status === 'confirmed' ? 'selected' : ''}>💳 Confirmed</option>
+                                <option value="delivered" ${o.status === 'delivered' ? 'selected' : ''}>✅ Delivered</option>
+                            </select>
+                        </td>
+                        <td class="py-3 px-3 text-right">
+                            <button onclick="deleteStoredOrder('${o.id}')" class="text-slate-500 hover:text-red-400 p-1">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `).join('');
+            }
+        }
+
+        // --- 1. Interactive Neural Network Canvas Animation ---
         (function initNeuralCanvas() {
             const canvas = document.getElementById('heroNeuralCanvas');
             if (!canvas) return;
@@ -754,7 +1268,6 @@
             function animate() {
                 ctx.clearRect(0, 0, width, height);
 
-                // Connect particles
                 for (let a = 0; a < particles.length; a++) {
                     for (let b = a + 1; b < particles.length; b++) {
                         const dx = particles[a].x - particles[b].x;
@@ -810,7 +1323,7 @@
             animate();
         })();
 
-        // 2. Interactive 3D Book Physics Tilt & Glare
+        // --- 2. Interactive 3D Book Physics Tilt & Glare ---
         (function init3DBookPhysics() {
             const wrapper = document.getElementById('bookCardWrapper');
             const card = document.getElementById('bookCard');
@@ -842,7 +1355,7 @@
             });
         })();
 
-        // 3. Live Typewriter Terminal Engine
+        // --- 3. Live Typewriter Terminal Engine ---
         (function initTypewriter() {
             const el = document.getElementById('typewriterText');
             if (!el) return;
@@ -872,7 +1385,7 @@
                 let speed = isDeleting ? 25 : 45;
 
                 if (!isDeleting && charIdx === current.length) {
-                    speed = 2200; // Pause at end of sentence
+                    speed = 2200;
                     isDeleting = true;
                 } else if (isDeleting && charIdx === 0) {
                     isDeleting = false;
