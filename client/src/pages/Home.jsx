@@ -354,7 +354,7 @@ const Home = () => {
             </button>
             
             <p className="text-slate-500 text-[11px]">
-              Accepted: JazzCash • EasyPaisa • SadaPay • NayaPay • Binance Pay
+              Accepted: JazzCash • EasyPaisa • SadaPay • NayaPay • UBL Bank • Binance Pay
             </p>
           </div>
         </div>

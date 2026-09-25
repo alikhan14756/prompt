@@ -74,6 +74,7 @@ npm start      # Serves everything from Express
 | EasyPaisa  | 0321 542 3874                  | Muhammad Ali  |
 | SadaPay    | 0305 538 9967                  | Muhammad Ali  |
 | NayaPay    | 0321 542 3874                  | Muhammad Ali  |
+| UBL (IBAN) | PK19UNIL0109000402274094       | Muhammad Ali  |
 | Binance    | alikhanwebdeveloper@gmail.com  | Muhammad Ali  |
 
 ## 🔐 Admin Setup

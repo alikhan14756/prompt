@@ -62,6 +62,7 @@ const PaymentModal = () => {
     { id: 'easypaisa', name: 'EasyPaisa', detail: '0321 542 3874 (Muhammad Ali)', icon: 'wallet' },
     { id: 'sadapay', name: 'SadaPay', detail: '0305 538 9967 (Muhammad Ali)', icon: 'credit-card' },
     { id: 'nayapay', name: 'NayaPay', detail: '0321 542 3874 (Muhammad Ali)', icon: 'credit-card' },
+    { id: 'ubl', name: 'UBL Bank (IBAN)', detail: 'PK19UNIL0109000402274094 (Muhammad Ali)', icon: 'building-columns' },
     { id: 'binance', name: 'Binance Pay', detail: 'alikhanwebdeveloper@gmail.com', icon: 'bitcoin' },
   ];
 
