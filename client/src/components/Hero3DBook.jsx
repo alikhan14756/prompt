@@ -66,10 +66,10 @@ const Hero3DBook = () => {
         <div className="relative z-10 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-teal-400 to-teal-600 flex items-center justify-center font-black text-navy-900 shadow-[0_0_15px_rgba(45,212,191,0.6)] text-base">
-              AI
+              AL
             </div>
             <span className="text-[11px] font-mono font-bold tracking-widest text-teal-400 uppercase">
-              Production V2.0
+              AIVANOLABS V2.0
             </span>
           </div>
           <span className="px-2.5 py-1 rounded-md bg-teal-500/10 border border-teal-500/30 text-[10px] font-mono font-bold text-teal-300">
@@ -95,7 +95,7 @@ const Hero3DBook = () => {
         <div className="relative z-10 pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
           <div>
             <div className="font-extrabold text-white text-xs">MUHAMMAD ALI</div>
-            <div className="text-[10px] text-teal-400 font-mono">alibuild.site</div>
+            <div className="text-[10px] text-teal-400 font-mono">aivanolabs.site</div>
           </div>
           <div className="text-right">
             <span className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block">
@@ -108,12 +108,8 @@ const Hero3DBook = () => {
 
       {/* Floating Badges with Parallax & Bobbing */}
       <div
-        style={{
-          transform: `translate3d(${rotation.y * -0.6}px, ${rotation.x * 0.6}px, 40px)`,
-          transition: 'transform 0.2s ease-out',
-          animationDuration: '3.5s',
-        }}
         className="absolute -right-6 top-10 glass border border-teal-500/40 p-3 rounded-xl shadow-2xl z-30 animate-bounce pointer-events-none"
+        style={{ animationDuration: '3.5s' }}
       >
         <span className="text-white font-bold text-xs flex items-center gap-1.5">
           <span className="text-teal-400 text-sm">⚡</span> 18 Master Chapters
@@ -121,13 +117,8 @@ const Hero3DBook = () => {
       </div>
 
       <div
-        style={{
-          transform: `translate3d(${rotation.y * 0.8}px, ${rotation.x * -0.8}px, 50px)`,
-          transition: 'transform 0.2s ease-out',
-          animationDuration: '4.5s',
-          animationDelay: '1s',
-        }}
         className="absolute -left-6 bottom-24 glass border border-cyan-500/40 p-3 rounded-xl shadow-2xl z-30 animate-bounce pointer-events-none"
+        style={{ animationDuration: '4.5s', animationDelay: '1s' }}
       >
         <span className="text-white font-bold text-xs flex items-center gap-1.5">
           <span className="text-yellow-400 text-sm">🔥</span> 10 Visual Proof Plates

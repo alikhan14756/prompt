@@ -92,12 +92,16 @@ const Home = () => {
               <i className="fa-solid fa-certificate text-teal-400"></i> Full Commercial License Included
             </div>
             
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.1] text-white">
-              The Practical AI <br />
-              <span className="bg-gradient-to-r from-teal-300 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
-                Prompt Playbook
-              </span>
-            </h1>
+            <div className="perspective-container">
+              <div className="animate-3d-headline">
+                <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.1] text-white">
+                  The Practical AI <br />
+                  <span className="text-3d-extrusion bg-gradient-to-r from-teal-300 via-teal-400 to-cyan-400 bg-clip-text text-transparent inline-block">
+                    Prompt Playbook
+                  </span>
+                </h1>
+              </div>
+            </div>
             
             <p className="text-base sm:text-lg text-slate-300 max-w-xl mx-auto lg:mx-0 leading-relaxed">
               180 ready-to-use production prompts & templates for Images, Video, Websites, Apps, Marketing, Coding & AI Agents. Master the official <strong className="text-white">8-Step Prompt Engineering Framework™</strong>.
@@ -292,7 +296,7 @@ const Home = () => {
           <div className="space-y-4 text-center md:text-left">
             <div>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-white">Muhammad Ali</h2>
-              <p className="text-teal-400 font-semibold text-xs sm:text-sm">Front-End Web Developer & UI Engineer • Founder, AliBuild Digital</p>
+              <p className="text-teal-400 font-semibold text-xs sm:text-sm">Front-End Web Developer & UI Engineer • Founder, AivanoLabs (<a href="https://aivanolabs.site" target="_blank" rel="noreferrer" className="underline">aivanolabs.site</a>)</p>
             </div>
             <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
               Based in Khyber Pakhtunkhwa, Pakistan. Specializes in high-performance responsive web interfaces, modern Tailwind CSS architecture, and end-to-end automated media generation pipelines.

@@ -87,4 +87,4 @@ POST /api/admin/setup
 ```
 
 ## 📄 License
-© 2026 Muhammad Ali • AliBuild Digital
+© 2026 Muhammad Ali • AivanoLabs (aivanolabs.site)
