@@ -81,7 +81,8 @@ npm start      # Serves everything from Express
 Visit `/admin/login` to access the admin dashboard. First-time setup:
 ```bash
 POST /api/admin/setup
-{ "username": "admin", "password": "your_password" }
+{ "username": "admin", "password": "
+" }
 ```
 
 ## 📄 License
