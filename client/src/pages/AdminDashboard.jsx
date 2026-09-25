@@ -9,6 +9,15 @@ const AdminDashboard = () => {
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   const [statusFilter, setStatusFilter] = useState('all');
+
+  // Password & Security settings state
+  const [isSecurityModalOpen, setIsSecurityModalOpen] = useState(false);
+  const [newUsername, setNewUsername] = useState('admin');
+  const [newPassword, setNewPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [securityMessage, setSecurityMessage] = useState({ text: '', type: '' });
+  const [isUpdatingPassword, setIsUpdatingPassword] = useState(false);
+
   const navigate = useNavigate();
 
   const fetchData = async () => {
@@ -88,6 +97,48 @@ const AdminDashboard = () => {
     }
   };
 
+  const handleUpdateSecurity = async (e) => {
+    e.preventDefault();
+    setSecurityMessage({ text: '', type: '' });
+
+    if (!newPassword || newPassword.length < 4) {
+      setSecurityMessage({ text: 'Password must be at least 4 characters long', type: 'error' });
+      return;
+    }
+
+    if (newPassword !== confirmPassword) {
+      setSecurityMessage({ text: 'Passwords do not match!', type: 'error' });
+      return;
+    }
+
+    try {
+      setIsUpdatingPassword(true);
+      const res = await api.put('/admin/password', {
+        newUsername: newUsername.trim(),
+        newPassword
+      });
+
+      if (res.data?.token) {
+        localStorage.setItem('token', res.data.token);
+      }
+
+      setSecurityMessage({ text: '✅ Credentials updated successfully!', type: 'success' });
+      setNewPassword('');
+      setConfirmPassword('');
+      setTimeout(() => {
+        setIsSecurityModalOpen(false);
+        setSecurityMessage({ text: '', type: '' });
+      }, 2000);
+    } catch (err) {
+      setSecurityMessage({
+        text: err.response?.data?.message || 'Error updating password',
+        type: 'error'
+      });
+    } finally {
+      setIsUpdatingPassword(false);
+    }
+  };
+
   const logout = () => {
     localStorage.removeItem('token');
     navigate('/admin/login');
@@ -144,9 +195,15 @@ const AdminDashboard = () => {
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
-            <Link to="/" target="_blank" className="text-xs font-semibold px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-teal-400 border border-slate-700 transition-colors flex items-center gap-2">
-              <i className="fa-solid fa-arrow-up-right-from-square"></i> View Live Store
+          <div className="flex items-center flex-wrap gap-3">
+            <button
+              onClick={() => setIsSecurityModalOpen(true)}
+              className="text-xs font-semibold px-4 py-2 rounded-lg bg-teal-500/10 hover:bg-teal-500/20 text-teal-400 border border-teal-500/30 transition-colors flex items-center gap-2 shadow-[0_0_10px_rgba(20,184,166,0.2)]"
+            >
+              <i className="fa-solid fa-key"></i> Update Password
+            </button>
+            <Link to="/" target="_blank" className="text-xs font-semibold px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition-colors flex items-center gap-2">
+              <i className="fa-solid fa-arrow-up-right-from-square"></i> Store
             </Link>
             <button onClick={logout} className="text-xs font-semibold px-4 py-2 rounded-lg bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/20 transition-colors flex items-center gap-2">
               <i className="fa-solid fa-right-from-bracket"></i> Logout
@@ -244,7 +301,7 @@ const AdminDashboard = () => {
             </form>
           </div>
 
-          {/* Promo Breakdown Table */}
+          {/* Promo Breakdown Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {/* Direct Full Price Card */}
             <div className="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 flex flex-col justify-between">
@@ -312,7 +369,7 @@ const AdminDashboard = () => {
 
                   <div className="mt-4 pt-3 border-t border-slate-800 flex justify-between items-center text-[11px] text-slate-500">
                     <span>Usage: {stats.count} orders</span>
-                    <span className="text-teal-400/80 font-mono">wa.me code</span>
+                    <span className="text-teal-400/80 font-mono">checkout code</span>
                   </div>
                 </div>
               );
@@ -347,9 +404,9 @@ const AdminDashboard = () => {
                 className="bg-slate-900 border border-slate-700 text-white px-3 py-2 rounded-xl text-xs focus:outline-none focus:border-teal-500"
               >
                 <option value="all">All Statuses</option>
-                <option value="pending">Pending</option>
-                <option value="confirmed">Confirmed</option>
-                <option value="delivered">Delivered</option>
+                <option value="pending">⏳ Pending</option>
+                <option value="confirmed">💳 Confirmed</option>
+                <option value="delivered">✅ Delivered</option>
               </select>
 
               <button
@@ -477,6 +534,103 @@ const AdminDashboard = () => {
         </div>
 
       </div>
+
+      {/* SECURITY / UPDATE PASSWORD MODAL */}
+      {isSecurityModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+          <div className="bg-slate-900 border border-teal-500/30 rounded-3xl p-6 md:p-8 max-w-md w-full relative shadow-2xl space-y-6">
+            <button
+              onClick={() => {
+                setIsSecurityModalOpen(false);
+                setSecurityMessage({ text: '', type: '' });
+              }}
+              className="absolute top-4 right-4 text-slate-400 hover:text-white"
+            >
+              <i className="fa-solid fa-xmark text-xl"></i>
+            </button>
+
+            <div>
+              <div className="w-12 h-12 bg-teal-500/10 rounded-xl flex items-center justify-center text-teal-400 text-xl mb-3">
+                <i className="fa-solid fa-shield-halved"></i>
+              </div>
+              <h3 className="text-xl font-bold text-white">Security & Password</h3>
+              <p className="text-xs text-slate-400">Change your admin username and secret password</p>
+            </div>
+
+            {securityMessage.text && (
+              <div className={`p-3 rounded-xl text-xs font-semibold ${
+                securityMessage.type === 'success'
+                  ? 'bg-green-500/10 border border-green-500/30 text-green-400'
+                  : 'bg-red-500/10 border border-red-500/30 text-red-400'
+              }`}>
+                {securityMessage.text}
+              </div>
+            )}
+
+            <form onSubmit={handleUpdateSecurity} className="space-y-4">
+              <div>
+                <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
+                  Admin Username
+                </label>
+                <input
+                  required
+                  type="text"
+                  value={newUsername}
+                  onChange={e => setNewUsername(e.target.value)}
+                  placeholder="admin"
+                  className="w-full bg-slate-950 border border-slate-700 focus:border-teal-500 text-white px-3 py-2.5 rounded-xl text-xs focus:outline-none"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
+                  New Password
+                </label>
+                <input
+                  required
+                  type="password"
+                  value={newPassword}
+                  onChange={e => setNewPassword(e.target.value)}
+                  placeholder="Enter at least 4 characters"
+                  className="w-full bg-slate-950 border border-slate-700 focus:border-teal-500 text-white px-3 py-2.5 rounded-xl text-xs focus:outline-none"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
+                  Confirm New Password
+                </label>
+                <input
+                  required
+                  type="password"
+                  value={confirmPassword}
+                  onChange={e => setConfirmPassword(e.target.value)}
+                  placeholder="Re-enter password"
+                  className="w-full bg-slate-950 border border-slate-700 focus:border-teal-500 text-white px-3 py-2.5 rounded-xl text-xs focus:outline-none"
+                />
+              </div>
+
+              <div className="pt-2 flex gap-3">
+                <button
+                  type="button"
+                  onClick={() => setIsSecurityModalOpen(false)}
+                  className="flex-1 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold py-2.5 rounded-xl text-xs transition-colors"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  disabled={isUpdatingPassword}
+                  className="flex-1 bg-teal-500 hover:bg-teal-400 text-navy-900 font-extrabold py-2.5 rounded-xl text-xs transition-all shadow-[0_0_15px_rgba(20,184,166,0.3)] disabled:opacity-50"
+                >
+                  {isUpdatingPassword ? 'Saving...' : 'Save Changes'}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 };
