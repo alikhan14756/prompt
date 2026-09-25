@@ -114,16 +114,16 @@
         <div class="blob bg-blue-600/25 w-[600px] h-[600px] bottom-[-20%] right-[-10%] animate-pulse" style="animation-duration: 8s;"></div>
     </div>
 
-    <!-- 1. Header (Sticky) -->
+    <!-- 1. Header (Sticky & Fully Mobile Responsive) -->
     <header class="fixed top-0 w-full glass z-50 border-b border-white/5 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 sm:h-20">
                 <!-- AivanoLabs Simple & Modern Logo -->
-                <a href="#" class="flex items-center gap-3.5 group">
-                    <div class="w-10 h-10 bg-gradient-to-br from-teal-400 via-teal-500 to-cyan-500 rounded-xl flex items-center justify-center p-0.5 shadow-[0_0_20px_rgba(20,184,166,0.45)] group-hover:shadow-[0_0_30px_rgba(20,184,166,0.8)] transition-all">
-                        <div class="w-full h-full bg-navy-900 rounded-[10px] flex items-center justify-center">
+                <a href="#" class="flex items-center gap-2.5 sm:gap-3.5 group shrink-0">
+                    <div class="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-teal-400 via-teal-500 to-cyan-500 rounded-xl flex items-center justify-center p-0.5 shadow-[0_0_20px_rgba(20,184,166,0.45)] group-hover:shadow-[0_0_30px_rgba(20,184,166,0.8)] transition-all">
+                        <div class="w-full h-full bg-navy-900 rounded-[8px] sm:rounded-[10px] flex items-center justify-center">
                             <!-- Geometric 'A' + AI Neural Core SVG Logo -->
-                            <svg class="w-6 h-6 text-teal-400 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg class="w-4 h-4 sm:w-6 sm:h-6 text-teal-400 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M12 2L3 20h4l2.5-5.5h5L17 20h4L12 2z"/>
                                 <circle cx="12" cy="11" r="1.5" fill="#2dd4bf" stroke="none"/>
                             </svg>
@@ -131,13 +131,13 @@
                     </div>
                     <div>
                         <div class="flex items-center gap-1">
-                            <span class="text-xl font-black text-white tracking-tight">Aivano<span class="text-teal-400 font-extrabold">Labs</span></span>
+                            <span class="text-base sm:text-xl font-black text-white tracking-tight">Aivano<span class="text-teal-400 font-extrabold">Labs</span></span>
                         </div>
-                        <span class="text-[9px] font-mono text-slate-400 tracking-wider block -mt-1">aivanolabs.site</span>
+                        <span class="text-[8px] sm:text-[9px] font-mono text-slate-400 tracking-wider block -mt-1">aivanolabs.site</span>
                     </div>
                 </a>
                 
-                <!-- Navigation -->
+                <!-- Desktop Navigation -->
                 <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-300">
                     <a href="#features" class="hover:text-teal-400 transition-colors">Features</a>
                     <a href="#examples" class="hover:text-teal-400 transition-colors">Real Examples</a>
@@ -152,38 +152,56 @@
                     </button>
                 </nav>
 
-                <!-- CTA & Contact -->
-                <div class="flex items-center gap-3">
-                    <button onclick="openAdminModal()" class="lg:hidden text-xs px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-teal-400" title="Admin Login">
-                        <i class="fa-solid fa-lock"></i>
-                    </button>
-                    <a href="https://wa.me/923055389967" target="_blank" class="w-10 h-10 rounded-full glass hover:bg-green-500/20 text-slate-300 hover:text-green-400 flex items-center justify-center transition-all" title="WhatsApp Author">
-                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                <!-- CTA & Contact (No Mobile Overflow) -->
+                <div class="flex items-center gap-1.5 sm:gap-3 shrink-0">
+                    <a href="https://wa.me/923055389967" target="_blank" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full glass hover:bg-green-500/20 text-slate-300 hover:text-green-400 flex items-center justify-center transition-all shrink-0" title="WhatsApp Author">
+                        <i class="fa-brands fa-whatsapp text-sm sm:text-lg"></i>
                     </a>
-                    <button onclick="openPaymentModal()" class="bg-gradient-to-r from-teal-500 to-teal-400 hover:from-teal-400 hover:to-teal-300 text-navy-900 px-5 py-2.5 rounded-full font-bold text-sm transition-all shadow-[0_0_20px_rgba(20,184,166,0.4)] hover:scale-105">
-                        Get Access — $20
+                    
+                    <button onclick="openPaymentModal()" class="bg-gradient-to-r from-teal-500 to-teal-400 hover:from-teal-400 hover:to-teal-300 text-navy-900 px-3.5 py-1.5 sm:px-5 sm:py-2.5 rounded-full font-extrabold text-xs sm:text-sm transition-all shadow-[0_0_20px_rgba(20,184,166,0.4)] whitespace-nowrap shrink-0">
+                        Buy Now <span class="opacity-80">($20)</span>
+                    </button>
+
+                    <!-- Mobile Hamburger Menu Button -->
+                    <button onclick="toggleMobileMenu()" class="lg:hidden p-1.5 sm:p-2 rounded-lg text-slate-300 hover:text-white focus:outline-none" aria-label="Toggle Navigation">
+                        <i id="mobileMenuIcon" class="fa-solid fa-bars text-base sm:text-lg"></i>
                     </button>
                 </div>
             </div>
         </div>
+
+        <!-- Mobile Dropdown Navigation Drawer -->
+        <div id="mobileDropdownMenu" class="hidden lg:hidden border-t border-white/10 bg-navy-900/98 backdrop-blur-xl px-4 py-4 space-y-3">
+            <a href="#features" onclick="toggleMobileMenu()" class="block text-sm font-semibold text-slate-200 hover:text-teal-400 py-1.5 border-b border-white/5">Features</a>
+            <a href="#examples" onclick="toggleMobileMenu()" class="block text-sm font-semibold text-slate-200 hover:text-teal-400 py-1.5 border-b border-white/5">Real Examples</a>
+            <a href="#whats-inside" onclick="toggleMobileMenu()" class="block text-sm font-semibold text-slate-200 hover:text-teal-400 py-1.5 border-b border-white/5">69-Page Architecture</a>
+            <a href="#author" onclick="toggleMobileMenu()" class="block text-sm font-semibold text-slate-200 hover:text-teal-400 py-1.5 border-b border-white/5">Author & Team</a>
+            <a href="#faq" onclick="toggleMobileMenu()" class="block text-sm font-semibold text-slate-200 hover:text-teal-400 py-1.5 border-b border-white/5">FAQ</a>
+            <button onclick="toggleMobileMenu(); openOrderStatusModal()" class="w-full text-left flex items-center gap-2 text-sm font-semibold text-teal-400 py-1.5 border-b border-white/5">
+                <i class="fa-solid fa-truck-fast"></i> Order Status Lookup
+            </button>
+            <button onclick="toggleMobileMenu(); openAdminModal()" class="w-full text-left flex items-center gap-2 text-sm font-semibold text-slate-400 hover:text-white py-1.5">
+                <i class="fa-solid fa-lock text-xs text-teal-400"></i> 🔒 Admin Dashboard Portal
+            </button>
+        </div>
     </header>
 
     <!-- 2. Hero Section with 3D Text Animation & Interactive Neural Canvas -->
-    <section class="pt-32 pb-16 lg:pt-44 lg:pb-24 relative z-10 overflow-hidden">
+    <section class="pt-28 pb-16 lg:pt-44 lg:pb-24 relative z-10 overflow-hidden">
         <canvas id="heroNeuralCanvas" class="absolute inset-0 w-full h-full pointer-events-none z-0"></canvas>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+            <div class="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
                 
                 <!-- Left Column (3D Interactive Text) -->
                 <div class="lg:col-span-7 text-center lg:text-left perspective-container" id="heroText3DContainer">
-                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-300 text-xs font-bold uppercase tracking-wider mb-6 shadow-[0_0_15px_rgba(45,212,191,0.15)]">
-                        <span class="w-2 h-2 rounded-full bg-teal-400 animate-ping mr-1"></span> AivanoLabs Official &bull; Commercial License Included
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-300 text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-5 shadow-[0_0_15px_rgba(45,212,191,0.15)]">
+                        <span class="w-2 h-2 rounded-full bg-teal-400 animate-ping mr-1"></span> AivanoLabs Official &bull; Commercial License
                     </div>
                     
                     <!-- 3D Kinetic Animated Headline -->
-                    <div id="text3DWrapper" class="transition-transform duration-100 mb-6 select-none animate-3d-headline">
-                        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.08] tracking-tight">
+                    <div id="text3DWrapper" class="transition-transform duration-100 mb-5 select-none animate-3d-headline">
+                        <h1 class="text-3xl sm:text-5xl lg:text-7xl font-black text-white leading-[1.12] sm:leading-[1.08] tracking-tight">
                             The Practical AI <br/>
                             <span class="text-3d-extrusion gradient-text inline-block">
                                 Prompt Playbook
@@ -192,25 +210,25 @@
                     </div>
 
                     <!-- 3D Holographic Word Pills -->
-                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-2 mb-6 text-xs font-mono">
-                        <span class="px-3 py-1 rounded-lg bg-teal-500/15 border border-teal-500/40 text-teal-300 font-bold shadow-[0_0_12px_rgba(45,212,191,0.2)]">
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-2 mb-6 text-[11px] sm:text-xs font-mono">
+                        <span class="px-2.5 sm:px-3 py-1 rounded-lg bg-teal-500/15 border border-teal-500/40 text-teal-300 font-bold shadow-[0_0_12px_rgba(45,212,191,0.2)]">
                             ⚡ 180 PRODUCTION PROMPTS
                         </span>
-                        <span class="px-3 py-1 rounded-lg bg-cyan-500/15 border border-cyan-500/40 text-cyan-300 font-bold shadow-[0_0_12px_rgba(56,189,248,0.2)]">
+                        <span class="px-2.5 sm:px-3 py-1 rounded-lg bg-cyan-500/15 border border-cyan-500/40 text-cyan-300 font-bold shadow-[0_0_12px_rgba(56,189,248,0.2)]">
                             🌐 8-STEP FRAMEWORK
                         </span>
-                        <span class="px-3 py-1 rounded-lg bg-purple-500/15 border border-purple-500/40 text-purple-300 font-bold shadow-[0_0_12px_rgba(168,85,247,0.2)]">
+                        <span class="px-2.5 sm:px-3 py-1 rounded-lg bg-purple-500/15 border border-purple-500/40 text-purple-300 font-bold shadow-[0_0_12px_rgba(168,85,247,0.2)]">
                             🤖 AI AGENTS
                         </span>
                     </div>
                     
-                    <p class="text-base sm:text-lg text-slate-300 mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                    <p class="text-sm sm:text-lg text-slate-300 mb-7 leading-relaxed max-w-xl mx-auto lg:mx-0">
                         Published by <strong>AivanoLabs</strong> (<a href="https://aivanolabs.site" class="text-teal-400 hover:underline">aivanolabs.site</a>). The core <span class="text-white font-bold border-b border-teal-500/40">8-Step Engineering Framework™</span> is free for everyone to learn. But this <strong>69-page master edition</strong> gives you <strong>180 copy-paste formulas</strong> for Code, Visuals, Copy & AI Swarms.
                     </p>
 
                     <!-- Interactive Live Prompt Streamer Pill -->
-                    <div class="mb-8 p-3.5 rounded-2xl glass border border-teal-500/30 max-w-xl mx-auto lg:mx-0 flex items-center gap-3 text-left">
-                        <div class="w-8 h-8 rounded-lg bg-teal-500/20 text-teal-400 flex items-center justify-center shrink-0">
+                    <div class="mb-7 p-3 sm:p-3.5 rounded-2xl glass border border-teal-500/30 max-w-xl mx-auto lg:mx-0 flex items-center gap-3 text-left">
+                        <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-teal-500/20 text-teal-400 flex items-center justify-center shrink-0">
                             <i class="fa-solid fa-terminal text-xs"></i>
                         </div>
                         <div class="overflow-hidden font-mono text-xs">
@@ -221,24 +239,24 @@
                     </div>
 
                     <!-- Call To Action Buttons -->
-                    <div class="flex flex-col sm:flex-row items-stretch justify-center lg:justify-start gap-4 mb-6 max-w-xl mx-auto lg:mx-0">
-                        <button onclick="openPaymentModal()" class="flex-1 flex items-center justify-center border border-transparent bg-gradient-to-r from-teal-500 to-teal-400 hover:from-teal-400 hover:to-teal-300 text-navy-900 px-8 py-4 rounded-xl font-extrabold text-lg text-center transition-all shadow-[0_0_30px_rgba(20,184,166,0.35)] hover:shadow-[0_0_45px_rgba(20,184,166,0.6)] transform hover:-translate-y-1">
+                    <div class="flex flex-col sm:flex-row items-stretch justify-center lg:justify-start gap-3.5 mb-5 max-w-xl mx-auto lg:mx-0">
+                        <button onclick="openPaymentModal()" class="flex-1 flex items-center justify-center border border-transparent bg-gradient-to-r from-teal-500 to-teal-400 hover:from-teal-400 hover:to-teal-300 text-navy-900 px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-extrabold text-base sm:text-lg text-center transition-all shadow-[0_0_30px_rgba(20,184,166,0.35)] hover:shadow-[0_0_45px_rgba(20,184,166,0.6)] transform hover:-translate-y-0.5">
                             Get Instant Access — $20
                         </button>
-                        <a href="#examples" class="flex-1 flex items-center justify-center glass hover:bg-slate-800/80 text-white px-8 py-4 rounded-xl font-bold text-lg text-center transition-all border border-slate-700 hover:border-teal-500/40">
+                        <a href="#examples" class="flex-1 flex items-center justify-center glass hover:bg-slate-800/80 text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-bold text-base sm:text-lg text-center transition-all border border-slate-700 hover:border-teal-500/40">
                             See Real Examples
                         </a>
                     </div>
                     
                     <!-- Free 5-Page Demo Download Link -->
-                    <div class="mb-6 flex justify-center lg:justify-start">
+                    <div class="mb-5 flex justify-center lg:justify-start">
                         <a href="prompt-engineering-starter-guide.pdf" download target="_blank" class="inline-flex items-center gap-2 text-teal-300 hover:text-teal-200 font-bold text-xs transition-all px-4 py-2.5 rounded-xl bg-teal-500/10 border border-teal-500/30 hover:bg-teal-500/20 shadow-[0_0_15px_rgba(45,212,191,0.1)]">
                             <i class="fa-solid fa-file-pdf text-teal-400 text-sm"></i> Download Free 5-Page Demo (PDF)
                         </a>
                     </div>
 
                     <!-- Trust Signals -->
-                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs text-slate-400">
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 text-xs text-slate-400">
                         <span class="flex items-center gap-1.5"><i class="fa-regular fa-file-pdf text-teal-400"></i> Instant 69-Page PDF</span>
                         <span class="flex items-center gap-1.5"><i class="fa-solid fa-scale-balanced text-teal-400"></i> Full Commercial Rights</span>
                         <span class="flex items-center gap-1.5"><i class="fa-solid fa-arrows-rotate text-teal-400"></i> Free Lifetime Updates</span>
@@ -246,72 +264,72 @@
                 </div>
 
                 <!-- Right Column (3D Interactive Book) -->
-                <div class="lg:col-span-5 relative flex justify-center">
-                    <div id="bookCardWrapper" class="relative w-full max-w-sm aspect-[3/4] perspective-[1200px] cursor-pointer group">
+                <div class="lg:col-span-5 relative flex justify-center mt-4 lg:mt-0">
+                    <div id="bookCardWrapper" class="relative w-full max-w-[320px] sm:max-w-sm aspect-[3/4] perspective-[1200px] cursor-pointer group">
                         
-                        <div class="absolute -inset-6 bg-gradient-to-tr from-teal-500/30 via-cyan-500/20 to-blue-600/30 blur-3xl rounded-full animate-pulse opacity-70 pointer-events-none"></div>
+                        <div class="absolute -inset-4 sm:-inset-6 bg-gradient-to-tr from-teal-500/30 via-cyan-500/20 to-blue-600/30 blur-3xl rounded-full animate-pulse opacity-70 pointer-events-none"></div>
 
-                        <div id="bookCard" class="relative w-full h-full rounded-2xl bg-gradient-to-br from-[#0c1631] via-[#070e20] to-[#030712] border-2 border-teal-500/40 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9),0_0_40px_rgba(20,184,166,0.3)] flex flex-col justify-between p-8 overflow-hidden select-none transition-transform duration-100 animate-book-float">
+                        <div id="bookCard" class="relative w-full h-full rounded-2xl bg-gradient-to-br from-[#0c1631] via-[#070e20] to-[#030712] border-2 border-teal-500/40 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9),0_0_40px_rgba(20,184,166,0.3)] flex flex-col justify-between p-6 sm:p-8 overflow-hidden select-none transition-transform duration-100 animate-book-float">
                             
                             <div id="bookGlare" class="absolute inset-0 pointer-events-none z-20 opacity-0 transition-opacity duration-300"></div>
                             <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#2dd4bf_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
 
                             <div class="relative z-10 flex items-center justify-between">
                                 <div class="flex items-center gap-2">
-                                    <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-teal-400 to-teal-600 flex items-center justify-center font-black text-navy-900 shadow-[0_0_15px_rgba(45,212,191,0.6)] text-base">
+                                    <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-br from-teal-400 to-teal-600 flex items-center justify-center font-black text-navy-900 shadow-[0_0_15px_rgba(45,212,191,0.6)] text-sm sm:text-base">
                                         AL
                                     </div>
-                                    <span class="text-[11px] font-mono font-bold tracking-widest text-teal-400 uppercase">
+                                    <span class="text-[10px] sm:text-[11px] font-mono font-bold tracking-widest text-teal-400 uppercase">
                                         AIVANOLABS V2.0
                                     </span>
                                 </div>
-                                <span class="px-2.5 py-1 rounded-md bg-teal-500/10 border border-teal-500/30 text-[10px] font-mono font-bold text-teal-300">
+                                <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-teal-500/10 border border-teal-500/30 text-[9px] sm:text-[10px] font-mono font-bold text-teal-300">
                                     69 PAGES
                                 </span>
                             </div>
 
-                            <div class="relative z-10 my-auto text-center space-y-3">
-                                <div class="w-12 h-1 bg-gradient-to-r from-teal-400 to-cyan-400 rounded-full mx-auto"></div>
-                                <h2 class="text-3xl font-black text-white leading-tight tracking-tight">
+                            <div class="relative z-10 my-auto text-center space-y-2.5 sm:space-y-3">
+                                <div class="w-10 sm:w-12 h-1 bg-gradient-to-r from-teal-400 to-cyan-400 rounded-full mx-auto"></div>
+                                <h2 class="text-2xl sm:text-3xl font-black text-white leading-tight tracking-tight">
                                     THE PRACTICAL AI <br />
                                     <span class="bg-gradient-to-r from-teal-300 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
                                         PROMPT PLAYBOOK
                                     </span>
                                 </h2>
-                                <p class="text-xs text-slate-400 font-mono tracking-wide max-w-xs mx-auto">
+                                <p class="text-[11px] sm:text-xs text-slate-400 font-mono tracking-wide max-w-xs mx-auto">
                                     180 Production Prompts & Templates for Web, Code, Ads, Images & Agents
                                 </p>
                             </div>
 
-                            <div class="relative z-10 pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
+                            <div class="relative z-10 pt-3.5 border-t border-slate-800 flex items-center justify-between text-xs">
                                 <div>
-                                    <div class="font-extrabold text-white text-xs">MUHAMMAD ALI</div>
-                                    <div class="text-[10px] text-teal-400 font-mono">aivanolabs.site</div>
+                                    <div class="font-extrabold text-white text-[11px] sm:text-xs">MUHAMMAD ALI</div>
+                                    <div class="text-[9px] sm:text-[10px] text-teal-400 font-mono">aivanolabs.site</div>
                                 </div>
                                 <div class="text-right">
-                                    <span class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block">
+                                    <span class="text-[9px] sm:text-[10px] font-semibold text-slate-400 uppercase tracking-wider block">
                                         Commercial License
                                     </span>
-                                    <span class="text-[10px] font-mono text-teal-300 font-bold">Included</span>
+                                    <span class="text-[9px] sm:text-[10px] font-mono text-teal-300 font-bold">Included</span>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Floating Badges -->
-                        <div class="absolute -right-6 top-8 glass border border-teal-500/40 px-3.5 py-2 rounded-xl shadow-2xl z-30 animate-bounce pointer-events-none" style="animation-duration: 3.5s;">
-                            <span class="text-white font-bold text-xs flex items-center gap-1.5">
-                                <span class="text-teal-400 text-sm">⚡</span> 18 Master Chapters
+                        <!-- Floating Badges (Adjusted to avoid mobile viewport overflow) -->
+                        <div class="absolute -right-2 sm:-right-6 top-6 sm:top-8 glass border border-teal-500/40 px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-xl shadow-2xl z-30 animate-bounce pointer-events-none" style="animation-duration: 3.5s;">
+                            <span class="text-white font-bold text-[10px] sm:text-xs flex items-center gap-1.5">
+                                <span class="text-teal-400">⚡</span> 18 Master Chapters
                             </span>
                         </div>
 
-                        <div class="absolute -left-6 bottom-20 glass border border-cyan-500/40 px-3.5 py-2 rounded-xl shadow-2xl z-30 animate-bounce pointer-events-none" style="animation-duration: 4.5s; animation-delay: 1s;">
-                            <span class="text-white font-bold text-xs flex items-center gap-1.5">
-                                <span class="text-yellow-400 text-sm">🔥</span> 10 Visual Proof Plates
+                        <div class="absolute -left-2 sm:-left-6 bottom-16 sm:bottom-20 glass border border-cyan-500/40 px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-xl shadow-2xl z-30 animate-bounce pointer-events-none" style="animation-duration: 4.5s; animation-delay: 1s;">
+                            <span class="text-white font-bold text-[10px] sm:text-xs flex items-center gap-1.5">
+                                <span class="text-yellow-400">🔥</span> 10 Visual Plates
                             </span>
                         </div>
 
-                        <div class="absolute right-2 -bottom-4 glass border border-green-500/40 px-3 py-1.5 rounded-xl shadow-2xl z-30 pointer-events-none">
-                            <span class="text-green-300 font-bold text-[11px] flex items-center gap-1.5 font-mono">
+                        <div class="absolute right-2 -bottom-3 sm:-bottom-4 glass border border-green-500/40 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl shadow-2xl z-30 pointer-events-none">
+                            <span class="text-green-300 font-bold text-[10px] sm:text-[11px] flex items-center gap-1.5 font-mono">
                                 <i class="fa-solid fa-circle-check text-green-400"></i> Full Commercial Rights
                             </span>
                         </div>
@@ -327,12 +345,12 @@
     <section class="border-y border-white/5 bg-white/[0.02] backdrop-blur-sm py-8 relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <p class="text-center text-xs font-semibold text-slate-500 uppercase tracking-widest mb-6">Engineered to work flawlessly with</p>
-            <div class="flex flex-wrap justify-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-                <div class="flex items-center gap-2 text-lg font-bold text-slate-300"><i class="fa-solid fa-microchip"></i> ChatGPT</div>
-                <div class="flex items-center gap-2 text-lg font-bold text-slate-300"><i class="fa-solid fa-brain"></i> Claude 3.5</div>
-                <div class="flex items-center gap-2 text-lg font-bold text-slate-300"><i class="fa-solid fa-code"></i> Cursor IDE</div>
-                <div class="flex items-center gap-2 text-lg font-bold text-slate-300"><i class="fa-solid fa-palette"></i> Midjourney v6</div>
-                <div class="flex items-center gap-2 text-lg font-bold text-slate-300"><i class="fa-brands fa-react"></i> Next.js</div>
+            <div class="flex flex-wrap justify-center gap-6 sm:gap-12 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                <div class="flex items-center gap-2 text-sm sm:text-lg font-bold text-slate-300"><i class="fa-solid fa-microchip"></i> ChatGPT</div>
+                <div class="flex items-center gap-2 text-sm sm:text-lg font-bold text-slate-300"><i class="fa-solid fa-brain"></i> Claude 3.5</div>
+                <div class="flex items-center gap-2 text-sm sm:text-lg font-bold text-slate-300"><i class="fa-solid fa-code"></i> Cursor IDE</div>
+                <div class="flex items-center gap-2 text-sm sm:text-lg font-bold text-slate-300"><i class="fa-solid fa-palette"></i> Midjourney v6</div>
+                <div class="flex items-center gap-2 text-sm sm:text-lg font-bold text-slate-300"><i class="fa-brands fa-react"></i> Next.js</div>
             </div>
         </div>
     </section>
@@ -495,24 +513,24 @@
     <!-- 6. Author Section -->
     <section id="author" class="py-24 bg-slate-900/30 border-t border-white/5 relative z-10">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="glass border border-slate-700/50 rounded-3xl p-8 md:p-12 shadow-2xl flex flex-col md:flex-row gap-10 items-center relative overflow-hidden">
-                <div class="w-48 h-48 md:w-56 md:h-56 rounded-2xl overflow-hidden border-2 border-teal-500/40 shrink-0 shadow-2xl shadow-teal-900/50 relative">
+            <div class="glass border border-slate-700/50 rounded-3xl p-6 sm:p-8 md:p-12 shadow-2xl flex flex-col md:flex-row gap-8 sm:gap-10 items-center relative overflow-hidden">
+                <div class="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-2xl overflow-hidden border-2 border-teal-500/40 shrink-0 shadow-2xl shadow-teal-900/50 relative">
                     <img src="author-pic.jpg" alt="Muhammad Ali" class="w-full h-full object-cover object-top" />
                 </div>
                 
                 <div class="text-center md:text-left">
-                    <h3 class="text-3xl font-black text-white mb-1">Muhammad Ali</h3>
-                    <p class="text-teal-400 font-medium text-sm mb-4">Front-End Web Developer & UI Engineer &bull; Founder, AivanoLabs</p>
+                    <h3 class="text-2xl sm:text-3xl font-black text-white mb-1">Muhammad Ali</h3>
+                    <p class="text-teal-400 font-medium text-xs sm:text-sm mb-4">Front-End Web Developer & UI Engineer &bull; Founder, AivanoLabs</p>
                     <p class="text-slate-300 mb-6 text-xs md:text-sm leading-relaxed">
                         Based in Khyber Pakhtunkhwa, Pakistan. Founder of <a href="https://aivanolabs.site" target="_blank" class="text-white font-semibold underline decoration-teal-500/50 hover:decoration-teal-500 transition-colors">AivanoLabs (aivanolabs.site)</a>. Specializes in high-performance responsive interfaces, Tailwind CSS architecture, and end-to-end automated media generation pipelines.
                     </p>
                     
-                    <div class="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
-                        <a href="https://wa.me/923055389967" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1ebd5a] text-white px-6 py-3 rounded-xl font-bold text-xs transition-all shadow-lg hover:shadow-[#25D366]/30">
-                            <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp: +92 305 5389967
+                    <div class="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-3 sm:gap-4">
+                        <a href="https://wa.me/923055389967" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1ebd5a] text-white px-5 sm:px-6 py-3 rounded-xl font-bold text-xs transition-all shadow-lg hover:shadow-[#25D366]/30">
+                            <i class="fa-brands fa-whatsapp text-base sm:text-lg"></i> WhatsApp: +92 305 5389967
                         </a>
-                        <a href="mailto:alikhan1475623@gmail.com" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white px-6 py-3 rounded-xl font-bold text-xs transition-all">
-                            <i class="fa-regular fa-envelope text-lg"></i> alikhan1475623@gmail.com
+                        <a href="mailto:alikhan1475623@gmail.com" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white px-5 sm:px-6 py-3 rounded-xl font-bold text-xs transition-all">
+                            <i class="fa-regular fa-envelope text-base sm:text-lg"></i> alikhan1475623@gmail.com
                         </a>
                     </div>
                 </div>
@@ -524,21 +542,21 @@
     <section id="pricing" class="py-24 relative z-10">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div class="text-center mb-12">
-                <h2 class="text-4xl md:text-5xl font-black text-white mb-4">Get Instant Access</h2>
-                <p class="text-slate-400 text-base">Secure your copy today with lifetime updates from AivanoLabs.</p>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4">Get Instant Access</h2>
+                <p class="text-slate-400 text-sm sm:text-base">Secure your copy today with lifetime updates from AivanoLabs.</p>
             </div>
             
             <div class="max-w-md mx-auto glass border border-teal-500/30 rounded-3xl p-1 shadow-[0_0_50px_rgba(20,184,166,0.15)] relative overflow-hidden">
                 <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-400 to-blue-500"></div>
 
-                <div class="bg-slate-900 rounded-[22px] p-8 lg:p-10">
-                    <div class="text-center mb-8 border-b border-slate-800 pb-8">
-                        <h3 class="text-xl font-bold text-white mb-2">Playbook + Commercial Rights</h3>
+                <div class="bg-slate-900 rounded-[22px] p-6 sm:p-8 lg:p-10">
+                    <div class="text-center mb-6 sm:mb-8 border-b border-slate-800 pb-6 sm:pb-8">
+                        <h3 class="text-lg sm:text-xl font-bold text-white mb-2">Playbook + Commercial Rights</h3>
                         <div class="flex items-center justify-center gap-1 mb-2">
-                            <span class="text-slate-500 font-bold text-2xl mt-2">$</span>
-                            <span class="text-6xl font-black text-white tracking-tighter">20</span>
+                            <span class="text-slate-500 font-bold text-xl sm:text-2xl mt-2">$</span>
+                            <span class="text-5xl sm:text-6xl font-black text-white tracking-tighter">20</span>
                         </div>
-                        <p class="text-teal-400 text-xs font-bold uppercase tracking-wider">One-Time Payment &bull; Instant Delivery</p>
+                        <p class="text-teal-400 text-[11px] sm:text-xs font-bold uppercase tracking-wider">One-Time Payment &bull; Instant Delivery</p>
                     </div>
                     
                     <div class="space-y-3.5 mb-8 text-xs text-slate-300">
@@ -550,11 +568,11 @@
                         <div class="flex items-start gap-3"><i class="fa-solid fa-check text-teal-400 mt-0.5"></i> <span>Instant high-res PDF download</span></div>
                     </div>
                     
-                    <button onclick="openPaymentModal()" class="w-full bg-gradient-to-r from-teal-500 to-teal-400 hover:from-teal-400 hover:to-teal-300 text-navy-900 font-black text-lg py-4 rounded-xl transition-all shadow-[0_0_25px_rgba(20,184,166,0.4)] hover:scale-[1.02] mb-4 flex items-center justify-center gap-2">
+                    <button onclick="openPaymentModal()" class="w-full bg-gradient-to-r from-teal-500 to-teal-400 hover:from-teal-400 hover:to-teal-300 text-navy-900 font-black text-base sm:text-lg py-3.5 sm:py-4 rounded-xl transition-all shadow-[0_0_25px_rgba(20,184,166,0.4)] hover:scale-[1.02] mb-4 flex items-center justify-center gap-2">
                         Buy Now ($20) <i class="fa-solid fa-arrow-right"></i>
                     </button>
                     
-                    <div class="flex flex-wrap items-center justify-center gap-2.5 text-[11px] text-slate-500 mt-6">
+                    <div class="flex flex-wrap items-center justify-center gap-2 text-[10px] sm:text-[11px] text-slate-500 mt-4 sm:mt-6">
                         <span class="font-bold text-slate-400">Accepted:</span>
                         <span>JazzCash</span> &bull; <span>EasyPaisa</span> &bull; <span>SadaPay</span> &bull; <span>NayaPay</span> &bull; <span class="text-blue-400 font-semibold">UBL Bank</span> &bull; <span class="text-yellow-400 font-semibold">Binance</span>
                     </div>
@@ -571,15 +589,15 @@
             </div>
             
             <div class="space-y-4 text-xs md:text-sm">
-                <div class="glass border border-slate-700/50 p-6 rounded-2xl">
+                <div class="glass border border-slate-700/50 p-5 sm:p-6 rounded-2xl">
                     <h3 class="font-bold text-white mb-2">Is this a subscription?</h3>
                     <p class="text-slate-400 leading-relaxed">No. This is a one-time payment of $20. You get the 69-page PDF playbook instantly, plus lifetime updates whenever AivanoLabs adds new chapters or prompts.</p>
                 </div>
-                <div class="glass border border-slate-700/50 p-6 rounded-2xl">
+                <div class="glass border border-slate-700/50 p-5 sm:p-6 rounded-2xl">
                     <h3 class="font-bold text-white mb-2">What does the Commercial License cover?</h3>
                     <p class="text-slate-400 leading-relaxed">It covers everything. You can use the prompts to generate code, images, or copy for your own SaaS, your agency's clients, or freelance projects without attribution.</p>
                 </div>
-                <div class="glass border border-slate-700/50 p-6 rounded-2xl">
+                <div class="glass border border-slate-700/50 p-5 sm:p-6 rounded-2xl">
                     <h3 class="font-bold text-white mb-2">How do I receive the full 69-Page PDF?</h3>
                     <p class="text-slate-400 leading-relaxed">Simply choose your payment method in the checkout popup, make the payment, and click the WhatsApp button with your screenshot. You will receive your PDF instantly!</p>
                 </div>
@@ -645,16 +663,16 @@
         </div>
     </footer>
 
-    <!-- 10. Checkout Payment Popup Modal -->
-    <div id="paymentModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
+    <!-- 10. Checkout Payment Popup Modal (Responsive & Mobile-Safe) -->
+    <div id="paymentModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-3 sm:p-4">
         <div class="absolute inset-0 bg-black/80 backdrop-blur-md" onclick="closePaymentModal()"></div>
-        <div class="bg-slate-900 border border-teal-500/40 rounded-3xl p-6 md:p-8 max-w-md w-full relative z-10 shadow-[0_0_60px_rgba(20,184,166,0.2)] overflow-y-auto max-h-[90vh]">
+        <div class="bg-slate-900 border border-teal-500/40 rounded-3xl p-5 sm:p-8 max-w-md w-full relative z-10 shadow-[0_0_60px_rgba(20,184,166,0.2)] overflow-y-auto max-h-[92vh]">
             <button onclick="closePaymentModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors">
                 <i class="fa-solid fa-xmark text-xl"></i>
             </button>
             
-            <h3 class="text-2xl font-black text-white mb-1 text-center">Checkout (<span id="modalPrice" class="text-teal-400">$20</span>)</h3>
-            <p class="text-slate-400 text-xs text-center mb-6">Choose your preferred payment method below:</p>
+            <h3 class="text-xl sm:text-2xl font-black text-white mb-1 text-center">Checkout (<span id="modalPrice" class="text-teal-400">$20</span>)</h3>
+            <p class="text-slate-400 text-xs text-center mb-5">Choose your preferred payment method below:</p>
             
             <!-- Customer Info Form -->
             <div class="space-y-3 mb-5">
@@ -669,81 +687,81 @@
             </div>
 
             <!-- Promo Code Input -->
-            <div class="mb-5 bg-slate-950 p-3.5 rounded-2xl border border-slate-800">
+            <div class="mb-5 bg-slate-950 p-3 sm:p-3.5 rounded-2xl border border-slate-800">
                 <label class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">Have a discount promo code?</label>
                 <div class="flex gap-2">
                     <input type="text" id="promoInput" placeholder="Enter code (e.g. WALEED)" class="w-full bg-slate-900 border border-slate-700 text-white px-3 py-2 rounded-xl text-xs font-mono uppercase focus:outline-none focus:border-teal-500">
-                    <button onclick="applyPromoCode()" class="bg-teal-500/20 hover:bg-teal-500/30 text-teal-300 border border-teal-500/40 px-4 py-2 rounded-xl font-bold text-xs transition-colors">Apply</button>
+                    <button onclick="applyPromoCode()" class="bg-teal-500/20 hover:bg-teal-500/30 text-teal-300 border border-teal-500/40 px-3.5 sm:px-4 py-2 rounded-xl font-bold text-xs transition-colors shrink-0">Apply</button>
                 </div>
                 <p id="promoMessage" class="text-xs mt-2 hidden"></p>
             </div>
 
             <!-- Payment Accounts List -->
-            <div class="space-y-3 text-xs mb-5">
+            <div class="space-y-2.5 text-xs mb-5">
                 <!-- JazzCash -->
-                <div class="glass p-3.5 rounded-2xl flex items-center justify-between border border-slate-700/60 hover:border-red-500/40 transition-colors">
+                <div class="glass p-3 sm:p-3.5 rounded-2xl flex items-center justify-between border border-slate-700/60 hover:border-red-500/40 transition-colors">
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-red-500/10 rounded-xl flex items-center justify-center text-red-500 text-lg"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                        <div class="w-9 h-9 sm:w-10 sm:h-10 bg-red-500/10 rounded-xl flex items-center justify-center text-red-500 text-base sm:text-lg shrink-0"><i class="fa-solid fa-mobile-screen-button"></i></div>
                         <div>
                             <div class="text-slate-400 text-[10px] font-bold uppercase tracking-wider">JazzCash</div>
-                            <div class="text-white font-mono font-bold text-base">0321 542 3874</div>
+                            <div class="text-white font-mono font-bold text-sm sm:text-base">0321 542 3874</div>
                             <div class="text-slate-400 text-[10px]">Account Title: Muhammad Ali</div>
                         </div>
                     </div>
                 </div>
                 
                 <!-- EasyPaisa -->
-                <div class="glass p-3.5 rounded-2xl flex items-center justify-between border border-slate-700/60 hover:border-green-500/40 transition-colors">
+                <div class="glass p-3 sm:p-3.5 rounded-2xl flex items-center justify-between border border-slate-700/60 hover:border-green-500/40 transition-colors">
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-green-500/10 rounded-xl flex items-center justify-center text-green-500 text-lg"><i class="fa-solid fa-money-bill-transfer"></i></div>
+                        <div class="w-9 h-9 sm:w-10 sm:h-10 bg-green-500/10 rounded-xl flex items-center justify-center text-green-500 text-base sm:text-lg shrink-0"><i class="fa-solid fa-money-bill-transfer"></i></div>
                         <div>
                             <div class="text-slate-400 text-[10px] font-bold uppercase tracking-wider">EasyPaisa</div>
-                            <div class="text-white font-mono font-bold text-base">0321 542 3874</div>
+                            <div class="text-white font-mono font-bold text-sm sm:text-base">0321 542 3874</div>
                             <div class="text-slate-400 text-[10px]">Account Title: Muhammad Ali</div>
                         </div>
                     </div>
                 </div>
 
                 <!-- SadaPay -->
-                <div class="glass p-3.5 rounded-2xl flex items-center justify-between border border-slate-700/60 hover:border-orange-500/40 transition-colors">
+                <div class="glass p-3 sm:p-3.5 rounded-2xl flex items-center justify-between border border-slate-700/60 hover:border-orange-500/40 transition-colors">
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-orange-500/10 rounded-xl flex items-center justify-center text-orange-500 text-lg"><i class="fa-solid fa-credit-card"></i></div>
+                        <div class="w-9 h-9 sm:w-10 sm:h-10 bg-orange-500/10 rounded-xl flex items-center justify-center text-orange-500 text-base sm:text-lg shrink-0"><i class="fa-solid fa-credit-card"></i></div>
                         <div>
                             <div class="text-slate-400 text-[10px] font-bold uppercase tracking-wider">SadaPay</div>
-                            <div class="text-white font-mono font-bold text-base">0305 538 9967</div>
+                            <div class="text-white font-mono font-bold text-sm sm:text-base">0305 538 9967</div>
                             <div class="text-slate-400 text-[10px]">Account Title: Muhammad Ali</div>
                         </div>
                     </div>
                 </div>
 
                 <!-- NayaPay -->
-                <div class="glass p-3.5 rounded-2xl flex items-center justify-between border border-slate-700/60 hover:border-blue-500/40 transition-colors">
+                <div class="glass p-3 sm:p-3.5 rounded-2xl flex items-center justify-between border border-slate-700/60 hover:border-blue-500/40 transition-colors">
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-500 text-lg"><i class="fa-solid fa-wallet"></i></div>
+                        <div class="w-9 h-9 sm:w-10 sm:h-10 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-500 text-base sm:text-lg shrink-0"><i class="fa-solid fa-wallet"></i></div>
                         <div>
                             <div class="text-slate-400 text-[10px] font-bold uppercase tracking-wider">NayaPay</div>
-                            <div class="text-white font-mono font-bold text-base">0321 542 3874</div>
+                            <div class="text-white font-mono font-bold text-sm sm:text-base">0321 542 3874</div>
                             <div class="text-slate-400 text-[10px]">Account Title: Muhammad Ali</div>
                         </div>
                     </div>
                 </div>
 
                 <!-- UBL Bank Account / IBAN -->
-                <div class="glass p-3.5 rounded-2xl flex items-center justify-between border border-slate-700/60 hover:border-blue-400/40 transition-colors">
+                <div class="glass p-3 sm:p-3.5 rounded-2xl flex items-center justify-between border border-slate-700/60 hover:border-blue-400/40 transition-colors">
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-blue-400/10 rounded-xl flex items-center justify-center text-blue-400 text-lg"><i class="fa-solid fa-building-columns"></i></div>
+                        <div class="w-9 h-9 sm:w-10 sm:h-10 bg-blue-400/10 rounded-xl flex items-center justify-center text-blue-400 text-base sm:text-lg shrink-0"><i class="fa-solid fa-building-columns"></i></div>
                         <div>
                             <div class="text-slate-400 text-[10px] font-bold uppercase tracking-wider">UBL (United Bank Limited) IBAN</div>
-                            <div class="text-white font-mono font-bold text-xs sm:text-sm tracking-wide break-all">PK19UNIL0109000402274094</div>
+                            <div class="text-white font-mono font-bold text-[11px] sm:text-xs tracking-tight break-all">PK19UNIL0109000402274094</div>
                             <div class="text-slate-400 text-[10px]">Account Title: Muhammad Ali</div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Binance Pay -->
-                <div class="glass p-3.5 rounded-2xl flex items-center justify-between border border-slate-700/60 hover:border-yellow-500/40 transition-colors">
+                <div class="glass p-3 sm:p-3.5 rounded-2xl flex items-center justify-between border border-slate-700/60 hover:border-yellow-500/40 transition-colors">
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-yellow-500/10 rounded-xl flex items-center justify-center text-yellow-500 text-lg"><i class="fa-brands fa-btc"></i></div>
+                        <div class="w-9 h-9 sm:w-10 sm:h-10 bg-yellow-500/10 rounded-xl flex items-center justify-center text-yellow-500 text-base sm:text-lg shrink-0"><i class="fa-brands fa-btc"></i></div>
                         <div>
                             <div class="text-slate-400 text-[10px] font-bold uppercase tracking-wider">Binance Pay (International)</div>
                             <div class="text-white font-mono font-bold text-xs break-all">alikhanwebdeveloper@gmail.com</div>
@@ -769,9 +787,9 @@
     </div>
 
     <!-- 11. Order Status Lookup Modal -->
-    <div id="orderStatusModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
+    <div id="orderStatusModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-3 sm:p-4">
         <div class="absolute inset-0 bg-black/80 backdrop-blur-md" onclick="closeOrderStatusModal()"></div>
-        <div class="bg-slate-900 border border-teal-500/40 rounded-3xl p-6 md:p-8 max-w-md w-full relative z-10 shadow-2xl space-y-5">
+        <div class="bg-slate-900 border border-teal-500/40 rounded-3xl p-5 sm:p-8 max-w-md w-full relative z-10 shadow-2xl space-y-5">
             <button onclick="closeOrderStatusModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white">
                 <i class="fa-solid fa-xmark text-xl"></i>
             </button>
@@ -792,9 +810,9 @@
     </div>
 
     <!-- 12. Full Admin Dashboard Modal -->
-    <div id="adminModal" class="fixed inset-0 z-[110] hidden items-center justify-center p-2 md:p-6">
+    <div id="adminModal" class="fixed inset-0 z-[110] hidden items-center justify-center p-2 sm:p-4 md:p-6">
         <div class="absolute inset-0 bg-black/85 backdrop-blur-lg" onclick="closeAdminModal()"></div>
-        <div class="bg-slate-900 border border-teal-500/40 rounded-3xl w-full max-w-5xl max-h-[92vh] overflow-y-auto relative z-10 shadow-2xl p-6 md:p-8 space-y-6 text-slate-200">
+        <div class="bg-slate-900 border border-teal-500/40 rounded-3xl w-full max-w-5xl max-h-[92vh] overflow-y-auto relative z-10 shadow-2xl p-4 sm:p-6 md:p-8 space-y-6 text-slate-200">
             
             <button onclick="closeAdminModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white">
                 <i class="fa-solid fa-xmark text-xl"></i>
@@ -834,7 +852,7 @@
                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-slate-800 pb-4">
                     <div>
                         <span class="text-[10px] font-mono font-bold text-teal-400 bg-teal-500/10 px-2 py-0.5 rounded uppercase">AivanoLabs Live System</span>
-                        <h3 class="text-2xl font-black text-white">Store Analytics & Orders</h3>
+                        <h3 class="text-xl sm:text-2xl font-black text-white">Store Analytics & Orders</h3>
                     </div>
                     <div class="flex items-center gap-2">
                         <button onclick="toggleAdminPassChange()" class="text-xs px-3 py-1.5 rounded-xl bg-teal-500/10 border border-teal-500/30 text-teal-300 font-bold hover:bg-teal-500/20">
@@ -860,37 +878,37 @@
                 </div>
 
                 <!-- KPI Overview Grid -->
-                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
                     <div class="glass p-4 rounded-2xl border border-teal-500/20">
-                        <span class="text-[11px] text-slate-400 font-bold uppercase">Total Revenue</span>
-                        <div id="statTotalRev" class="text-2xl font-black text-white mt-1">$0</div>
+                        <span class="text-[10px] sm:text-[11px] text-slate-400 font-bold uppercase">Total Revenue</span>
+                        <div id="statTotalRev" class="text-xl sm:text-2xl font-black text-white mt-1">$0</div>
                     </div>
                     <div class="glass p-4 rounded-2xl border border-blue-500/20">
-                        <span class="text-[11px] text-slate-400 font-bold uppercase">Copies Sold</span>
-                        <div id="statTotalCopies" class="text-2xl font-black text-blue-400 mt-1">0</div>
+                        <span class="text-[10px] sm:text-[11px] text-slate-400 font-bold uppercase">Copies Sold</span>
+                        <div id="statTotalCopies" class="text-xl sm:text-2xl font-black text-blue-400 mt-1">0</div>
                     </div>
                     <div class="glass p-4 rounded-2xl border border-purple-500/20">
-                        <span class="text-[11px] text-slate-400 font-bold uppercase">Promo Sales</span>
-                        <div id="statPromoCopies" class="text-2xl font-black text-purple-400 mt-1">0</div>
+                        <span class="text-[10px] sm:text-[11px] text-slate-400 font-bold uppercase">Promo Sales</span>
+                        <div id="statPromoCopies" class="text-xl sm:text-2xl font-black text-purple-400 mt-1">0</div>
                     </div>
                     <div class="glass p-4 rounded-2xl border border-yellow-500/20">
-                        <span class="text-[11px] text-slate-400 font-bold uppercase">Pending Verification</span>
-                        <div id="statPendingOrders" class="text-2xl font-black text-yellow-400 mt-1">0</div>
+                        <span class="text-[10px] sm:text-[11px] text-slate-400 font-bold uppercase">Pending Orders</span>
+                        <div id="statPendingOrders" class="text-xl sm:text-2xl font-black text-yellow-400 mt-1">0</div>
                     </div>
                 </div>
 
                 <!-- Promo Sales Performance Section -->
-                <div class="glass p-5 rounded-2xl border border-teal-500/30 space-y-4">
+                <div class="glass p-4 sm:p-5 rounded-2xl border border-teal-500/30 space-y-4">
                     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
                         <div>
                             <h4 class="font-bold text-white text-base">Book Copies Sold By Promo Code</h4>
                             <p class="text-[11px] text-slate-400">Track which promo code generated how many sales</p>
                         </div>
                         <!-- Add Promo Form -->
-                        <div class="flex items-center gap-2">
+                        <div class="flex items-center gap-2 w-full sm:w-auto">
                             <input type="text" id="newPromoCodeInput" placeholder="NEW CODE" class="bg-slate-950 border border-slate-700 text-white px-3 py-1.5 rounded-xl text-xs font-mono uppercase focus:outline-none focus:border-teal-500 w-28">
                             <input type="number" id="newPromoDiscInput" value="50" min="1" max="100" class="bg-slate-950 border border-slate-700 text-white px-2 py-1.5 rounded-xl text-xs font-bold w-14 text-center focus:outline-none">
-                            <button onclick="handleAddPromo()" class="bg-teal-500 hover:bg-teal-400 text-navy-900 font-bold px-3 py-1.5 rounded-xl text-xs">
+                            <button onclick="handleAddPromo()" class="bg-teal-500 hover:bg-teal-400 text-navy-900 font-bold px-3 py-1.5 rounded-xl text-xs whitespace-nowrap">
                                 + Add Promo
                             </button>
                         </div>
@@ -901,7 +919,7 @@
                 </div>
 
                 <!-- Orders Table -->
-                <div class="glass p-5 rounded-2xl border border-slate-800 space-y-4">
+                <div class="glass p-4 sm:p-5 rounded-2xl border border-slate-800 space-y-4">
                     <div class="flex justify-between items-center">
                         <h4 class="font-bold text-white text-base">Customer Orders</h4>
                         <button onclick="renderAdminDashboard()" class="text-xs text-slate-400 hover:text-white">
@@ -973,7 +991,19 @@
             localStorage.setItem('prompt_admin_cred', JSON.stringify(cred));
         }
 
-        // --- 2. MODAL CONTROLS ---
+        // --- 2. MOBILE DRAWER NAVIGATION ---
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileDropdownMenu');
+            const icon = document.getElementById('mobileMenuIcon');
+            menu.classList.toggle('hidden');
+            if (menu.classList.contains('hidden')) {
+                icon.className = 'fa-solid fa-bars text-base sm:text-lg';
+            } else {
+                icon.className = 'fa-solid fa-xmark text-base sm:text-lg';
+            }
+        }
+
+        // --- 3. MODAL CONTROLS ---
         function openPaymentModal() {
             document.getElementById('paymentModal').classList.remove('hidden');
             document.getElementById('paymentModal').classList.add('flex');
@@ -1014,7 +1044,7 @@
             document.getElementById('adminModal').classList.remove('flex');
         }
 
-        // --- 3. CHECKOUT & PROMO CODE LOGIC ---
+        // --- 4. CHECKOUT & PROMO CODE LOGIC ---
         let currentOrderAmount = 20;
         let appliedPromoCode = '';
 
@@ -1079,7 +1109,7 @@
             window.open(waUrl, '_blank');
         }
 
-        // --- 4. ORDER STATUS LOOKUP ---
+        // --- 5. ORDER STATUS LOOKUP ---
         function handleLookupOrder() {
             const query = document.getElementById('lookupInput').value.trim().toLowerCase();
             const resultEl = document.getElementById('lookupResult');
@@ -1110,7 +1140,7 @@
             }
         }
 
-        // --- 5. ADMIN LOGIN & DASHBOARD ---
+        // --- 6. ADMIN LOGIN & DASHBOARD ---
         function handleAdminLogin(e) {
             e.preventDefault();
             const user = document.getElementById('adminUserInput').value.trim();
@@ -1308,7 +1338,7 @@
             }
         }
 
-        // --- 6. MOUSE-REACTIVE 3D TEXT TILT & LIGHTING ---
+        // --- 7. MOUSE-REACTIVE 3D TEXT TILT & LIGHTING ---
         (function init3DTextPhysics() {
             const heroContainer = document.getElementById('heroText3DContainer');
             const text3D = document.getElementById('text3DWrapper');
@@ -1333,7 +1363,7 @@
             });
         })();
 
-        // --- 7. Interactive Neural Network Canvas Animation ---
+        // --- 8. Interactive Neural Network Canvas Animation ---
         (function initNeuralCanvas() {
             const canvas = document.getElementById('heroNeuralCanvas');
             if (!canvas) return;
@@ -1427,7 +1457,7 @@
             animate();
         })();
 
-        // --- 8. Interactive 3D Book Physics Tilt & Glare ---
+        // --- 9. Interactive 3D Book Physics Tilt & Glare ---
         (function init3DBookPhysics() {
             const wrapper = document.getElementById('bookCardWrapper');
             const card = document.getElementById('bookCard');
@@ -1459,7 +1489,7 @@
             });
         })();
 
-        // --- 9. Live Typewriter Terminal Engine ---
+        // --- 10. Live Typewriter Terminal Engine ---
         (function initTypewriter() {
             const el = document.getElementById('typewriterText');
             if (!el) return;
