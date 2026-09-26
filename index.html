@@ -303,12 +303,12 @@
     </div>
 
     <!-- 1. Top Navigation Bar -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-navy-950/85 backdrop-blur-xl border-b border-white/[0.07] transition-all duration-300">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-navy-950/90 backdrop-blur-xl border-b border-white/[0.07] transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16 sm:h-20">
+            <div class="flex justify-between items-center h-16 sm:h-20 gap-4">
                 <!-- Brand Logo -->
-                <a href="#" class="flex items-center gap-3 group shrink-0">
-                    <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-teal-400 via-teal-500 to-cyan-600 p-[1px] shadow-[0_0_20px_rgba(45,212,191,0.35)] group-hover:shadow-[0_0_30px_rgba(45,212,191,0.6)] transition-all">
+                <a href="#" class="flex items-center gap-2.5 sm:gap-3 group shrink-0 z-10">
+                    <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-teal-400 via-teal-500 to-cyan-600 p-[1px] shadow-[0_0_20px_rgba(45,212,191,0.35)] group-hover:shadow-[0_0_30px_rgba(45,212,191,0.6)] transition-all shrink-0">
                         <div class="w-full h-full bg-navy-950 rounded-[11px] flex items-center justify-center">
                             <svg class="w-5 h-5 text-teal-400 group-hover:scale-105 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M12 2L3 20h4l2.5-5.5h5L17 20h4L12 2z"/>
@@ -316,56 +316,56 @@
                             </svg>
                         </div>
                     </div>
-                    <div>
-                        <div class="text-base sm:text-lg font-extrabold text-white tracking-tight flex items-center gap-1">
+                    <div class="shrink-0">
+                        <div class="text-base sm:text-lg font-extrabold text-white tracking-tight flex items-center gap-1 whitespace-nowrap">
                             Aivano<span class="text-teal-400">Labs</span>
                         </div>
-                        <span class="text-[9px] font-mono text-slate-400 tracking-wider block -mt-1">aivanolabs.site</span>
+                        <span class="text-[9px] font-mono text-slate-400 tracking-wider block -mt-1 whitespace-nowrap">aivanolabs.site</span>
                     </div>
                 </a>
 
-                <!-- Desktop Navigation Links -->
-                <nav class="hidden lg:flex items-center gap-7 text-xs font-medium text-slate-300">
-                    <a href="#examples" class="hover:text-teal-400 transition-colors">Interactive Examples</a>
-                    <a href="#curriculum" class="hover:text-teal-400 transition-colors">69-Page Index</a>
-                    <a href="#framework" class="hover:text-teal-400 transition-colors">8-Step Framework</a>
-                    <a href="#how-it-works" class="hover:text-teal-400 transition-colors">Purchase Flow</a>
-                    <a href="#author" class="hover:text-teal-400 transition-colors">Why I Built This</a>
-                    <a href="#pricing" class="hover:text-teal-400 transition-colors">Pricing</a>
-                    <button onclick="openOrderStatusModal()" class="text-slate-400 hover:text-white flex items-center gap-1.5 transition-colors">
+                <!-- Desktop Navigation Links (Visible on xl+ screens: 1280px+) -->
+                <nav class="hidden xl:flex items-center gap-4 2xl:gap-6 text-xs font-medium text-slate-300">
+                    <a href="#examples" class="hover:text-teal-400 transition-colors whitespace-nowrap">Examples</a>
+                    <a href="#curriculum" class="hover:text-teal-400 transition-colors whitespace-nowrap">69-Page Index</a>
+                    <a href="#framework" class="hover:text-teal-400 transition-colors whitespace-nowrap">8-Step Method</a>
+                    <a href="#how-it-works" class="hover:text-teal-400 transition-colors whitespace-nowrap">How It Works</a>
+                    <a href="#author" class="hover:text-teal-400 transition-colors whitespace-nowrap">Author</a>
+                    <a href="#pricing" class="hover:text-teal-400 transition-colors whitespace-nowrap">Pricing</a>
+                    <button onclick="openOrderStatusModal()" class="text-slate-400 hover:text-white flex items-center gap-1.5 transition-colors whitespace-nowrap">
                         <i class="fa-solid fa-truck-fast text-teal-400 text-xs"></i> Order Status
                     </button>
-                    <button onclick="openAdminModal()" class="text-slate-400 hover:text-white flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 hover:border-teal-500/30 transition-colors">
+                    <button onclick="openAdminModal()" class="text-slate-400 hover:text-white flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 hover:border-teal-500/30 transition-colors whitespace-nowrap">
                         <i class="fa-solid fa-lock text-[10px] text-teal-400"></i> Admin
                     </button>
                 </nav>
 
-                <!-- Header Actions (Buy + WhatsApp icon + Mobile Hamburger) -->
-                <div class="flex items-center gap-2 shrink-0">
-                    <!-- WhatsApp Icon — Desktop only (hidden on mobile to save space) -->
+                <!-- Header Actions (Buy CTA + WhatsApp + Hamburger) -->
+                <div class="flex items-center gap-2 sm:gap-2.5 shrink-0 z-10">
+                    <!-- WhatsApp Icon (Desktop xl+ screens) -->
                     <a href="https://wa.me/923055389967" target="_blank" class="hidden sm:inline-flex items-center justify-center w-9 h-9 rounded-xl bg-[#25D366]/15 hover:bg-[#25D366]/25 border border-[#25D366]/40 text-[#25D366] transition-all shadow-[0_0_12px_rgba(37,211,102,0.15)] hover:shadow-[0_0_20px_rgba(37,211,102,0.35)] shrink-0" title="Chat on WhatsApp">
                         <i class="fa-brands fa-whatsapp text-base"></i>
                     </a>
 
                     <!-- Buy CTA Button -->
-                    <button onclick="openPaymentModal()" class="btn-elite px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl text-xs sm:text-sm flex items-center gap-1.5 shrink-0">
+                    <button onclick="openPaymentModal()" class="btn-elite px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl text-xs sm:text-sm flex items-center gap-1.5 shrink-0 whitespace-nowrap">
                         <span>Get Access</span>
                         <span class="opacity-80 font-mono text-xs font-bold border-l border-navy-950/25 pl-1.5">$20</span>
                     </button>
 
-                    <!-- Mobile/Tablet Hamburger Toggle Button -->
-                    <button onclick="toggleMobileMenu()" id="hamburgerBtn" class="lg:hidden p-2 rounded-xl text-white bg-slate-800/90 hover:bg-slate-700 border border-white/15 focus:outline-none flex items-center justify-center transition-colors shrink-0 shadow-md" aria-label="Toggle navigation menu">
+                    <!-- Mobile/Tablet Hamburger Toggle Button (Active on < xl screens) -->
+                    <button onclick="toggleMobileMenu()" id="hamburgerBtn" class="xl:hidden p-2 rounded-xl text-white bg-slate-800/90 hover:bg-slate-700 border border-white/15 focus:outline-none flex items-center justify-center transition-colors shrink-0 shadow-md" aria-label="Toggle navigation menu">
                         <i id="mobileMenuIcon" class="fa-solid fa-bars text-base text-teal-300"></i>
                     </button>
                 </div>
             </div>
         </div>
 
-        <!-- Mobile Drawer Navigation -->
-        <div id="mobileDropdownMenu" class="hidden lg:hidden border-t border-white/[0.08] bg-navy-950/98 backdrop-blur-2xl px-5 py-5 space-y-3">
-            <!-- WhatsApp Contact (moved from header for mobile) -->
+        <!-- Mobile & Tablet Drawer Navigation (< xl screens) -->
+        <div id="mobileDropdownMenu" class="hidden xl:hidden border-t border-white/[0.08] bg-navy-950/98 backdrop-blur-2xl px-5 py-5 space-y-3 shadow-2xl">
+            <!-- WhatsApp Contact -->
             <a href="https://wa.me/923055389967" target="_blank" onclick="toggleMobileMenu()" class="flex items-center gap-2.5 text-sm font-bold text-[#25D366] py-2 px-3 rounded-xl bg-[#25D366]/10 border border-[#25D366]/25">
-                <i class="fa-brands fa-whatsapp text-lg"></i> Chat on WhatsApp
+                <i class="fa-brands fa-whatsapp text-lg"></i> Chat on WhatsApp (+92 305 5389967)
             </a>
             <a href="#examples" onclick="toggleMobileMenu()" class="block text-sm font-medium text-slate-200 hover:text-teal-400 py-1.5 border-b border-white/5">Interactive Prompt Examples</a>
             <a href="#curriculum" onclick="toggleMobileMenu()" class="block text-sm font-medium text-slate-200 hover:text-teal-400 py-1.5 border-b border-white/5">69-Page Architecture</a>
