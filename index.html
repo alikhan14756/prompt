@@ -149,16 +149,15 @@
                     </button>
                 </nav>
 
-                <!-- Header Actions (Prominent WhatsApp + Buy + Mobile Hamburger) -->
-                <div class="flex items-center gap-2 sm:gap-3 shrink-0">
-                    <!-- WhatsApp Header Button -->
-                    <a href="https://wa.me/923055389967" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl bg-[#25D366]/15 hover:bg-[#25D366]/25 border border-[#25D366]/40 text-[#25D366] text-xs font-bold transition-all shadow-[0_0_15px_rgba(37,211,102,0.2)] hover:shadow-[0_0_20px_rgba(37,211,102,0.4)] shrink-0" title="Chat directly with author on WhatsApp">
-                        <i class="fa-brands fa-whatsapp text-sm sm:text-base"></i>
-                        <span class="hidden sm:inline">WhatsApp</span>
+                <!-- Header Actions (Buy + WhatsApp icon + Mobile Hamburger) -->
+                <div class="flex items-center gap-2 shrink-0">
+                    <!-- WhatsApp Icon — Desktop only (hidden on mobile to save space) -->
+                    <a href="https://wa.me/923055389967" target="_blank" class="hidden sm:inline-flex items-center justify-center w-9 h-9 rounded-xl bg-[#25D366]/15 hover:bg-[#25D366]/25 border border-[#25D366]/40 text-[#25D366] transition-all shadow-[0_0_12px_rgba(37,211,102,0.15)] hover:shadow-[0_0_20px_rgba(37,211,102,0.35)] shrink-0" title="Chat on WhatsApp">
+                        <i class="fa-brands fa-whatsapp text-base"></i>
                     </a>
 
                     <!-- Buy CTA Button -->
-                    <button onclick="openPaymentModal()" class="btn-elite px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-xl text-xs sm:text-sm flex items-center gap-1.5 shrink-0">
+                    <button onclick="openPaymentModal()" class="btn-elite px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl text-xs sm:text-sm flex items-center gap-1.5 shrink-0">
                         <span>Get Access</span>
                         <span class="opacity-80 font-mono text-xs font-bold border-l border-navy-950/25 pl-1.5">$20</span>
                     </button>
@@ -173,6 +172,10 @@
 
         <!-- Mobile Drawer Navigation -->
         <div id="mobileDropdownMenu" class="hidden lg:hidden border-t border-white/[0.08] bg-navy-950/98 backdrop-blur-2xl px-5 py-5 space-y-3">
+            <!-- WhatsApp Contact (moved from header for mobile) -->
+            <a href="https://wa.me/923055389967" target="_blank" onclick="toggleMobileMenu()" class="flex items-center gap-2.5 text-sm font-bold text-[#25D366] py-2 px-3 rounded-xl bg-[#25D366]/10 border border-[#25D366]/25">
+                <i class="fa-brands fa-whatsapp text-lg"></i> Chat on WhatsApp
+            </a>
             <a href="#examples" onclick="toggleMobileMenu()" class="block text-sm font-medium text-slate-200 hover:text-teal-400 py-1.5 border-b border-white/5">Interactive Prompt Examples</a>
             <a href="#curriculum" onclick="toggleMobileMenu()" class="block text-sm font-medium text-slate-200 hover:text-teal-400 py-1.5 border-b border-white/5">69-Page Architecture</a>
             <a href="#framework" onclick="toggleMobileMenu()" class="block text-sm font-medium text-slate-200 hover:text-teal-400 py-1.5 border-b border-white/5">8-Step Engineering Method</a>
@@ -1011,6 +1014,23 @@
                     </div>
                 </div>
 
+                <!-- Promo Code Creator -->
+                <div class="p-4 rounded-2xl bg-black/60 border border-teal-500/20 space-y-3">
+                    <h4 class="text-xs font-bold text-teal-300 uppercase tracking-wider flex items-center gap-2">
+                        <i class="fa-solid fa-plus-circle"></i> Create New Promo Code
+                    </h4>
+                    <div class="flex flex-col sm:flex-row gap-2">
+                        <input type="text" id="newPromoCode" placeholder="Code name (e.g. SUMMER25)" class="w-full sm:flex-1 bg-navy-950 border border-white/10 text-white px-3 py-2 rounded-xl text-xs font-mono uppercase focus:outline-none focus:border-teal-400" />
+                        <input type="number" id="newPromoDiscount" min="1" max="99" placeholder="Discount %" class="w-full sm:w-28 bg-navy-950 border border-white/10 text-white px-3 py-2 rounded-xl text-xs font-mono focus:outline-none focus:border-teal-400" />
+                        <button onclick="handleAddPromo()" class="btn-elite px-5 py-2 rounded-xl text-xs font-bold shrink-0 flex items-center gap-1.5">
+                            <i class="fa-solid fa-plus text-[10px]"></i> Add Promo
+                        </button>
+                    </div>
+                    <p id="addPromoMessage" class="text-xs hidden"></p>
+                    <!-- Active Promos Quick List -->
+                    <div id="activePromosList" class="flex flex-wrap gap-2 mt-1"></div>
+                </div>
+
                 <!-- Promo Analytics -->
                 <div>
                     <h4 class="text-xs font-bold text-slate-300 uppercase tracking-wider mb-3">Promo Code Analytics</h4>
@@ -1360,6 +1380,9 @@
                     </tr>
                 `).join('');
             }
+
+            // Render the active promos quick-list with toggle/delete buttons
+            renderActivePromosList();
         }
 
         function updateStoredOrderStatus(id, newStatus) {
@@ -1379,6 +1402,88 @@
                 saveStoredOrders(orders);
                 renderAdminDashboard();
             }
+        }
+
+        // --- PROMO CODE MANAGEMENT ---
+        function handleAddPromo() {
+            const codeInput = document.getElementById('newPromoCode');
+            const discountInput = document.getElementById('newPromoDiscount');
+            const msgEl = document.getElementById('addPromoMessage');
+            const code = codeInput.value.trim().toUpperCase();
+            const discount = parseInt(discountInput.value);
+
+            if (!code || code.length < 2) {
+                msgEl.innerText = '✗ Enter a valid code name (min 2 characters).';
+                msgEl.className = 'text-xs text-red-400 block font-bold';
+                return;
+            }
+            if (isNaN(discount) || discount < 1 || discount > 99) {
+                msgEl.innerText = '✗ Discount must be between 1% and 99%.';
+                msgEl.className = 'text-xs text-red-400 block font-bold';
+                return;
+            }
+
+            const promos = getStoredPromos();
+            if (promos.find(p => p.code === code)) {
+                msgEl.innerText = `✗ Promo code "${code}" already exists.`;
+                msgEl.className = 'text-xs text-red-400 block font-bold';
+                return;
+            }
+
+            promos.push({
+                id: 'p_' + Date.now(),
+                code: code,
+                discountPercent: discount,
+                isActive: true
+            });
+            saveStoredPromos(promos);
+
+            codeInput.value = '';
+            discountInput.value = '';
+            msgEl.innerText = `✓ Promo "${code}" (${discount}% off) created successfully!`;
+            msgEl.className = 'text-xs text-green-400 block font-bold';
+
+            renderAdminDashboard();
+        }
+
+        function togglePromoActive(promoId) {
+            const promos = getStoredPromos();
+            const promo = promos.find(p => p.id === promoId);
+            if (promo) {
+                promo.isActive = !promo.isActive;
+                saveStoredPromos(promos);
+                renderAdminDashboard();
+            }
+        }
+
+        function deletePromo(promoId) {
+            if (confirm('Delete this promo code?')) {
+                let promos = getStoredPromos();
+                promos = promos.filter(p => p.id !== promoId);
+                saveStoredPromos(promos);
+                renderAdminDashboard();
+            }
+        }
+
+        function renderActivePromosList() {
+            const container = document.getElementById('activePromosList');
+            if (!container) return;
+            const promos = getStoredPromos();
+            if (promos.length === 0) {
+                container.innerHTML = '<span class="text-xs text-slate-500">No promo codes yet.</span>';
+                return;
+            }
+            container.innerHTML = promos.map(p => `
+                <div class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-[11px] font-mono font-bold border ${p.isActive ? 'bg-teal-500/10 border-teal-500/30 text-teal-300' : 'bg-red-500/10 border-red-500/30 text-red-400 line-through'}">
+                    ${p.code} (${p.discountPercent}%)
+                    <button onclick="togglePromoActive('${p.id}')" class="ml-1 px-1.5 py-0.5 rounded text-[9px] font-bold ${p.isActive ? 'bg-yellow-500/20 text-yellow-300 hover:bg-yellow-500/30' : 'bg-green-500/20 text-green-300 hover:bg-green-500/30'}" title="${p.isActive ? 'Deactivate' : 'Activate'}">
+                        ${p.isActive ? 'OFF' : 'ON'}
+                    </button>
+                    <button onclick="deletePromo('${p.id}')" class="px-1.5 py-0.5 rounded text-[9px] font-bold bg-red-500/20 text-red-300 hover:bg-red-500/30" title="Delete">
+                        ✕
+                    </button>
+                </div>
+            `).join('');
         }
 
         // --- 7. 3D BOOK TILT ---
