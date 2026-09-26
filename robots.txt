@@ -1,0 +1,26 @@
+# robots.txt for aivanolabs.site
+# Allow all search engines to crawl everything
+
+User-agent: *
+Allow: /
+Disallow: /client/
+Disallow: /server/
+Disallow: /node_modules/
+
+# Sitemap location
+Sitemap: https://aivanolabs.site/sitemap.xml
+
+# Crawl-delay (be kind to bots)
+Crawl-delay: 1
+
+# Google-specific
+User-agent: Googlebot
+Allow: /
+Disallow: /client/
+Disallow: /server/
+
+# Bing-specific
+User-agent: Bingbot
+Allow: /
+Disallow: /client/
+Disallow: /server/
